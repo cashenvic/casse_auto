@@ -1,0 +1,286 @@
+/** Div d'impression PDF **/
+div.printpdf {
+    width: 900px;
+    margin: 0 auto;
+    position: relative;
+    font-family: Verdana, Arial, Helvetica, sans-serif, "Times New Roman";
+    font-size: 12px;
+    font-style: normal;
+}
+
+div.printpdf a {
+    color: #777;
+    text-decoration: underline;
+}
+
+div.printpdf h1, div.printpdf h1 a {
+    color: #267aa8;
+    font-size: 22px;
+}
+
+div.printpdf img.imageGauche {
+    float: left;
+    margin: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #000;
+}
+
+/** Titres **/
+#articles h2 {
+    margin : 25px 0;
+    padding-left : 15px;
+    padding-top : 10px;
+    font-weight: normal;
+    font-size: 170%;
+    color: #18849f;
+    border-bottom : 1px solid #18849f;
+    height : 35px;
+    background : transparent url(images/puce-titre.png) no-repeat left center;
+    clear : both;
+}
+
+div.printpdf #articles h2 {
+    border-top : 1px solid #18849f;
+    background-color: #e1f4d4;
+}
+
+#articles h3 {
+    margin : 20px 10px;
+    font-size : 140%;
+    color : #025575;
+    clear : both;
+    float : none;
+}
+
+#articles h3 a {
+    text-decoration : none;
+    color : #025575;
+}
+
+#articles h4 {
+    margin : 20px 20px;    
+    font-size : 130%;
+    font-style : italic;
+    color : #ff7123;
+    clear : both;
+    float : none;
+}
+
+#articles h5 {
+    margin : 20px 40px;    
+    font-size : 120%;
+    color : #cc9a69;
+    clear : both;
+    float : none;
+}
+
+#articles h6 {
+    margin : 20px 60px;    
+    font-size : 110%;
+    font-style : italic;
+    color : #000;
+    clear : both;
+    float : none;
+}
+
+/** Liste de definition **/
+#articles dl {
+    margin : 10px 30px;
+}
+
+#articles dl dt {
+    font-weight : bold;
+    font-style : italic;
+}
+
+#articles dl dd {
+    margin : 10px 30px;
+}
+
+/** Commentaires **/
+#articles div.commentaire {
+    margin : 15px 0;
+    background : transparent url(images/quotes-up.gif) no-repeat 5px 30px;
+}
+
+#articles div.commentaire p.infosPost {
+    border-bottom : 1px dashed #ccc;
+    border-top : 1px dashed #ccc;
+    background : #efefef;
+    padding : 3px 5px;
+    margin : 0;
+    text-indent : 8px;
+}
+
+#articles div.commentaire p.infosPost span.commentNumber {
+    font-size : 150%;
+    color : #307d90;
+    font-weight : bold;
+}
+
+#articles div.commentaire blockquote {
+    padding : 10px;
+    border-bottom : 1px dashed #ccc;
+    background : transparent url(images/quotes-down.gif) no-repeat 98% 85%;
+}
+
+#articles div.commentaire blockquote p {
+    margin : 0 43px 0 38px;
+    font-style : italic;
+}
+
+#articles div.commentaire blockquote p br {
+    display : block;
+    line-height : 5px;
+    height : 5px;    
+}
+
+#articles form#contactForm div label {
+    text-align : left;
+    width : 150px;
+    display : block;
+    float : left;    
+}
+
+#articles form#contactForm div textarea {
+    width : 420px;
+}
+
+/** Affichage sur deux colonnes **/
+#articles ul.affichageDoubleColonne {
+    width : 400px;
+    margin : 0 auto;
+}
+
+#articles ul.affichageDoubleColonne li {
+    background : transparent url(images/folder_table.png) no-repeat left center;
+    text-indent : 25px;
+    width : 200px;
+    display : block;
+}
+
+/** Post infos **/
+div#infosPost  {
+    float : right; 
+    width : 280px; 
+    border : 1px solid #666; 
+    background : #faefa6; 
+    margin-left : 10px;
+}
+
+div#infosPost img  {
+    float : right;
+    margin : 2px 2px 0 0;
+}
+
+div#infosPost ul {
+    float : left; 
+    margin : 0;
+    padding : 0;
+    margin : 5px;
+    list-style-type : none;
+    list-style-image : none;
+    min-height : 100px;
+}
+
+div#infosPost ul li {
+    height : 16px;
+    text-indent : 22px;
+    margin-bottom : 3px;
+    font-style : italic;
+}
+
+div.infosPostForums {
+    border : 1px solid #666; 
+    background : #faefa6;
+    height : 25px;
+    margin : 10px 0;
+}
+
+div.infosPostForums span  {
+    display : block;
+    margin : 5px 5px 0 5px;
+    height : 20px;
+    text-indent : 20px;
+    float : left;
+}
+
+div#infosPost ul li.iconeAuteur, span.iconeAuteur {
+    background : transparent url(../../design/icones/user_gray.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeCalendrier, span.iconeCalendrier {
+    background : transparent url(../../design/icones/calendar.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeEtoile, span.iconeEtoile {
+    background : transparent url(../../design/icones/star.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeAcrobat, span.iconeAcrobat {
+    background : transparent url(../../design/icones/acrobat.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeCommentaires, span.iconeCommentaires {
+    background : transparent url(../../design/icones/comments.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeSyndication, span.iconeSyndication {
+    background : transparent url(../../design/icones/feed.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeFavoris, span.iconeFavoris {
+    background : transparent url(../../design/icones/heart_add.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeEditer, span.iconeEditer {
+    background : transparent url(../../design/icones/post_edit.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeRepondre, span.iconeRepondre {
+    background : transparent url(../../design/icones/repondre.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeSupprimer, span.iconeSupprimer {
+    background : transparent url(../../design/icones/trash.png) no-repeat left center;
+}
+
+div#infosPost ul li.iconeAuteurSite, span.iconeAuteurSite {
+    background : transparent url(../../design/icones/website.gif) no-repeat left center;
+}
+
+div#infosPost ul li.iconeAuteurBis, span.iconeAuteurBis {
+    background : transparent url(../../design/icones/user_suit.png) no-repeat left center;
+}
+
+html body div#articles span span.masquer { display : none; width : 0; }
+
+/** Pagination des tutoriels **/
+html body div#page div#container div#content div#articles ul.paginationTutoriel  {
+    position: relative;
+    margin: 20px auto;
+    list-style-type: none;
+    width: 620px;
+}
+
+div#articles ul.paginationTutoriel li {
+    display: inline;
+    width: 305px;
+}
+
+
+div#articles ul.paginationTutoriel li.lienTutoGauche {
+    float: left;
+}
+
+div#articles ul.paginationTutoriel li.lienTutoDroite {
+    float: right;
+    text-align: right;
+}
+
+div#articles div.visualClear {
+    clear: both;
+    height: 1px;
+    visibility: hidden;
+}

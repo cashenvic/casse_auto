@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0165)https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fexemples%252Fform1.php.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/home/Enseignants/cutron01/public_html/progwebS3/authentification-sha1/form1.php.html</title>
+<meta name="Generator" content="Vim/7.4">
+
+<style type="text/css">
+<!--
+.Statement { color: #008080; font-weight: bold; }
+.Identifier { color: #804000; }
+.Comment { color: #c00000; font-weight: bold; }
+.Type { color: #008000; }
+.Constant { color: #0000c0; }
+pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+.Special { color: #c000c0; font-weight: bold; }
+.PreProc { color: #c000c0; }
+-->
+</style>
+</head>
+<body>
+<pre><span class="Special">&lt;?php</span>
+<span class="PreProc">require_once</span><span class="Special">(</span>'<span class="Constant">autoload.include.php</span>'<span class="Special">)</span> ;
+
+<span class="Statement">$</span><span class="Identifier">p</span> <span class="Statement">=</span> <span class="PreProc">new</span> WebPage<span class="Special">(</span>'<span class="Constant">Authentification</span>'<span class="Special">)</span> ;
+
+<span class="Comment">// Production du formulaire de connexion</span>
+<span class="Statement">$</span><span class="Identifier">p</span><span class="Type">-&gt;</span>appendCSS<span class="Special">(</span><span class="Statement">&lt;&lt;&lt;</span><span class="Special">CSS</span>
+    form input {
+        width : 4em ;
+    }
+<span class="Special">CSS</span>
+<span class="Special">)</span> ;
+<span class="Statement">$</span><span class="Identifier">form</span> <span class="Statement">=</span> User<span class="Statement">::</span>loginForm<span class="Special">(</span>'<span class="Constant">auth1.php</span>'<span class="Special">)</span> ;
+<span class="Statement">$</span><span class="Identifier">p</span><span class="Type">-&gt;</span>appendContent<span class="Special">(</span><span class="Statement">&lt;&lt;&lt;</span><span class="Special">HTML</span>
+    <span class="Special">{</span><span class="Statement">$</span><span class="Identifier">form</span><span class="Special">}</span>
+    <span class="Identifier">&lt;</span><span class="Statement">p</span><span class="Identifier">&gt;</span>Pour faire un test : essai/toto
+<span class="Special">HTML</span>
+<span class="Special">)</span> ;
+
+<span class="PreProc">echo</span> <span class="Statement">$</span><span class="Identifier">p</span><span class="Type">-&gt;</span>toHTML<span class="Special">()</span> ;
+</pre>
+
+
+</body></html>

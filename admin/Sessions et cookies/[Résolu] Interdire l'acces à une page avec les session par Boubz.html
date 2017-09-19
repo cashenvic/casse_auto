@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830 -->
+<html class="js supports no-touchevents cssfilters" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+            var App = {};
+            App.startTime = (new Date()).getTime();
+
+            var _sf_startpt = App.startTime;
+        </script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQQOUlNSCRACVFJSBQAHUQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function p(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="msapplication-TileImage" content="/bundles/common/images/928bd40a-9507-4495-977d-ace7d554190b.png">
+<meta name="application-name" content="OpenClassrooms">
+<meta name="msapplication-TileColor" content="#002D40">
+<meta name="msapplication-TileImage" content="/bundles/common/images/928bd40a-9507-4495-977d-ace7d554190b.png">
+<meta name="theme-color" content="#E95325">
+<link rel="icon" sizes="144x144" href="https://openclassrooms.com/icon-white-trans.png?v=1">
+<link href="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/jquery-ui-47cbf8fc.css" type="text/css" rel="stylesheet" media="all">
+<link href="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/master-27f387eb.css" type="text/css" rel="stylesheet" media="all">
+<link href="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/old-eaf5fa3e.css" type="text/css" rel="stylesheet" media="all">
+<link href="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/syntaxhl-fb83473f.css" type="text/css" rel="stylesheet" media="all">
+<link href="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/old-common-5399598a.css" type="text/css" rel="stylesheet" media="all">
+<link href="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/main-5273d06e.css" type="text/css" rel="stylesheet" media="all">
+<script>
+    /*! modernizr 3.3.1 (Custom Build) | MIT *
+    * https://modernizr.com/download/?-cssfilters-touchevents-setclasses !*/
+    !function(e,n,t){function o(e,n){return typeof e===n}function r(){var e,n,t,r,s,i,a;for(var l in C)if(C.hasOwnProperty(l)){if(e=[],n=C[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(r=o(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++)i=e[s],a=i.split("."),1===a.length?Modernizr[a[0]]=r:(!Modernizr[a[0]]||Modernizr[a[0]]instanceof Boolean||(Modernizr[a[0]]=new Boolean(Modernizr[a[0]])),Modernizr[a[0]][a[1]]=r),g.push((r?"":"no-")+a.join("-"))}}function s(e){var n=w.className,t=Modernizr._config.classPrefix||"";if(x&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(o,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),x?w.className.baseVal=n:w.className=n)}function i(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):x?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function a(){var e=n.body;return e||(e=i(x?"svg":"body"),e.fake=!0),e}function l(e,t,o,r){var s,l,u,f,p="modernizr",c=i("div"),d=a();if(parseInt(o,10))for(;o--;)u=i("div"),u.id=r?r[o]:p+(o+1),c.appendChild(u);return s=i("style"),s.type="text/css",s.id="s"+p,(d.fake?d:c).appendChild(s),d.appendChild(c),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),c.id=p,d.fake&&(d.style.background="",d.style.overflow="hidden",f=w.style.overflow,w.style.overflow="hidden",w.appendChild(d)),l=t(c,e),d.fake?(d.parentNode.removeChild(d),w.style.overflow=f,w.offsetHeight):c.parentNode.removeChild(c),!!l}function u(e,n){return!!~(""+e).indexOf(n)}function f(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function p(e,n){return function(){return e.apply(n,arguments)}}function c(e,n,t){var r;for(var s in e)if(e[s]in n)return t===!1?e[s]:(r=n[e[s]],o(r,"function")?p(r,t||n):r);return!1}function d(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function m(n,o){var r=n.length;if("CSS"in e&&"supports"in e.CSS){for(;r--;)if(e.CSS.supports(d(n[r]),o))return!0;return!1}if("CSSSupportsRule"in e){for(var s=[];r--;)s.push("("+d(n[r])+":"+o+")");return s=s.join(" or "),l("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return t}function h(e,n,r,s){function a(){p&&(delete k.style,delete k.modElem)}if(s=o(s,"undefined")?!1:s,!o(r,"undefined")){var l=m(e,r);if(!o(l,"undefined"))return l}for(var p,c,d,h,v,y=["modernizr","tspan","samp"];!k.style&&y.length;)p=!0,k.modElem=i(y.shift()),k.style=k.modElem.style;for(d=e.length,c=0;d>c;c++)if(h=e[c],v=k.style[h],u(h,"-")&&(h=f(h)),k.style[h]!==t){if(s||o(r,"undefined"))return a(),"pfx"==n?h:!0;try{k.style[h]=r}catch(g){}if(k.style[h]!=v)return a(),"pfx"==n?h:!0}return a(),!1}function v(e,n,t,r,s){var i=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+j.join(i+" ")+i).split(" ");return o(n,"string")||o(n,"undefined")?h(a,n,r,s):(a=(e+" "+E.join(i+" ")+i).split(" "),c(a,n,t))}function y(e,n,o){return v(e,t,t,n,o)}var g=[],C=[],S={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){C.push({name:e,fn:n,options:t})},addAsyncTest:function(e){C.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=S,Modernizr=new Modernizr;var w=n.documentElement,x="svg"===w.nodeName.toLowerCase(),_=S._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];S._prefixes=_;var b="CSS"in e&&"supports"in e.CSS,T="supportsCSS"in e;Modernizr.addTest("supports",b||T);var z=S.testStyles=l;Modernizr.addTest("touchevents",function(){var t;if("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch)t=!0;else{var o=["@media (",_.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");z(o,function(e){t=9===e.offsetTop})}return t});var P="Moz O ms Webkit",j=S._config.usePrefixes?P.split(" "):[];S._cssomPrefixes=j;var E=S._config.usePrefixes?P.toLowerCase().split(" "):[];S._domPrefixes=E;var N={elem:i("modernizr")};Modernizr._q.push(function(){delete N.elem});var k={style:N.elem.style};Modernizr._q.unshift(function(){delete k.style}),S.testAllProps=v,S.testAllProps=y,Modernizr.addTest("cssfilters",function(){if(Modernizr.supports)return y("filter","blur(2px)");var e=i("a");return e.style.cssText=_.join("filter:blur(2px); "),!!e.style.length&&(n.documentMode===t||n.documentMode>9)}),r(),s(g),delete S.addTest,delete S.addAsyncTest;for(var A=0;A<Modernizr._q.length;A++)Modernizr._q[A]();e.Modernizr=Modernizr}(window,document);
+    </script>
+<link rel="shortcut icon" href="https://openclassrooms.com/favicon.ico?8cc77d9">
+<title> [Résolu] Interdire l'acces à une page avec les session par Boubz </title>
+ 
+<script type="text/javascript">
+    var App = {
+        startTime: (new Date()).getTime(),
+        pageGenerationDate: 1490806324000
+    };
+
+    App.user = {
+        
+        
+        isPremium: false
+    };
+
+    App.preferences = {
+        debug: false,
+        assetVersion: '8cc77d9',
+        contactMail: 'hello\x40openclassrooms.com',
+        adyenPublicKey: '10001\x7C889EBFD4D434B82683E21DCA26E77C3E20E0EE09A5ECE3830B0ED51F2FA721A2F7E9EC871C6AB9A1E12C4492F4717673047757E02C5256D8E265CD51E413E5EFCCFEAC41B39C662A424ADC13EE187C38C372A7FCCEC1EA5DF841989437D78B252A8EB51008E60BB55B1E55A7A80DE1A9D60D998C128A576BFAE1DDB97D514AF0A073AEDDE84CEE40D1F8F6ECE85D0FFA50C95C06DB274021C1371376C6EB16561FD65C5E2704B570A7504D617D0F3820F176A0609F6162BDF5890533289FDC3DA7DB03B50BB3BD60A613E1FF72060F22987627E8F1A29F0128A94EC4C8FF7CF6B7AB9558D8433BF86D7A388AB927641CD6C02689139CEE3AAC9ACBFFE83806CB',
+        cdnImage: false,
+        layer: {
+            appId: 'layer\x3A\x2F\x2F\x2Fapps\x2Fstaging\x2F7757c53a\x2Db2ba\x2D11e5\x2Db2a6\x2D2584730b1501',
+            identityProviderUrl: '\x2Fajax\x2Fconversations\x2Fget\x2Didentity\x2Dtoken'
+        },
+        algolia: {
+            appId: 'JGRXRFVQM0',
+            apiKey: 'dfbdea500cb0b5f46e449ad334916c44', indexName: 'prod_v2_COURSES_fr'
+        },
+        routes: {
+            COURSE_EVENT: '/components/courses/:courseId',
+            COURSE_PART_EVENT: '/components/courses/:courseId/parts/:partId',
+
+            ACCEPT_COOKIE: '\x2Fcomponents\x2Fuser\x2Daccept\x2Dconsent\x2Dcookie'
+        },
+
+                    };
+
+    App.preferences.navigationPreference = {
+            };
+
+    App.preferences.modules = {
+        'smiley': {
+            basePath: '/bundles/common/images/smiley/'
+        }
+    };
+
+    App.notifications = {};
+    App.scripts = [];
+</script>
+ 
+</head>
+<body class="oc-body oldsdz ">
+<div id="react_root"></div>
+<script id="_EVENTS-PAGE" type="application/json">
+        {
+            "type": "page",
+            "integrations": {
+                "HubSpot": false
+            }
+        }
+    </script>
+<header id="oc-header" class="js-tabs-mobile mainHeader  ">
+<!--[if lt IE 9]>
+<div class="disclaimer  disclaimer-error">
+    Vous utilisez un navigateur obsolète, veuillez le <a href="http://browsehappy.com/">mettre à jour</a>.
+</div>
+<![endif]-->
+<noscript>
+&lt;div class="disclaimer  disclaimer--error"&gt;
+Veuillez utiliser un &lt;a href="http://browsehappy.com/"&gt;navigateur internet moderne&lt;/a&gt; avec JavaScript activé pour naviguer sur OpenClassrooms.com
+&lt;/div&gt;
+</noscript>
+<div class="disclaimer  disclaimer--info hidden  js-cookie-disclaimer">
+<div class="disclaimer__wrapper">
+<span class="disclaimer__content">
+Bienvenue sur OpenClassrooms ! En poursuivant votre navigation, vous acceptez l'utilisation de cookies. <a href="https://openclassrooms.com/privacy-policy#personal-data-gathering">En savoir plus</a>
+</span>
+<span class="disclaimer__actions">
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" class="disclaimer__button  js-close-button">ok</a>
+</span>
+</div>
+</div>
+<div class="mainHeader__wrapper">
+<div class="mainHeader__inner">
+<a href="https://openclassrooms.com/" class="mainHeader__logo" title="OpenClassrooms.com">
+OpenClassrooms.com
+</a>
+<div class="mainHeader__content">
+<div id="tab-main" class="mainHeader__tabs">
+<div class="mainHeader__container mainHeader__container--mainMenu">
+<nav>
+<ul class="mainTopNav">
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/paths/">Parcours</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/courses">Cours</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/forum/">Forums</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/premium">Premium</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item u--colorBusiness" href="https://openclassrooms.com/for-business">For Business</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="mainHeader__container  mainHeader__container--search">
+<div id="tab-search" class="mainHeader__search  js-header-searchContainer"><div class="js-courseSearch  topSearchBox">
+<form tabindex="0" class="js-courseSearch-form  oc-form" action="https://openclassrooms.com/courses" method="get">
+<div class="js-courseSearch-inputGroup oc-form__widget  inputGroup topSearchBox__inner u--block">
+<i class="topSearchBox__icon icon-search"></i>
+<input id="algolia-search-input" type="search" class="js-courseSearch-input oc-form__control inputGroup__input  topSearchBox__input" title="Rechercher" autocomplete="off" data-option_source="https://openclassrooms.com/components/courses/search?q=&lt;%= term %&gt;" placeholder="Rechercher" aria-label="Rechercher" name="q">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="mainHeader__container  mainHeader__container--login">
+<a href="https://openclassrooms.com/register" class="mainHeader__actionButton  button button--primary button--compact js-popin-activator" data-popin-selector="#popin-sign-in">
+S'inscrire
+</a>
+<a href="https://openclassrooms.com/login" class="mainHeader__actionButton  button button--compact js-popin-activator" data-popin-selector="#popin-log-in">
+Se connecter
+</a>
+</div>
+<aside tabindex="-1" role="dialog" aria-labelledby="popin-sign-in_popin_title" class="popin popin--small  js-popin" id="popin-sign-in">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<h3 id="popin-sign-in_popin_title" class="popin__title  js-popin-title">Inscription</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<div class="formLogin formLogin--smallSize">
+<ul class="table table--fullwidth u--noMargin">
+<li class="formLogin__column">
+<a class="button button--facebook button--fullwidth formLogin__facebook" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=277769842283905&amp;state=756974e8964b9a427873d83f5159f4d6&amp;response_type=code&amp;sdk=php-sdk-5.4.4&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_facebook&amp;scope=public_profile%2Cemail%2Cuser_birthday">
+<i class="icon-facebook"></i>S'inscrire avec Facebook
+</a>
+<a class="button button--google button--fullwidth formLogin__google" href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;access_type=online&amp;client_id=132418960718-jdnmpug3g9e6ub2p41ergcci1492qh82.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_google&amp;state&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&amp;approval_prompt=auto">
+<i class="icon-google"></i>S'inscrire avec Google
+</a>
+</li>
+<li class="formLogin__column">
+<form name="register" method="post" action="https://openclassrooms.com/register" class="js-registerForm oc-form">
+<div class="accessibility-hidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Wonder&nbsp;
+<abbr class="oc-form__required js-form-required wonder oc-form__required-hidden" title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_wonder" name="register[wonder]" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Prénom&nbsp;
+<abbr class="oc-form__required js-form-required firstName " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_firstName" name="register[firstName]" required="required" maxlength="100" autofocus="autofocus" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Nom&nbsp;
+<abbr class="oc-form__required js-form-required lastName " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_lastName" name="register[lastName]" required="required" maxlength="100" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Adresse email&nbsp;
+<abbr class="oc-form__required js-form-required email " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="email" id="register_email" name="register[email]" required="required" maxlength="80" aria-label=" " data-check-email="1" class=" textInput textInput--email"></span></label>
+<p>
+<em>
+Vous recevrez votre mot de passe sur cette adresse email.
+</em>
+</p>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row  oc-form__row--reversed  "><span class="oc-form__widget"><span class="ocCheckbox"><input type="checkbox" id="register_terms" name="register[terms]" required="required" aria-label=" " class="" value="1"><span class="ocCheckbox__check"></span></span></span><span class="oc-form__label-text"><span class="oc-form__label-text ">
+J'ai lu et j'accepte les <a target="_blank" href="https://openclassrooms.com/terms-conditions">Conditions Générales d'Utilisation</a>.&nbsp;
+<abbr class="oc-form__required js-form-required terms " title="requis"><span>*</span></abbr></span></span></label>
+</div>
+<div class="oc-form__group  center-text">
+<button type="submit" id="register_create" name="register[create]" class="button button--primary button"> S'inscrire</button>
+</div>
+<input type="hidden" id="register__target_path" name="register[_target_path]" class=" textInput textInput--hidden" value="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830"><input type="hidden" id="register__token" name="register[_token]" class=" textInput textInput--hidden" value="uIhvy6MQPIKXCpNn_PgWEyN20E9z53UpHCRml8djCMo"></form>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<aside tabindex="-1" role="dialog" aria-labelledby="popin-log-in_popin_title" class="popin popin--small  js-popin" id="popin-log-in">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<h3 id="popin-log-in_popin_title" class="popin__title  js-popin-title">Connexion</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<div class="formLogin formLogin--smallSize">
+<ul class="table table--fullwidth u--noMargin">
+<li class="formLogin__column">
+<a class="button button--facebook button--fullwidth formLogin__facebook" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=277769842283905&amp;state=756974e8964b9a427873d83f5159f4d6&amp;response_type=code&amp;sdk=php-sdk-5.4.4&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_facebook&amp;scope=public_profile%2Cemail%2Cuser_birthday"><i class="icon-facebook"></i> Se connecter avec Facebook</a>
+<a class="button button--google button--fullwidth formLogin__google" href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;access_type=online&amp;client_id=132418960718-jdnmpug3g9e6ub2p41ergcci1492qh82.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_google&amp;state&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&amp;approval_prompt=auto"><i class="icon-google"></i> Se connecter avec Google</a>
+</li>
+<li class="formLogin__column">
+<form name="" method="post" action="https://openclassrooms.com/login_check" class=" oc-form">
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Adresse email ou nom d'utilisateur&nbsp;
+<abbr class="oc-form__required js-form-required _username " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="_username" name="_username" required="required" autofocus="autofocus" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Mot de passe&nbsp;
+<abbr class="oc-form__required js-form-required _password " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="password" id="_password" name="_password" required="required" aria-label=" " class=" textInput textInput--password"></span></label>
+</div>
+<div class="oc-form__group">
+<label class="oc-form__row  oc-form__row--reversed  "><span class="oc-form__widget"><span class="ocCheckbox"><input type="checkbox" id="_remember_me" name="_remember_me" aria-label=" " class="" value="1" checked="checked"><span class="ocCheckbox__check"></span></span></span><span class="oc-form__label-text"><span class="oc-form__label-text ">
+Se souvenir de moi&nbsp;
+<abbr class="oc-form__required js-form-required _remember_me oc-form__required-hidden" title="requis"><span>*</span></abbr></span></span></label>
+</div>
+<div class="oc-form__group right-text">
+<a href="https://openclassrooms.com/set-new-password">Mot de passe oublié</a>
+</div>
+<div class="oc-form__group  center-text">
+<input type="hidden" id="_target_path" name="_target_path" class=" textInput textInput--hidden" value="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830"><div>
+<button type="submit" id="login" name="login" class="button--primary button"> Se connecter</button></div><input type="hidden" id="_csrf_token" name="_csrf_token" class=" textInput textInput--hidden" value="jqHrs7IHss-fV9zvtDReGvPxny_pxmuMQJCKl3UKC30">
+</div>
+</form>
+</li>
+</ul>
+<p class="text-center space-top">
+Pas encore membre ? <a href="https://openclassrooms.com/register">Inscrivez-vous gratuitement</a> en 30s.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<nav role="navigation" class="icoTabs  mainHeader__tabSet">
+<div class="mainHeader__mobileNav">
+<span class="icoTabs__tab  mainHeader__tabLogin">
+<a href="https://openclassrooms.com/register" class="mainHeader__actionButton  button button--primary button--compact js-popin-activator" data-popin-selector="#popin-sign-in">
+S'inscrire
+</a>
+<a href="https://openclassrooms.com/login" class="mainHeader__actionButton  button button--compact js-popin-activator" data-popin-selector="#popin-log-in">
+Se connecter
+</a>
+</span>
+<a class="js-tabs-tab  icoTabs__tab  mainHeader__tabSearch" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#tab-search">
+<span class="accessibility-hidden">Rechercher</span>
+<i class="icon-search  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  mainHeader__tabCourseMenu  is-disabled" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#tab-courseMenu">
+<span class="accessibility-hidden">Cours</span>
+<i class="icon-plus  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#tab-courseEditMenu">
+<span class="accessibility-hidden">Créer un cours</span>
+<i class="icon-plus  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" data-tabs-default="true" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#tab-searchMenu">
+<span class="accessibility-hidden">Rechercher</span>
+<i class="icon-search  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#tab-main">
+<span class="accessibility-hidden">Menu principal</span>
+<i class="icon-menu  icoTabs__icon"></i>
+</a>
+</div>
+</nav>
+<div class="js-tabs-content  mainHeader__content"></div>
+</div>
+</div>
+</header>
+<div class="centered"><div id="mainSearch" class="mainSearch search-content"></div></div>
+<div id="mainContentWithHeader">
+<header id="mainHeader">
+<div style="clear: both;"></div>
+<section id="headerMiddle">
+<section class="containerSdz">
+<a href="https://openclassrooms.com/forum/"><div class="titlePicture forumSdz"></div></a>
+<h1> <a href="https://openclassrooms.com/forum/">Forums des <strong>Zéros</strong></a> </h1>
+<p>Une question ? Pas de panique, on va vous aider !</p>
+</section>
+</section>
+<section class="inset no-padding">
+<div class="centered">
+<h6 class="accessibility-hidden">Fil d'Ariane</h6>
+<nav class="breadcrumb">
+<ul class="breadcrumb__trail">
+<li class="breadcrumb__item breadcrumb__item--home " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/" itemprop="url">
+<span itemprop="title">Accueil</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/forum/" itemprop="url">
+<span itemprop="title">Forum</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/forum/categorie/site-web" itemprop="url">
+<span itemprop="title">Site Web</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/forum/categorie/php" itemprop="url">
+<span itemprop="title">PHP</span>
+</a>
+</li>
+<li class="breadcrumb__item  breadcrumb__item--current" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+Interdire l'acces à une page avec les session
+</li>
+</ul>
+</nav>
+</div>
+</section>
+<section id="headerBottom">
+<section class="containerSdz">
+<ul id="secondMenu" class="nav nav-tabs">
+<li><a href="https://openclassrooms.com/forum/">Liste des forums</a></li>
+<li class="text-right  nav-tab--fullwidth">
+<form class="oc-form   hidden-xs" action="https://openclassrooms.com/recherche/" method="get">
+<div class="oc-form__widget  inputGroup  inputGroup--medium">
+<input type="search" class="oc-form__control inputGroup__input" placeholder="Rechercher sur le forum" name="search" aria-label=" ">
+<button class="button button--iconOnly  inputGroup__button" type="submit" title="Rechercher dans le forum">
+<span class="accessibility-hidden">Rechercher dans le forum</span>
+<i class="inputGroup__icon icon-search"></i>
+</button>
+</div>
+</form>
+</li>
+</ul>
+</section>
+</section>
+</header>
+<section id="mainContent" class="containerSdz" role="main">
+<section id="mainSection" class="container">
+<div class="soc_hello_ials ">
+<span class="shared">Partage</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+</div>
+<div class="centered">
+<h1><a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830">Interdire l'acces à une page avec les session</a></h1>
+<div class="resolved" style="">
+            <div class="iconResolved"></div>
+            <div>Sujet résolu</div>
+        </div>
+    
+    <section class="comments">
+                            <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/boubz-76025">
+                Boubz
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/boubz-76025">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/249170.jpg" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5030089">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5030089" class="date">31 mai 2010 à 21:55:56</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            REEEE bonsoir, voila j'essaie d'interdire la page à un membre qui n'est pas connecté donc que sa session n'est pas remplie , sinon ca serait trop beau si tout le monde pouvait entrer sur toutes les pages en l'occurence moi je veux sevir <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/langue.png" alt=":p"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ninja.png" alt=":ninja:"><br><br>
+Voila j'ai une rubrique reseau.php dans laquelle il contiendra des informations seulement je veux qu'elle soit accessible pour les personnes connectées voila mon script ERONNE  <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/siffle.png" alt=":-°"><br><br><br>
+reseau.php<br><br><pre class="brush: php;">&lt;?php
+include("menu.php");
+// verification si la personn est bien passé par la page pour se connecter 
+if(!isset($_SESSION['pseudo'], $_SESSION['password']))  
+{
+   	echo '&lt;center&gt;&lt;font color="red" size="4"&gt;&lt;b&gt;Vous devez vous connecter pour acceder à la page &lt;i&gt;réseaux&lt;/i&gt;&lt;/center&gt;&lt;/font&gt;&lt;br /&gt;';
+
+   	
+}  
+else  
+{ 
+	// si elle est bien connecté alors c'est bon
+   	$pseudo = $_SESSION['pseudo'];
+	$password=$_SESSION['password'];
+
+	
+}
+include("fin.php");
+?&gt;
+</pre><br><br>
+pourtant il a l'air jolii <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/smile.png" alt=":)"> merci<br><br>
+EDIT: l'erreur c'est que malgré etre connecté et bien j'obtiens un message d'erreur !!
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030089"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030089" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030089&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/damdamien-47576">
+                damdamien
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/damdamien-47576">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/avatar_defaut.png" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5030175">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5030175" class="date">31 mai 2010 à 22:30:05</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            <pre class="brush: php;">&lt;?php
+// verification si la personn est bien passé par la page pour se connecter 
+if(!isset($_SESSION['pseudo'] = xxxxx )$_SESSION['password']) = xxxxxx )
+{
+include("menu.php");
+ include("fin.php"); 
+}
+else
+{ header("refresh:1;url=ton formulaire_d'entré.html" ); //Sinon on redirige
+}
+?&gt;
+</pre>
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030175"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030175" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030175&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/nims2-41510">
+                NimS2
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/nims2-41510">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/avatar_defaut.png" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5030224">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5030224" class="date">31 mai 2010 à 22:30:24</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            salut,<br><br>
+essayes avec un empty() à la place du !isset()<br><br>
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030224"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030224" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030224&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/boubz-76025">
+                Boubz
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/boubz-76025">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/249170.jpg" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5030483">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5030483" class="date">1 juin 2010 à 0:05:44</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            Damien ca ne marche pas ton code je comprends pas ce que represente les xxxx puisque je ne connais pas le mdp de la personne j'avais pensé a le remplacer par $pseudo et $password mais ca ne fonctionne pas<br><br>
+Pour ce qui est de la fonction empty()<br>
+j'ai :<br><br><pre class="brush: php;">&lt;?php
+include("menu.php");
+// verification si la personn est bien passé par la page pour se connecter 
+if (empty($_SESSION['pseudo']) &amp;&amp; $_SESSION['password']) 
+{
+   	echo '&lt;center&gt;&lt;font color="red" size="4"&gt;&lt;b&gt;Vous devez vous connecter pour acceder à la page &lt;i&gt;réseaux&lt;/i&gt;&lt;/center&gt;&lt;/font&gt;&lt;br /&gt;';
+
+   	
+}  
+else  
+{ 
+	// si elle est bien connecté alors c'est bon
+   	$pseudo = $_SESSION['pseudo'];
+	$password=$_SESSION['password'];
+	
+}
+include("fin.php");
+?&gt;
+</pre><br><br>
+Mais ca ne fonctionne pas non plus  <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/siffle.png" alt=":-°">
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030483"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030483" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030483&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/damdamien-47576">
+                damdamien
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/damdamien-47576">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/avatar_defaut.png" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5030881">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5030881" class="date">1 juin 2010 à 9:34:01</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            xxxx represente le code et le pseudo.<br>
+tu devra surement te connecté a ta base de données pour les verifier<br>
+je tes données le principe de base.<br><br>
+ensuite else<br><br>
+si la condition n'est pas rempli tu redirige vers ta page de formulaire.<br><br>
+si tu prend mon code tels quel il marche pas c'est sur.<br><br><br><br><br><br>
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030881"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030881" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030881&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/gto6911-21175">
+                gto6911
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/gto6911-21175">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/130452.jpg" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5030888">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5030888" class="date">1 juin 2010 à 9:38:04</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            Oui parceque attention il ne faut jamais mettre un login et mdp directement dans le code, c'est bien trop dangereux. N'importe qui pourrait alors les voir.<br>
+Donc en gros, il faut que :<br><br>
+Tu ouvre une connection bdd.<br>
+Tu recherche si ton pseudo ou login ou les deux sont égaux à tes variables (les xxxx ).<br>
+Si oui tu fait ton code.<br>
+Si non tu retourne un message d'erreur.
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030888"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030888" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030888&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/damdamien-47576">
+                damdamien
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/damdamien-47576">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/avatar_defaut.png" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5030894">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5030894" class="date">1 juin 2010 à 9:40:27</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            oui c'est bien correcte ce que je lui ais dit sauf qu'a la place du message d'erreur je redirige.
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030894"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030894" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5030894&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/boubz-76025">
+                Boubz
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/boubz-76025">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/249170.jpg" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5035697">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5035697" class="date">2 juin 2010 à 16:37:24</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            Merci à vous mais je n'arrive aps pour autant mettre mon script en place à part celui ci :<br><br><pre class="brush: php;">&lt;?php
+include("menu.php");
+// verification si la personn est bien passé par la page pour se connecter 
+if (empty($_SESSION['pseudo']) &amp;&amp; $_SESSION['password']) 
+{
+   	echo '&lt;center&gt;&lt;font color="red" size="4"&gt;&lt;b&gt;Vous devez vous connecter pour acceder à la page &lt;i&gt;réseaux&lt;/i&gt;&lt;/center&gt;&lt;/font&gt;&lt;br /&gt;';
+
+   	
+}  
+else  
+{ 
+	// si elle est bien connecté alors c'est bon
+   	$pseudo = $_SESSION['pseudo'];
+	$password=$_SESSION['password'];
+	
+}
+include("fin.php");
+?&gt;
+</pre><br><br>
+Mon objecif est le suivant:<br>
+La personne creer un compte , ça s'enregistre dans la bdd ensuite sur une autre page connection.php ca verifie si le pseudo et mdp se trouve dans la bdd et ca ouvre une session okaie. A present j'aimerai qu'une page ne soit pas visité QUE si la personne s'est connecté donc ouverte la session si ce n'est pas le cas il ne rentre pas ...<br><br>
+c'est pas evident  <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/siffle.png" alt=":-°">
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5035697"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5035697" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5035697&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/flowrian-31499">
+                flowrian
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/flowrian-31499">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/avatar_defaut.png" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5035986">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5035986" class="date">2 juin 2010 à 17:36:17</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            essayes avec ca:<br><br><pre class="brush: php;">&lt;?php
+session_start();
+include("menu.php");
+
+if (empty($_SESSION['pseudo'])) 
+{
+    echo '&lt;center&gt;&lt;font color="red" size="4"&gt;&lt;b&gt;Vous devez vous connecter pour acceder à la page &lt;i&gt;réseaux&lt;/i&gt;&lt;/center&gt;&lt;/font&gt;&lt;br /&gt;';
+}
+else
+{
+    echo $_SESSION['pseudo']
+}
+include("fin.php");
+?&gt;
+</pre><br><br>
+pourquoi ca ne marchait pas ?<br><br>
+parce que soit tu n'as pas mis session_start en haut de ta page, soit tes variables ne sont pas créées, soit le nom de tes variables n'est pas correct.<br>
+N'hésites pas a tester tes variables en cas de pepin<br><div>ne jamais mettre un mot de passe en variable de session c est dangereux et inutile</div>
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5035986"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5035986" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5035986&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+                    <div class="row
+                                ">
+                <div class="userInfos">
+                    <div class="avatar-oc">
+    <div class="author">
+                    <a href="https://openclassrooms.com/membres/boubz-76025">
+                Boubz
+            </a>
+            </div>
+
+            <a href="https://openclassrooms.com/membres/boubz-76025">
+                        <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/249170.jpg" alt="" width="80px">
+        </a>
+    </div>
+                                            
+<ul class="skills">
+    </ul>
+                    
+                                    </div>
+                <div class="span10 comment" id="message-5036239">
+                                            <ul class="actions">
+                    
+            
+                                                    
+            
+            </ul>
+                    <div class="content">
+                            
+    
+    
+<a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#message-5036239" class="date">2 juin 2010 à 18:27:00</a>
+
+<br>
+    <br>
+<div class="message markdown-body" role="article">
+            OOOOH merci à toi j'ai compris et ça fonctionne je te remercie !! <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/smile.png" alt=":)">
+    
+    </div>
+    <span class="commentVote">
+                </span>
+    
+    <ul class="addthis_buttons addthis_share">
+    <li>
+        <a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-description="Interdire l&#39;acces à une page avec les session via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5036239"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+    </li>
+    <li>
+        <a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5036239" data-addthis-title="Interdire l&#39;acces à une page avec les session via @openclassrooms"><img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+    </li>
+    <li>
+        <a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830/5036239&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+            <img src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+        </a>
+    </li>
+</ul>
+                                                    </div>
+                </div>
+                <div class="span12">
+                                    </div>
+            </div>
+            </section>
+
+    
+    
+                <div id="newComment" class="message">
+        <h2>Interdire l'acces à une page avec les session</h2>
+                    <div class="alert alert-info ">
+    <a data-dismiss="alert" class="close">×</a>                        Après avoir cliqué sur "Répondre" vous serez invité à vous connecter pour que votre message soit publié.
+            </div>
+        
+                    <div class="alert alert-danger ">
+    <a data-dismiss="alert" class="close">×</a>                        Attention, ce sujet est très ancien. Le déterrer n'est pas forcément approprié. Nous te conseillons de créer un nouveau sujet pour poser ta question.
+            </div>
+                <form action="https://openclassrooms.com/message/creer/interdire-l-acces-a-une-page-avec-les-session-89830" method="post">
+
+    
+                        <div class="js-wysiwyg-content wysiwyg-content wysiwygContent"><textarea id="Comment_wysiwyg_message" name="Comment[wysiwyg][message]" required="required" class="tinymce" data-theme="simple" placeholder="Rédigez votre message ici"></textarea><input type="hidden" id="Comment_wysiwyg" name="Comment[wysiwyg][writingType]" class="writingType" value="editor"><ul class="writingTypeSwitch"><li class="switchEditeur">Editeur<span class="ball" style="font-size:5px"> ● </span></li><li class="switchMarkdown inactive">Markdown</li></ul><p class="information infoMarkdown" style="display: none;float:left;">
+            Vous pouvez rédiger votre message en <a href="https://openclassrooms.com/courses/redigez-en-markdown" target="_blank">Markdown</a> ou en HTML uniquement.
+        </p></div>
+            
+    <input type="hidden" id="Comment__token" name="Comment[_token]" value="B_xQuNb-COBsEK5RCYoRPMNP90JWY_HIOCJtFI9j43c">
+
+    
+    <input name="submit_comment" type="submit" class="btn btn-primary" value="Répondre">
+    <input type="button" class="btn showMarkdownOverview" value="Aperçu">
+</form>
+    </div>
+    
+    <div class="modal" id="deleteActionModal" style="display:none;">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <span class="actionIcon iconModerer">×</span>
+        <h2>Supprimer</h2>
+    </div>
+
+    <div class="modal-body modal-body-hidden modal-delete">
+        <p class="messageDelete"></p>
+        <div class="modal-footer">
+            <p>Vous n'avez pas les droits suffisant pour supprimer ce sujet !</p>
+        </div>
+    </div>
+
+</div>
+    <div class="modal" id="moderateActionModal" style="display:none;">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <span class="actionIcon iconModerer">×</span>
+      <h2>Modérer</h2>
+    </div>
+
+    <div class="modal-body">
+        <ul>
+                              </ul>
+    </div>
+
+
+        
+</div>
+    <div class="modal" id="alertActionModal" style="display:none;">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <h2>Signaler le message aux modérateurs</h2>
+    </div>
+
+    <div class="modal-body modal-alert">
+        <form action="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" method="post">
+
+            <div><label for="alert_reason" class="required">Raison : </label><input type="text" id="alert_reason" name="alert[reason]" required="required"></div><input type="hidden" id="alert__token" name="alert[_token]" value="lTYXGLQMw6wm6ECXfsGrWHoIv1C0UHZFAZm0Bb8hKr4">
+            <div class="error"></div>
+
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Valider">
+                <input type="button" data-dismiss="modal" class="btn" value="Annuler">
+            </div>
+        </form>
+    </div>
+</div>
+
+                                </div>
+                            </section>
+
+                                                            </section>
+                    </div>
+
+        
+<footer class="footer">
+    <div class="centered">
+        <div class="row">
+
+            <div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+                <h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+                    OpenClassrooms
+                    <i class="icon-next  foldable__icon"></i>
+                </h2>
+
+                <ul class="linksList__content foldable__content">
+                    <li>
+                        <a href="https://openclassrooms.com/about-us" class="footer__link">Qui sommes-nous ?</a>
+                    </li>
+                    <li>
+                        <a href="https://openclassrooms.com/how-does-it-work" class="footer__link">Fonctionnement de nos cours</a>
+                    </li>
+                    <li>
+                        <a href="http://jobs.openclassrooms.com/" target="_blank" class="footer__link">Recrutement</a>
+                    </li>
+                    <li>
+                        <a href="https://openclassrooms.com/forum/sujet/interdire-l-acces-a-une-page-avec-les-session-89830#" class="js-zendesk-show footer__link">Nous contacter</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+                <h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+                    Professionnels
+                    <i class="icon-next  foldable__icon"></i>
+                </h2>
+
+                <ul class="linksList__content foldable__content">
+                    <li>
+                        <a href="https://openclassrooms.com/affiliation" class="footer__link">
+                            Affiliation
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://openclassrooms.com/partners" class="footer__link">Partenaires</a>
+                    </li>
+                                    </ul>
+            </div>
+
+            <div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+                <h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+                    En plus
+                    <i class="icon-next  foldable__icon"></i>
+                </h2>
+
+                <ul class="linksList__content foldable__content">
+                                            <li>
+                            <a href="https://openclassrooms.com/new-teachers" class="footer__link">Créer un cours</a>
+                        </li>
+                        <li>
+                            <a href="https://openclassrooms.com/courses/courselab" class="footer__link">CourseLab</a>
+                        </li>
+                                        <li>
+                        <strong>
+                            <a href="https://openclassrooms.com/terms-conditions" class="footer__link">
+                                Conditions Générales d'Utilisation
+                            </a>
+                        </strong>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+                <h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+                    Suivez-nous
+                    <i class="icon-next  foldable__icon"></i>
+                </h2>
+                                                                    <ul class="linksList__content foldable__content">
+                    <li>
+                        <a href="http://blog.openclassrooms.com/" class="footer__link">Le blog OpenClassrooms</a>
+                    </li>
+                    <li>
+                        <ul class="footer__socialNetwork">
+                            <li>
+                                <a href="https://www.facebook.com/openclassrooms" target="_blank" class="roundIcon roundIcon--facebook footer__socialButtons">
+                                    <span class="hidden">Facebook</span>
+                                    <i class="icon-facebook roundIcon__icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/openclassrooms" target="_blank" class="roundIcon roundIcon--twitter footer__socialButtons">
+                                    <span class="hidden">Twitter</span>
+                                    <i class="icon-twitter roundIcon__icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/+OpenClassrooms/posts" target="_blank" class="roundIcon roundIcon--youtube footer__socialButtons">
+                                    <span class="hidden">Google Plus</span>
+                                    <i class="icon-google roundIcon__icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/openclassrooms" target="_blank" class="roundIcon roundIcon--instagram footer__socialButtons">
+                                    <span class="hidden">Instagram</span>
+                                    <i class="icon-instagram roundIcon__icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/user/TheOpenClassrooms" target="_blank" class="roundIcon roundIcon--googlePlus footer__socialButtons">
+                                    <span class="hidden">Youtube</span>
+                                    <i class="icon-youtube roundIcon__icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/company/openclassrooms" target="_blank" class="roundIcon roundIcon--linkedin footer__socialButtons">
+                                    <span class="hidden">Linkedin</span>
+                                    <i class="icon-linkedin roundIcon__icon"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="text-right u--positionRelative">
+            <hr>
+            <div class="footer__onlineStatus" id="react_conversation_onlineStatus"></div>
+                            <ul class="no-decoration inline">
+            <li>
+            <a class="footer__link" href="https://openclassrooms.com/change-locale/en/upvm0e2C3r-CDyzDrlVfE_sOb7DPtebRGTj4VaMbU2M">English</a>
+        </li>
+            <li>
+            <a class="footer__link" href="https://openclassrooms.com/change-locale/es/upvm0e2C3r-CDyzDrlVfE_sOb7DPtebRGTj4VaMbU2M">Español</a>
+        </li>
+    </ul>
+
+                    </div>
+    </div>
+</footer>
+
+        <script type="text/javascript" src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/MathJax.js.téléchargement"></script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['\\(','\\)']],
+                    displayMath: [['$$','$$'], ['\\[','\\]']],
+                    skipTags: ["script","noscript","style","textarea","code"]
+                }
+            });
+        </script>
+
+                        <script type="text/javascript" src="./[Résolu] Interdire l&#39;acces à une page avec les session par Boubz_files/legacy.js.téléchargement"></script></body></html>

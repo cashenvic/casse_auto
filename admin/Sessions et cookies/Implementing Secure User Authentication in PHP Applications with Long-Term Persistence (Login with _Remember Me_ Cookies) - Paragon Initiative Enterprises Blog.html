@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://paragonie.com/blog/2015/04/secure-authentication-php-with-long-term-persistence -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="alternate" title="RSS Feed for the Paragon Initiative Enterprises Blog" href="https://paragonie.com/rss/" type="application/rss+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Access Controls, Application Security, Authentication, Authorization, Cryptography, Login, Open Source, PHP, Secret Key Cryptography, Security, SQL, Web Development">     <meta name="description" content="Login forms with a remember me checkbox are a common requirement. We explore the security of login forms and a robust model for remember me checkboxes.">            <link rel="icon" href="https://paragonie.com/favicon.ico">
+
+    <title>Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with "Remember Me" Cookies) - Paragon Initiative Enterprises Blog</title>
+
+    <!-- Google Fonts -->
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/css" rel="stylesheet" type="text/css">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/css(1)" rel="stylesheet" type="text/css">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/css(2)" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="icon" type="image/png" href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/logo.png">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/Envy.css" rel="stylesheet">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/Components.css" rel="stylesheet">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/responsive.css" rel="stylesheet">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/github.css" rel="stylesheet">
+    <link href="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/blog.css" rel="stylesheet"><meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;Google Analytics&quot;:-1,&quot;jQuery&quot;:&quot;1.11.2&quot;,&quot;Font Awesome&quot;:-1,&quot;Bootstrap&quot;:-1}"><script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script><link rel="stylesheet" href="chrome-extension://jabopobgcpjmedljpbcaablpmlmfcogm/wf.css"></head>
+
+<body>
+    <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top btn-glass navbar-trans">
+        <div class="container" id="top-container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://paragonie.com/">
+                    <img alt="Paragon Initiative Enterprises" id="logo" src="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/logo.png" title="Paragon Initiative Enterprises">
+                </a>
+                <p class="navbar-text"><a title="Paragon Initiative Enterprises" href="https://paragonie.com/" class="white">PARAGON <span class="visible-lg-inline">INITIATIVE</span> </a></p>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right uppercase">
+                    <li class="">
+                        <a title="Information" id="nav_menu_info" href="https://paragonie.com/blog/2015/04/secure-authentication-php-with-long-term-persistence#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            Info
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a title="About Paragon Initiative Enterprises" href="https://paragonie.com/info/">About Us</a></li>
+                                                        <li><a title="Quick Answers" href="https://paragonie.com/quick-answers">Quick Answers</a></li>
+                            <li><a title="Technology Books" href="https://paragonie.com/book">Technology Books</a></li>
+                            <li><a title="White Papers" href="https://paragonie.com/white-papers">White Papers</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a title="Services" href="https://paragonie.com/blog/2015/04/secure-authentication-php-with-long-term-persistence#" id="nav_menu_services" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a title="Technology Consulting Services" href="https://paragonie.com/service/technology-consulting">Consulting</a></li>
+                            <li><a title="Code Review Services" href="https://paragonie.com/service/code-review">Code Auditing</a></li>
+                            <li><a title="Business Intelligence Services" href="https://paragonie.com/service/business-intelligence">Business Intelligence</a></li>
+                            <li><a title="Application Security Services" href="https://paragonie.com/service/appsec">App Security</a></li>
+                            <li><a title="Application Development Services" href="https://paragonie.com/service/app-dev">App Development</a></li>
+                            <li><a title="Website Development Services" href="https://paragonie.com/service/web-development">Web Development</a></li>
+                        </ul>
+                    </li>
+                                        <li><a title="Community Projects" href="https://paragonie.com/projects">Projects</a></li>
+                    <li class="">
+                        <a title="Community" href="https://paragonie.com/menu/security" id="nav_menu_security" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            Security
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a title="Security - Advisories" href="https://paragonie.com/security/advisories">Advisories</a></li>
+                            <li><a title="Security - Code Audits" href="https://paragonie.com/security/audits">Code Audits</a></li>
+                            <li><a title="Security - Cryptography Research" href="https://paragonie.com/crypto">Cryptography Research</a></li>
+                        </ul>
+                    </li><li><a title="Our Blog" href="https://paragonie.com/blog">Blog</a></li>
+                    <li><a title="Contact Us" href="https://paragonie.com/contact">Contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    </header>
+    
+    <div class="wallpaper">
+    <div class="container container-fluid">
+            <div class="header">
+        <div class="row row-centered">
+            <div class="col-lg-12 text-left">
+                <h2>News and Updates</h2>
+                <h4>"We care about our community, online and offline"</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+                        <div class="blog-post">
+            <div class="blogpost_header">
+                <h2 class="blog-post-title">Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with "Remember Me" Cookies) </h2>
+                <p class="blog-post-meta">
+                    <time datetime="2015-04-21 21:08:36">
+                        April 21, 2015 9:08 pm
+                    </time> by 
+                    <a href="https://paragonie.com/blog/author/p-i-e-staff">P.I.E. Staff</a>
+                </p>
+            </div>
+            <div class="blogpost_subhead">
+                <div class="blogpost_category">
+                    <a href="https://paragonie.com/blog/category/security-engineering"><i class="fa fa-folder-open"></i>Security Engineering</a>
+                </div>
+            </div>
+            <div class="blog-post-body">
+                    <p>A common problem in web development is to implement user authentication and access controls, typically accomplished through sign-up and log-in forms. Though these systems are simple enough in theory, engineering one that lives up to application security standards is a daunting undertaking.</p>
+<p>Without a great deal of care and sophistication, authentication systems can be as fragile as a cardboard lemonade stand in a category five hurricane. However, for everything that can go wrong, there is an effective (and often simple) way to achieve a higher level of security and resilience.</p>
+<p><strong>At a Glance</strong></p>
+<ol>
+<li>Secure Password Storage in 2015</li>
+<li>Persistent Authentication ("Remember Me" Checkboxes with Long-Term Cookies) Done Right</li>
+<li>Account Recovery ("Forgot Your Password?")</li>
+</ol>
+<p>If you're confused about any of the terms used on this page, please feel free to consult our <a href="https://paragonie.com/blog/2015/08/you-wouldnt-base64-a-password-cryptography-decoded">guide to cryptography terms and concepts</a> first.</p>
+<p><a name="passwords"></a></p>
+<span id="after-fold"></span><h2>Passwords: Hashes, Salts, and Policies</h2>
+<p>The year was 2004. Already, <a href="http://cryptography.hyperlink.cz/2004/otherformats.html">collisions in the MD5 hash function</a> were being circulated, spelling near-certain doom for the future of this (and related) cryptographic hash functions. Five years earlier, Niels Provos presented bcrypt at USENIX 99. The RFC for PBKDF2 had already been published for four years.</p>
+<p>Would you believe that there are still web programmers that use fast cryptographic hash functions such as MD5 and SHA1 for password storage in 2015? <strong>It has been clear to security experts for a long time that this is a bad idea.</strong></p>
+<p></p><h3 id="hashing">Acceptable Password Storage Systems</h3><p></p>
+<p>There are only four password hashing algorithms that are currently trusted by professional cryptographers and security researchers to protect users' passwords:</p>
+<ul>
+<li>
+<code>Argon2</code> (winner of the <a href="https://password-hashing.net/">Password Hashing Competition</a>)</li>
+<li>
+<code>bcrypt</code>
+</li>
+<li>
+<code>scrypt</code>
+</li>
+<li>
+<code>PBKDF2</code> (<strong>P</strong>assword-<strong>B</strong>ased <strong>K</strong>ey <strong>D</strong>erivation <strong>F</strong>unction #2)</li>
+</ul>
+<p>For most PHP developers whom cannot install PECL packages in their production environments, <a href="https://pecl.php.net/package/scrypt">scrypt</a> is not an option. <strong>If you can use scrypt, please do.</strong></p>
+<p>Given the choice between bcrypt and PBKDF2, developers should choose bcrypt. Furthermore, they should <strong>use the existing <code>password_hash()</code> and <code>password_verify()</code> API</strong> instead of writing their own <code>crypt()</code>-based implementation.</p>
+<p>Developers should refrain from generating their own salts; let <code>password_hash()</code> take care of that instead.</p>
+<p>Developers in other languages should refer to our guide on <a href="https://paragonie.com/blog/2016/02/how-safely-store-password-in-2016">how to safely store your users' passwords</a>.</p>
+<p></p><h3 id="bcrypt-limitations">Limitations of bcrypt</h3><p></p>
+<p>There are two caveats to bcrypt that every developer should be aware of: It truncates passwords to 72 characters and also on <code>NUL</code> bytes. Many developers try to solve the 72 character limit issue by pre-hashing the user's password, which can trigger the second. <strong>A dangerous example follows</strong>:</p>
+<pre><code class="hljs ruby"><span class="hljs-variable">$stored</span> = password_hash(hash(<span class="hljs-string">'sha256'</span>, <span class="hljs-variable">$_POST</span>[<span class="hljs-string">'password'</span>], <span class="hljs-keyword">true</span>), <span class="hljs-constant">PASSWORD_DEFAULT</span>);
+<span class="hljs-regexp">//</span> ...
+<span class="hljs-keyword">if</span> (password_verify(hash(<span class="hljs-string">'sha256'</span>, <span class="hljs-variable">$_POST</span>[<span class="hljs-string">'password'</span>], <span class="hljs-keyword">true</span>), <span class="hljs-variable">$stored</span>)) {
+    <span class="hljs-regexp">//</span> <span class="hljs-constant">Success</span> <span class="hljs-symbol">:D</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-regexp">//</span> <span class="hljs-constant">Failure</span> <span class="hljs-symbol">:</span>(
+}
+</code></pre>
+<p>There is a nontrivial chance that one of the raw bytes in the hash will be <code>0x00</code>. The sooner this byte appears in the string, the cost of finding a collision becomes exponentially cheaper.</p>
+<p>For example, both <code>1]W</code> and <code>@1$</code> produce a SHA-256 hash output that begins with <code>ab00</code>.</p>
+<p>The solution, therefore, would be to pass the raw SHA-256 hash outputs through <code>base64_encode()</code> before passing them to bcrypt:</p>
+<pre><code class="hljs ruby"><span class="hljs-variable">$stored</span> = password_hash(
+    base64_encode(
+        hash(<span class="hljs-string">'sha256'</span>, <span class="hljs-variable">$_POST</span>[<span class="hljs-string">'password'</span>], <span class="hljs-keyword">true</span>)
+    ),
+    <span class="hljs-constant">PASSWORD_DEFAULT</span>
+);
+<span class="hljs-regexp">//</span> ...
+<span class="hljs-keyword">if</span> (password_verify(
+    base64_encode(
+        hash(<span class="hljs-string">'sha256'</span>, <span class="hljs-variable">$_POST</span>[<span class="hljs-string">'password'</span>], <span class="hljs-keyword">true</span>)
+    ),
+    <span class="hljs-variable">$stored</span>
+)) {
+    <span class="hljs-regexp">//</span> <span class="hljs-constant">Success</span> <span class="hljs-symbol">:D</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-regexp">//</span> <span class="hljs-constant">Failure</span> <span class="hljs-symbol">:</span>(
+}
+</code></pre>
+<p>The above example will not truncate at 72 characters and is fully binary-safe, so early null bytes will not lead to security weaknesses. The best of both worlds.</p>
+<p>Additionally, you may want to use SHA-384 instead of SHA-256, since <a href="https://blog.skullsecurity.org/2012/everything-you-need-to-know-about-hash-length-extension-attacks">SHA-256 is vulnerable to length-extension attacks</a> and SHA-384 is not.</p>
+<p></p><h3 id="pepper">To Pepper Or Not To Pepper?</h3><p></p>
+<p>Sometimes, developers come up with the idea of adding another layer of complexity to an otherwise straightforward security feature.</p>
+<p>The topic of adding a <em>pepper</em> (a secret key known only to PHP and not to the database) to frustrate brute force attacks rears its head in programmer forums quite frequently.</p>
+<p>In the above example, adding a pepper could mean replacing <code>hash('sha256', $_POST['password'], true)</code> with <code>hash_hmac('sha256', $_POST['password'], CONSTANT_SECRET_KEY, true)</code>. <strong>We do not recommend this approach.</strong></p>
+<p>Peppers do not add any meaningful security above and beyond the salt that <code>password_hash()</code> generates for you. If your database and web application reside on the same hardware, an attacker who can access the database is probably not far away from accessing your PHP source code and reading the pepper. Finally, relying a static HMAC key means never being able to easily rotate the key in the event of a partial compromise without resetting every user's password or holding onto the old one forever.</p>
+<p>A much better solution, which is especially useful if you employ hardware separation, is to encrypt the hashes before you insert them in your database. With this safeguard in place, even if an attacker finds a way to dump all of your database tables, they first have to decrypt the hashes before they can even begin to crack them. With the PHP and the database on separate hardware, this becomes much more secure.</p>
+<p>The advantage of encryption over an HMAC key is that an encryption key is agile. You can decrypt the hashes and re-encrypt them with a new key without having to know anyone's password.</p>
+<p>However, that being said, <strong>please do not roll your own encryption library.</strong> We highly recommend <a href="https://github.com/defuse/php-encryption">Defuse Security's PHP encryption library</a>.</p>
+<p>Finally, our team wrote an open source library called <a href="https://github.com/paragonie/password_lock">PasswordLock</a> that does everything mentioned so far: Bcrypt-SHA2-Base64, encapsulated with the recommended authenticated encryption library we recommend. Usage example:</p>
+<pre><code class="hljs php"><span class="hljs-keyword">use</span> \<span class="hljs-title">ParagonIE</span>\<span class="hljs-title">PasswordLock</span>\<span class="hljs-title">PasswordLock</span>;
+
+define(<span class="hljs-string">'PASSWORD_KEY'</span>, \hex2bin(<span class="hljs-string">'0102030405060708090a0b0c0d0e0f10'</span>));
+<span class="hljs-comment">// Even better: use a configuration file stored outside your document root</span>
+<span class="hljs-comment">// and not checked into version control</span>
+
+<span class="hljs-variable">$store_me</span> = PasswordLock::hashAndEncrypt(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'password'</span>], PASSWORD_KEY);
+
+<span class="hljs-keyword">if</span> (PasswordLock::decryptAndVerify(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">'password'</span>], <span class="hljs-variable">$store_me</span>, PASSWORD_KEY)) {
+    <span class="hljs-comment">// Success! :D</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// Failure :(</span>
+}
+</code></pre>
+<p></p><h2 id="password-policies">Password Policies</h2><p></p>
+<p><strong>Who needs 'em?</strong></p>
+<p>Password policies (especially <a href="https://defuse.ca/password-policy-hall-of-shame.htm">shameful</a> ones) are <em>usually</em> a dead give-away that an application doesn't employ proper password hashing. Sometimes the best password policy is to not have one in the first place.</p>
+<p>Establishing minimum requirements (e.g. password must be at least 12 characters long) is fine, but dictating which characters are allowed or required or enforcing a maximum password length less than 64 is not. In general, a password policy should not enforce maximums, only enforce minimums (within reason).</p>
+<p>A really good way to provide feedback to users about the strength of their passwords is Dropbox's <a href="https://github.com/dropbox/zxcvbn">zxcvbn</a> library.</p>
+<p>Bonus points go to any web apps that go the extra mile to educate users about the benefits of password managers (e.g. <a href="http://keepass.info/">KeePass</a> or KeePassX).</p>
+<p></p><h3 id="reasonable-password-policy">Reasonable Password Policy Example</h3><p></p>
+<ol>
+<li>Passwords must be at between 12 and 4,096 characters in length.</li>
+<li>Passwords can contain any characters (including Unicode).</li>
+<li>We strongly encourage the use of a password manager like <a href="http://keepass.info/">KeePass</a> or KeePassX to generate and store your passwords.</li>
+<li>Your <a href="https://github.com/dropbox/zxcvbn">zxcvbn</a> password strength must be at least level 3 (on the 0-4 scale).</li>
+</ol>
+<p>That's it. Don't tell people what their password can or cannot contain. Don't refuse longer passwords. Do stop people from shooting themselves in the foot, but don't interfere beyond what's necessary to prevent foot-bullets.</p>
+<p></p><h2 id="title.2.1">"Remember Me" - Long-Term Persistent Authentication</h2><p></p>
+<p>Short-term user authentication typically employs <a href="https://paragonie.com/blog/2015/04/fast-track-safe-and-secure-php-sessions">sessions</a>, while long-term authentication relies on a long-lived cookie being stored on the user's browser, separate from their session identifier. Users typically experience this feature as a checkbox labelled, "Remember me on this computer." Implementing a Remember Me feature without building a trivially exploitable backdoor requires a minor engineering feat.</p>
+<p></p><h3 id="naive-solution">Naive Solution: Just Store User Credentials in a Cookie</h3><p></p>
+<p>Any solution for long-term authentication that looks like <code>remember_user=1337</code> is wide open for abuse. Since administrator accounts typically have low User IDs, <code>remember_user=1</code> will almost certainly log you into a privileged user account.</p>
+<p></p><h3 id="persistent-authentication-tokens">Persistent Authentication Tokens</h3><p></p>
+<p>Another common strategy, much less susceptible to attack, is to just generate a unique token when a user checks the "Remember Me" box, store the unique token in a cookie, and have a database table that associates tokens with each user's account. There are a number of things that could still go wrong here, but it is unquestionably an improvement over the previous strategy.</p>
+<p></p><h4 id="insufficient-randomness">Problem 1: Insufficient Randomness</h4><p></p>
+<p>Although many developers understand the need for unpredictability in security tokens, many do not know how to actually achieve this goal. A not-too-uncommon code snippet for generating unique tokens looks something like this.</p>
+<pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateInsecureToken</span><span class="hljs-params">(<span class="hljs-variable">$length</span> = <span class="hljs-number">20</span>)</span>
+</span>{
+    <span class="hljs-variable">$buf</span> = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span> = <span class="hljs-number">0</span>; <span class="hljs-variable">$i</span> &lt; <span class="hljs-variable">$length</span>; ++<span class="hljs-variable">$i</span>) {
+        <span class="hljs-variable">$buf</span> .= chr(mt_rand(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>));
+    }
+    <span class="hljs-keyword">return</span> bin2hex(<span class="hljs-variable">$buf</span>);
+}
+</code></pre>
+<p>The <code>mt_rand()</code> function is <strong>not</strong> suitable for security purposes. If you need to generate a random number in PHP, you want one of the following:</p>
+<ul>
+<li>
+<a href="https://github.com/ircmaxell/RandomLib">RandomLib</a>
+</li>
+<li>
+<code>random_bytes($length)</code> (PHP 7, or available in PHP 5 via <a href="https://github.com/paragonie/random_compat">random_compat</a>)</li>
+<li>Raw bytes read from <code>/dev/urandom</code>
+</li>
+<li>
+<code>mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);</code>
+</li>
+<li>
+<code>openssl_random_pseudo_bytes($length);</code>
+</li>
+</ul>
+<p>Doing it correctly looks like this:</p>
+<pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateToken</span><span class="hljs-params">(<span class="hljs-variable">$length</span> = <span class="hljs-number">20</span>)</span>
+</span>{
+    <span class="hljs-keyword">return</span> bin2hex(random_bytes(<span class="hljs-variable">$length</span>));
+}
+</code></pre>
+<p></p><h4 id="timing-leaks">Problem 2: Timing Leaks</h4><p></p>
+<p>Even if you're using a cryptographically secure random number generator, but your cookie looks like <code>rememberme=WBWgm2oMFxsiGRGQNJ6n8gtN3gOuQ2wjN8ZRjZtU0Mn</code> and you're storing these tokens in a database table that looks like this:</p>
+<pre><code class="hljs sql"><span class="hljs-operator"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`auth_tokens`</span> (
+    <span class="hljs-string">`id`</span> <span class="hljs-built_in">integer</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> UNSIGNED AUTO_INCREMENT,
+    <span class="hljs-string">`token`</span> <span class="hljs-built_in">char</span>(<span class="hljs-number">33</span>),
+    <span class="hljs-string">`userid`</span> <span class="hljs-built_in">integer</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> UNSIGNED,
+    <span class="hljs-string">`expires`</span> <span class="hljs-built_in">integer</span>(<span class="hljs-number">11</span>), <span class="hljs-comment">-- or datetime</span>
+    <span class="hljs-keyword">PRIMARY</span> <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)
+);</span>
+</code></pre>
+<p>(And a look-up query might look something like this...)</p>
+<pre><code class="hljs sql"><span class="hljs-operator"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> auth_tokens <span class="hljs-keyword">WHERE</span> token = <span class="hljs-string">'WBWgm2oMFxsiGRGQNJ6n8gtN3gOuQ2wjN8ZRjZtU0Mn'</span>;</span>
+</code></pre>
+<p><strong>Watch out, an esoteric and nontrivial attack still exists.</strong></p>
+<p>This may seem fine at first glance, but this actually leaks timing information due to the way strings are compared in database operations.</p>
+<p>To clarify: if one changes first byte in the <code>rememberme</code> cookie from an <code>W</code> to an <code>X</code> the comparison will fail <em>slightly</em> faster than if the last character was incremented from <code>n</code> to <code>o</code>. Anthony Ferrara covered this topic in his blog post, <a href="http://blog.ircmaxell.com/2014/11/its-all-about-time.html">It's All About Time</a>.</p>
+<p>On modern hardware, this timing difference is only significant at the nanosecond scale. This is not a simple or easy attack to pull off, but writing an authentication library that takes unnecessary risks does not make sense to us.</p>
+<p><strong>Side Note</strong>: This timing leak behavior is not any deficit of database server software. Searching a database is not the sort of operation you want to be done in constant time. Doing so would open the door to denial-of-service attacks. The potential to leak meaningful information out of a timing difference also depends on what type of index the database uses internally.</p>
+<p>Even if the query doesn't find a valid entry for the supplied remember me token, attackers get unlimited tries. They can keep re-sending a slightly different cookie until they get their desired result. Especially if your application is not tracking and rate-limiting automatic authentications.</p>
+<p>To make sure our "remember me" tokens are iron-clad, let's abstract the look-up from the verification and make sure we do so in constant-time. <code>hash_equals()</code> is useful here!</p>
+<p></p><h2 id="secure-remember-me-cookies">Proactively Secure Long-Term User Authentication</h2><p></p>
+<p>What follows is our proposed strategy for handling "remember me" cookies in a web application without leaking any useful information (even timing information) to an attacker, while still being fast and efficient (to prevent denial of service attacks).</p>
+<p>Our proposed strategy deviates from the above simple token-based automatic login system in one crucial way: Instead of only storing a random <code>token</code> in a cookie, we store <code>selector:validator</code>.</p>
+<p><code>selector</code> is a unique ID to facilitate database look-ups, while preventing the unavoidable timing information from impacting security. (This is preferable to simply using the database <code>id</code> field, which leaks the number of active users on the application.)</p>
+<pre><code class="hljs sql"><span class="hljs-operator"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`auth_tokens`</span> (
+    <span class="hljs-string">`id`</span> <span class="hljs-built_in">integer</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> UNSIGNED AUTO_INCREMENT,
+    <span class="hljs-string">`selector`</span> <span class="hljs-built_in">char</span>(<span class="hljs-number">12</span>),
+    <span class="hljs-string">`token`</span> <span class="hljs-built_in">char</span>(<span class="hljs-number">64</span>),
+    <span class="hljs-string">`userid`</span> <span class="hljs-built_in">integer</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> UNSIGNED,
+    <span class="hljs-string">`expires`</span> datetime,
+    <span class="hljs-keyword">PRIMARY</span> <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)
+);</span>
+</code></pre>
+<p>On the database side of things, the <code>validator</code> is not stored wholesale; instead, the SHA-256 hash of <code>validator</code> is stored in the database, while the plaintext is stored (with the <code>selector</code>) in the user's cookie. With this fail-safe in place, if somehow the <code>auth_tokens</code> table is leaked, immediate widespread user impersonation is prevented.</p>
+<p>The automatic login algorithm looks something like:</p>
+<ol>
+<li>Separate <code>selector</code> from <code>validator</code>.</li>
+<li>Grab the row in <code>auth_tokens</code> for the given selector. If none is found, abort.</li>
+<li>Hash the <code>validator</code> provided by the user's cookie with SHA-256.</li>
+<li>Compare the SHA-256 hash we generated with the hash stored in the database, using <code>hash_equals()</code>.</li>
+<li>If step 4 passes, associate the current session with the appropriate user ID.</li>
+</ol>
+<p>After this blog was originally posted, our strategy has been implemented in <a href="https://github.com/psecio/gatekeeper">Gatekeeper</a>, if you need a drop-in solution.</p>
+<p><strong>Important</strong>: If the user should ever change their password, you should invalidate all existing long-term authentication tokens for that user.</p>
+<h2>Account Recovery</h2>
+<p>Let's not mince words: <strong>Password reset features are a back-door.</strong> For many apps and services, they are inappropriate and should not be implemented.</p>
+<p>Generally, there are two things wrong with account recovery systems:</p>
+<ol>
+<li>They ask terrible security question; the answers for which are usually not secret to the user. ("What is your mother's maiden name?" Your Facebook friends probably know!)</li>
+<li>They rely on unreliable second authentication factors (e.g. a random token sent to the user's email address or cell phone).</li>
+</ol>
+<p>The security question problem is pretty self-explanatory, but the second implies that having access to a user's email account or cell phone grants an attacker into every application or service they have an account with. <strong>This is very bad.</strong></p>
+<p>We recommend the following:</p>
+<ol>
+<li>Don't ever implement back-doors if you can help it.</li>
+<li>Don't ask any security questions if the average user is likely to post the answer on the Internet.</li>
+<li>(Optional) Allow your users to attach a GnuPG public key to their profile. When an account recovery request is issued for their account, encrypt the account recovery token with their public key so only someone in possession of their private key can access it. <strong>We do this for our projects.</strong>
+</li>
+</ol>
+<p>If you find yourself absolutely needing to implement an account recovery back-door (most apps implement them whether they're needed or not) and your users aren't technical enough to use GnuPG, the best you can do is to generate a random token (generated using a cryptographically secure pseudorandom number generator, as above) and email it to the user. When they fulfill this requirement, give them the ability to set a new password. <strong>Never send them their old password (which is only possible if you aren't hashing them).</strong> If you have access to their old password, you have failed to be a responsible web developer.</p>
+<p>Note that sending sensitive information through email forces you to trust STARTTLS, which is a form of <a href="https://adamcaudill.com/2014/02/25/on-opportunistic-encryption">opportunistic encryption</a> (great against passive observers, but falls apart in the face of an active attacker). The industry does not currently have a more reliable and widely deployed solution (except, as mentioned above, GnuPG), although some initiatives (e.g. <a href="https://github.com/smimp/smimp_spec">SMIMP</a>) seek to change this deficit. If an email client that supports <a href="https://github.com/EFForg/starttls-everywhere">STARTTLS Everywhere</a> is available for your application, use it.</p>
+<h2>Closing Thoughts</h2>
+<p>Even if you implement all of the solutions we offer and follow all of our recommendations, in the end you cannot protect users from their own security mistakes. It's a good idea to log <em>all</em> authentication attempts (even successful ones).</p>
+<p>Paragon Initiative Enterprises provides <a href="https://paragonie.com/services">technology consulting services</a> to businesses with attention to <a href="https://paragonie.com/service/appsec">security</a> above and beyond compliance. We lead the industry in web application security (as evidenced by, among other things, our model for a proactively secure "remember me" checkbox and cookie system).</p>
+<p>We offer secure web-based business solutions, custom-tailored web, mobile, desktop, and server applications, as well as code auditing and penetration testing services.</p>
+            </div>
+            <div class="blogpost_footer blogpost_social">
+                <span class="blogpost_permalink">
+                                        <a href="https://paragonie.com/b/rgbsTmsWFoQRpIg-"><i class="fa fa-link"></i>Permalink</a>
+                </span>
+                                    <div class="floatright">
+                        <a target="external nofollow" href="https://news.ycombinator.com/item?id=10239652">
+                            <i class="fa fa-hacker-news"></i> 
+                            Discuss <span class="visible-xl-inline">on Hacker News</span>
+                        </a>
+                    </div>
+                            </div>
+            <div class="blogpost_footer">
+                <div class="blogpost_cc">
+                    License: <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license external nofollow">
+                        <span class="visible-xl-inline">Creative Commons Attribution-ShareAlike 4.0 International</span>
+                        <span class="hidden-xl-inline" title="Creative Commons Attribution-ShareAlike 4.0 International">CC-BY-SA 4.0 Intl</span>
+                    </a>
+                </div>
+                                    <ul class="blogpost_tags">
+                                                    <li><a href="https://paragonie.com/blog/tag/access-controls"><i class="fa fa-tag blogpost-tag-icon"></i>Access Controls</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/application-security"><i class="fa fa-tag blogpost-tag-icon"></i>Application Security</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/authentication"><i class="fa fa-tag blogpost-tag-icon"></i>Authentication</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/authorization"><i class="fa fa-tag blogpost-tag-icon"></i>Authorization</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/cryptography"><i class="fa fa-tag blogpost-tag-icon"></i>Cryptography</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/login"><i class="fa fa-tag blogpost-tag-icon"></i>Login</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/open-source"><i class="fa fa-tag blogpost-tag-icon"></i>Open Source</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/php"><i class="fa fa-tag blogpost-tag-icon"></i>PHP</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/secret-key-cryptography"><i class="fa fa-tag blogpost-tag-icon"></i>Secret Key Cryptography</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/security"><i class="fa fa-tag blogpost-tag-icon"></i>Security</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/sql"><i class="fa fa-tag blogpost-tag-icon"></i>SQL</a></li>
+                                                    <li><a href="https://paragonie.com/blog/tag/web-development"><i class="fa fa-tag blogpost-tag-icon"></i>Web Development</a></li>
+                                            </ul>
+                            </div>
+        </div>
+            <div id="blogpost_authorbox"><h3>About the Author</h3><h4 class="nomargin"><a href="https://paragonie.com/blog/author/p-i-e-staff">P.I.E. Staff</a></h4><div id="author_byline"><p>Paragon Initiative Enterprises</p></div><div id="author_bio"><p>Paragon Initiative Enterprises is an Orlando-based company that provides software consulting, application development, code auditing, and security engineering services. We specialize in PHP Security and applied cryptography.</p></div></div>            </div>
+        <!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>About</h4>
+                <p class="text-justify">
+                    <strong>Paragon Initiative Enterprises</strong><br> offers 
+                    <a href="https://paragonie.com/service/technology-consulting">technology consulting</a> and 
+                    <a href="https://paragonie.com/service/web-development">web development</a>
+                    services to businesses with attention to <a href="https://paragonie.com/service/appsec">security above and beyond compliance</a>.
+                </p>
+                <p class="text-justify">
+                    <a class="btn btn-primary btn-block" href="https://paragonie.com/experience">
+                        <i class="fa fa-check"></i>
+                        Our Professional Experience
+                    </a>
+                </p>
+            </div>
+
+            <div class="sidebar-module" id="blog_menu">
+                <h4>Archives</h4>
+                <ol class="list-unstyled" id="blog_menu_dates">                    <li class="blog_year">
+                        <a href="https://paragonie.com/blog/2017"><i class="fa fa-calendar"></i> 2017</a>
+                        <ul>                            <li class="blog_month"><a href="https://paragonie.com/blog/2017/01"><i class="fa fa-clock-o"></i> January 2017</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2017/02"><i class="fa fa-clock-o"></i> February 2017</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2017/03"><i class="fa fa-clock-o"></i> March 2017</a></li>
+                            </ul>
+                    </li>
+                                        <li class="blog_year">
+                        <a href="https://paragonie.com/blog/2016"><i class="fa fa-calendar"></i> 2016</a>
+                        <ul>                            <li class="blog_month"><a href="https://paragonie.com/blog/2016/01"><i class="fa fa-clock-o"></i> January 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/02"><i class="fa fa-clock-o"></i> February 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/03"><i class="fa fa-clock-o"></i> March 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/04"><i class="fa fa-clock-o"></i> April 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/05"><i class="fa fa-clock-o"></i> May 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/06"><i class="fa fa-clock-o"></i> June 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/07"><i class="fa fa-clock-o"></i> July 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/08"><i class="fa fa-clock-o"></i> August 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/09"><i class="fa fa-clock-o"></i> September 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/10"><i class="fa fa-clock-o"></i> October 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/11"><i class="fa fa-clock-o"></i> November 2016</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2016/12"><i class="fa fa-clock-o"></i> December 2016</a></li>
+                            </ul>
+                    </li>
+                                        <li class="blog_year">
+                        <a href="https://paragonie.com/blog/2015"><i class="fa fa-calendar"></i> 2015</a>
+                        <ul>                            <li class="blog_month"><a href="https://paragonie.com/blog/2015/04"><i class="fa fa-clock-o"></i> April 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/05"><i class="fa fa-clock-o"></i> May 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/06"><i class="fa fa-clock-o"></i> June 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/07"><i class="fa fa-clock-o"></i> July 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/08"><i class="fa fa-clock-o"></i> August 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/09"><i class="fa fa-clock-o"></i> September 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/10"><i class="fa fa-clock-o"></i> October 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/11"><i class="fa fa-clock-o"></i> November 2015</a></li>
+                                                        <li class="blog_month"><a href="https://paragonie.com/blog/2015/12"><i class="fa fa-clock-o"></i> December 2015</a></li>
+                            </ul>
+                    </li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Blog Categories</h4>
+                <ol class="blog_categories list-unstyled">
+                     <li>
+    <a href="https://paragonie.com/blog/category/business"><i class="fa fa-folder"></i> Business</a>
+    </li>
+  <li>
+    <a href="https://paragonie.com/blog/category/paragon-initiative"><i class="fa fa-folder-open"></i> Paragon Initiative</a>
+            <ol class="list-unstyled blog_categories">
+                    <li>
+    <a href="https://paragonie.com/blog/category/community"><i class="fa fa-folder-open"></i> Community</a>
+            <ol class="list-unstyled blog_categories">
+                    <li>
+    <a href="https://paragonie.com/blog/category/open-source"><i class="fa fa-folder"></i> Open Source</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/pharaoh"><i class="fa fa-folder"></i> Pharaoh</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/security-advice"><i class="fa fa-folder"></i> Security Advice</a>
+    </li>
+
+                </ol>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/our-products"><i class="fa fa-folder-open"></i> Our Products</a>
+            <ol class="list-unstyled blog_categories">
+                    <li>
+    <a href="https://paragonie.com/blog/category/airship"><i class="fa fa-folder"></i> Airship</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/asgard"><i class="fa fa-folder"></i> ASGard</a>
+    </li>
+
+                </ol>
+    </li>
+
+                </ol>
+    </li>
+  <li>
+    <a href="https://paragonie.com/blog/category/technology"><i class="fa fa-folder-open"></i> Technology</a>
+            <ol class="list-unstyled blog_categories">
+                    <li>
+    <a href="https://paragonie.com/blog/category/cryptology"><i class="fa fa-folder"></i> Cryptology</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/databases"><i class="fa fa-folder"></i> Databases</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/hardware"><i class="fa fa-folder"></i> Hardware</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/programming"><i class="fa fa-folder"></i> Programming</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/quality-assurance"><i class="fa fa-folder"></i> Quality Assurance</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/security-engineering"><i class="fa fa-folder"></i> Security Engineering</a>
+    </li>
+
+                    <li>
+    <a href="https://paragonie.com/blog/category/system-administration"><i class="fa fa-folder"></i> System Administration</a>
+    </li>
+
+                </ol>
+    </li>
+                     <li>
+                        <a href="https://paragonie.com/blog/category/"><i class="fa fa-folder-o"></i> Uncategorized</a>
+                    </li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Tags</h4>
+                <ol class="tagcloud list-unstyled">
+                                            <li>
+                            <a href="https://paragonie.com/blog/tag/access-controls" style="font-size: 56%;">
+                                Access Controls
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/application-security" style="font-size: 126.5%; font-weight: bold;">
+                                Application Security
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/authentication" style="font-size: 76%;">
+                                Authentication
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/authorization" style="font-size: 57%;">
+                                Authorization
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/business" style="font-size: 57%;">
+                                Business
+                            </a>
+                        </li>                                                                <li>
+                            <a href="https://paragonie.com/blog/tag/central-florida" style="font-size: 58.5%;">
+                                Central Florida
+                            </a>
+                        </li>                                                                <li>
+                            <a href="https://paragonie.com/blog/tag/cryptography" style="font-size: 104.5%; font-weight: bold;">
+                                Cryptography
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/csprng" style="font-size: 60%;">
+                                CSPRNG
+                            </a>
+                        </li>                                                                <li>
+                            <a href="https://paragonie.com/blog/tag/data-science" style="font-size: 55.5%;">
+                                Data Science
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/encryption" style="font-size: 70%;">
+                                Encryption
+                            </a>
+                        </li>                                                                <li>
+                            <a href="https://paragonie.com/blog/tag/https" style="font-size: 61%;">
+                                HTTPS
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/integrity" style="font-size: 53%;">
+                                Integrity
+                            </a>
+                        </li>                                                                                    <li>
+                            <a href="https://paragonie.com/blog/tag/libsodium" style="font-size: 70.5%;">
+                                Libsodium
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/login" style="font-size: 62%;">
+                                Login
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/math" style="font-size: 55.5%;">
+                                Math
+                            </a>
+                        </li>                                                                                    <li>
+                            <a href="https://paragonie.com/blog/tag/net" style="font-size: 53%;">
+                                .NET
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/networking" style="font-size: 56.5%;">
+                                Networking
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/node-js" style="font-size: 53%;">
+                                Node.js
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/open-source" style="font-size: 79%;">
+                                Open Source
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/orlando" style="font-size: 58.5%;">
+                                Orlando
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/owasp" style="font-size: 53%;">
+                                OWASP
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/owasp-top-ten" style="font-size: 62.5%;">
+                                OWASP Top Ten
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/php" style="font-size: 112.5%; font-weight: bold;">
+                                PHP
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/postgresql" style="font-size: 54%;">
+                                PostgreSQL
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/public-key-cryptography" style="font-size: 66.5%;">
+                                Public Key Cryptography
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/python" style="font-size: 53%;">
+                                Python
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/ruby" style="font-size: 53%;">
+                                Ruby
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/secret-key-cryptography" style="font-size: 76%;">
+                                Secret Key Cryptography
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/security" style="font-size: 131%; font-weight: bold;">
+                                Security
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/signatures" style="font-size: 53.5%;">
+                                Signatures
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/sql" style="font-size: 66.5%;">
+                                SQL
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/sql-injection" style="font-size: 59%;">
+                                SQL Injection
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/statistics" style="font-size: 55.5%;">
+                                Statistics
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/vulnerability" style="font-size: 68%;">
+                                Vulnerability
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/web-development" style="font-size: 77.5%;">
+                                Web Development
+                            </a>
+                        </li>                                            <li>
+                            <a href="https://paragonie.com/blog/tag/xss" style="font-size: 60%;">
+                                XSS
+                            </a>
+                        </li>                                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Mailing Lists</h4>
+                <ol class="list-unstyled">
+                    <li>
+                        <a href="http://eepurl.com/bqnTnf" title="Our quarterly newsletter">
+                            <i class="fa fa-clock-o pad"></i>
+                            Paragon Initiative Quarterly
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://eepurl.com/bqnRzf" title="Receive our security advisories before Full Disclosure publishes them!">
+                            <i class="fa fa-lock pad"></i>
+                            Paragon Initiative Vanguard
+                        </a>
+                    </li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/paragonie">
+                            <i class="fa fa-github-square pad"></i>
+                            ParagonIE on Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/ParagonIE">
+                            <i class="fa fa-twitter-square pad"></i>
+                            @ParagonIE
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://facebook.com/ParagonIE">
+                            <i class="fa fa-facebook-square pad"></i>
+                            Paragonie on Facebook
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+    <hr class="pagebreak">
+                        <div id="proposition">
+                <div>
+                    <h2>Need Technology Consultants?</h2>
+                    <p>
+                        Will tomorrow bring <a href="https://paragonie.com/white-paper/2015-why-invest-application-security">costly
+                        and embarrassing data breaches</a>? Or will it bring growth,
+                        success, and peace of mind?
+                    </p>
+                    <p>
+                        Our team of technology consultants have extensive knowledge
+                        and experience with application security and web/application
+                        development.
+                    </p>
+                    <p>
+                        We specialize in <a href="https://paragonie.com/blog/tag/cryptography">cryptography</a>
+                        and <a href="https://paragonie.com/blog/tag/php">secure PHP development</a>.
+                    </p>
+                    <div><a class="btn btn-ultra align-center" href="https://paragonie.com/contact" title="Technology Consulting from Paragon Initiative">
+                        <i class="fa fa-users"></i>
+                        Let's Work Together Towards Success
+                    </a></div>
+                </div>
+                <div>
+                    <h2>Our Security Newsletters</h2>
+                    <p>
+                        Want the latest from Paragon Initiative Enterprises delivered
+                        straight to your inbox? We have two newsletters to choose from.
+                    </p>
+                    <p>
+                        The first mails quarterly and often showcases our behind-the-scenes
+                        projects.
+                    </p>
+                    <p>
+                        The other is unscheduled and gives you a direct 
+                        feed into the findings of our open source security research 
+                        initiatives.
+                    </p>
+                    <div>
+                        <a class="btn btn-success align-center" href="http://eepurl.com/bqnTnf" title="Paragon Initiatve Quarterly">
+                            <i class="fa fa-calendar-o"></i>
+                            Quarterly Newsletter
+                        </a>
+                        &nbsp;
+                        <a class="btn btn-warning align-center" href="http://eepurl.com/bqnRzf" title="Paragon Initiatve Vanguard">
+                            <i class="fa fa-lock"></i>
+                            Security Announcements
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <!-- Start Footer -->
+    <footer class="footer">
+        <div class="container btn-glass">
+            <br>
+            <div class="row row-centered">
+                <div class="col-lg-6 col-centered footercopy">
+                    <p class="text-left">
+                        Copyright © 2015 - 2017 Paragon Initiative Enterprises, LLC.
+                        All right reserved.
+                        <span class="visible-xl-inline">
+                            Software security and cryptography specialists.
+                        </span>
+                    </p>
+                </div>
+                <div class="col-lg-4  col-centered text-right">
+                    <a href="https://paragonie.com/contact" title="Contact Paragon Initiative Enterprises"><i class="fa fa-2x fa-envelope pad"></i></a>
+                    <a href="https://facebook.com/paragonie" title="Paragon Initiative Enterprises on Facebook"><i class="fa fa-2x fa-facebook-square pad"></i></a> 
+                    <a href="https://github.com/paragonie" title="Fork our code on GitHub"><i class="fa fa-2x fa-github-square pad"></i></a> 
+                    <a href="https://twitter.com/ParagonIE" title="Follow us on Twitter"><i class="fa fa-2x fa-twitter-square pad"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /container -->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script nonce="EPb9CSckRJZn8L1642w0BtQS" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script nonce="yN3Cm6rm3ti6PlbJV3Ocy8fc" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script async="" src="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/analytics.js.téléchargement"></script><script nonce="k1qMx0cffCgVrHBJyb86H33T" src="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/jquery.min.js.téléchargement"></script>
+    <script nonce="kjW929wsgS4K2jjyJ3VmNLGj" src="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/bootstrap.min.js.téléchargement"></script>
+    <script nonce="Wno0T2rW34fRTz4fuUzTUq75">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61029337-1', 'auto');
+      ga('send', 'pageview');
+
+
+        $(document).ready(function() {
+            $('#nav_menu_info').attr('href', '#');
+            $('#nav_menu_services').attr('href', '#');
+            $('#nav_menu_community').attr('href', '#');
+        });
+    </script>
+    <script nonce="j53pwXBJrBaXcqYio1KxvGI0" src="./Implementing Secure User Authentication in PHP Applications with Long-Term Persistence (Login with _Remember Me_ Cookies) - Paragon Initiative Enterprises Blog_files/highlight.pack.js.téléchargement"></script>
+        <script nonce="idfCZr6U3RrrrAj4Iwn0yHkZ">hljs.initHighlightingOnLoad();</script>
+    
+
+<div class="__whatfont_tip __whatfont_elem __whatfont_basic" style="top: 988px; left: 898px; display: inline-block;">"Open Sans"</div><div class="__whatfont_elem __whatfont_control"><div class="__whatfont_exit __whatfont_basic">Exit WhatFont</div></div></body></html>

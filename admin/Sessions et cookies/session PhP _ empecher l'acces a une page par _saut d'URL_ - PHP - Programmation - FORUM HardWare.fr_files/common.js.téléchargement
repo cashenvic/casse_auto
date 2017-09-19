@@ -1,0 +1,27 @@
+var MD_reg1_replace_class=new RegExp('(cBackCouleurTab1)')
+var MD_reg2_replace_class=new RegExp('(cBackCouleurTab2)')
+var MD_reg3_replace_class=new RegExp('(cBackCouleurTab3)')
+var MD_reg4_replace_class=new RegExp('(cBackCouleurTab4)')
+function md_process_roll_over(obj,over){var newclass=obj.className;var newclasstest=newclass;if(over==1){newclass=newclass.replace(MD_reg1_replace_class,'cBackCouleurTab2');newclass=newclass.replace(MD_reg3_replace_class,'cBackCouleurTab4');}else{newclass=newclass.replace(MD_reg2_replace_class,'cBackCouleurTab1');newclass=newclass.replace(MD_reg4_replace_class,'cBackCouleurTab3');}
+obj.className=newclass;}
+function swap_spoiler_states(obj){var div=obj.getElementsByTagName('div');if(div[0]){if(div[0].style.visibility=="visible"){div[0].style.visibility='hidden';}else if(div[0].style.visibility=="hidden"||!div[0].style.visibility){div[0].style.visibility='visible';}}}
+var md_forum_decryptlink={_base16:"0A12B34C56D78E9F",encode:function(str)
+{var retour="";for(var i=0;i<str.length;i++)
+{var cc=str.charCodeAt(i);var ch=cc>>4;var cl=cc-(ch*16);retour+=this._base16[ch]+this._base16[cl];}
+return"md_cryptlink"+retour;},decode:function(str)
+{var retour="";for(var i=0;i<str.length;i+=2)
+{var ch=this._base16.indexOf(str.charAt(i));var cl=this._base16.indexOf(str.charAt(i+1));retour+=String.fromCharCode((ch*16)+cl);}
+return retour;},init:function()
+{var tagsA=document.getElementsByTagName("span");for(var i=0;i<tagsA.length;i++)
+{if(tagsA[i].className.substring(0,12)=="md_cryptlink")
+{var url=this.decode(tagsA[i].className.substring(12));var nlink=document.createElement("a");nlink.href=url;nlink.className="cHeader";for(var j=0;j<tagsA[i].childNodes.length;j++)
+{nlink.appendChild(tagsA[i].childNodes[j]);}
+tagsA[i].appendChild(nlink);}
+else if(tagsA[i].className.substring(0,20)=="md_noclass_cryptlink")
+{var url=this.decode(tagsA[i].className.substring(20));var nlink=document.createElement("a");nlink.href=url;for(var j=0;j<tagsA[i].childNodes.length;j++)
+{nlink.appendChild(tagsA[i].childNodes[j]);}
+tagsA[i].appendChild(nlink);}
+else if(tagsA[i].className.substring(0,18)=="md_blank_cryptlink")
+{var url=this.decode(tagsA[i].className.substring(18));var nlink=document.createElement("a");nlink.href=url;nlink.target='_blank';for(var j=0;j<tagsA[i].childNodes.length;j++)
+{nlink.appendChild(tagsA[i].childNodes[j]);}
+tagsA[i].appendChild(nlink);}}}}

@@ -1,0 +1,16 @@
+/**/ WPCOMSharing.update_facebook_count({
+   "https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/": {
+      "og_object": {
+         "id": "871773436281948",
+         "description": "Dans cet article nous allons voir comment s\u00e9curiser un formulaire d\u2019authentification tout ce qu\u2019il y a de plus basique. Parlons peu, parlons bien, voil\u00e0 le formulaire : \u003C?php session\u2026",
+         "title": "S\u00e9curiser un formulaire d\u2019authentification",
+         "type": "article",
+         "updated_time": "2016-04-22T10:38:58+0000"
+      },
+      "share": {
+         "comment_count": 0,
+         "share_count": 0
+      },
+      "id": "https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/"
+   }
+});

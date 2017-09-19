@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://www.apprendre-php.com/tutoriels/tutoriel-14-les-sessions.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Les sessions</title>
+        
+        <meta name="description" content="Liste de tutoriels classés par catégorie (introduction au langage PHP, environnements de travail, les bases, bonnes pratiques, xml, poo, bases de données, concepts avancés...)">
+        <meta name="keywords" content="php, php2, php3, php4, php5, php6, symfony, cake, dupral, joomla, mysql, tutoriels, tutoriaux, tutorials, apprendre, debutant, programmation, serveur, web, rasmus, lerdorf, zend, zeev, zuraski, forum, paris, afup, poo, objet, base, données, exécution, opcode, compilation, framework, communauté, sécurité, injection, elephpant, scripts, hello, world, wamp, mamp, xamp, lamp, easyphp, oracle, postgresql, sqlite, mssql, phpmyadmin, cookies, sessions, tableaux, arrays, strings, xss, sql, csrf">
+        <meta name="author" content="Hugo Hamon">
+        <link rel="stylesheet" type="text/css" media="screen" href="./Les sessions_files/global.css">
+        <!--[if lt IE 7]>
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/v2/ie/ie6.css" />
+        <![endif]-->
+        <!--[if gte IE 7]>
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/v2/ie/ie7.css" />
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" media="screen" href="./Les sessions_files/interieur.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./Les sessions_files/insertcode.css">
+        <link rel="alternate" type="application/atom+xml" title="Flux Atom des actualités" href="http://www.apprendre-php.com/syndication/atom-actualites.php">
+        <link rel="alternate" type="application/atom+xml" title="Flux Atom des flash-infos" href="http://www.apprendre-php.com/syndication/atom-flashs.php">
+        <link rel="alternate" type="application/atom+xml" title="Flux Atom des forums" href="http://www.apprendre-php.com/syndication/atom-forums.php">
+        <link rel="alternate" type="application/atom+xml" title="Flux Atom des portions de script" href="http://www.apprendre-php.com/syndication/atom-portions.php">
+        <link rel="alternate" type="application/atom+xml" title="Flux Atom des tutoriels" href="http://www.apprendre-php.com/syndication/atom-tutoriels.php">
+        <link rel="alternate" type="application/rss+xml" title="Flux RSS des actualités" href="http://www.apprendre-php.com/syndication/rss-actualites.php">
+        <link rel="alternate" type="application/rss+xml" title="Flux RSS des flashs-infos" href="http://www.apprendre-php.com/syndication/rss-flashs.php">
+        <link rel="alternate" type="application/rss+xml" title="Flux RSS des forums" href="http://www.apprendre-php.com/syndication/rss-forums.php">
+        <link rel="alternate" type="application/rss+xml" title="Flux RSS des portions de script" href="http://www.apprendre-php.com/syndication/rss-portions.php">
+        <link rel="alternate" type="application/rss+xml" title="Flux RSS des tutoriels" href="http://www.apprendre-php.com/syndication/rss-tutoriels.php">
+        <link rel="stylesheet" href="./Les sessions_files/github.css">
+    <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;Google Analytics&quot;:-1,&quot;jQuery&quot;:&quot;1.8.2&quot;}"><script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script></head>
+    <body>
+        <div id="page">
+            <div id="fond-content">
+                <h1>Les sessions</h1>
+                <div id="preambule">
+                    <ul>
+                        <li>
+                            <a href="http://www.apprendre-php.com/tutoriels/tutoriel-14-les-sessions.html#content" title="Aller au contenu"><span>Aller au </span>contenu</a>
+                        </li>
+                        <li>
+                            <a href="http://www.apprendre-php.com/tutoriels/tutoriel-14-les-sessions.html#menu" title="Aller au menu"><span>Aller au </span>menu</a>
+                        </li>
+                    </ul>
+                    <form method="get" action="http://www.apprendre-php.com/tutoriels/tutoriel-14-les-sessions.html#" id="searchForm" onsubmit="alert(&#39;Moteur de recherches non disponible !&#39;);">
+                        <fieldset>
+                            <legend>Rechercher</legend>
+                            <div>
+                                <label for="search">Rechercher : </label>
+                                <input type="text" id="search" name="search" title="Entrez vos mots-clés" value="mots-clés" onfocus="this.value=&#39;&#39;;">
+                            </div>
+                            <button type="submit" name="rechercher">OK</button>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div id="container">
+                    <div id="header">
+                        <ul id="menu">
+                            <li><a accesskey="1" href="http://www.apprendre-php.com/index.html" title="Retour à la page d&#39;accueil">Accueil</a></li>
+                            <li><a accesskey="2" href="http://www.apprendre-php.com/actualites/actualites" title="Consulter les actualités">Actualités</a></li>
+                            <li><a accesskey="3" href="http://www.apprendre-php.com/tutoriels.html" title="Consulter les tutoriels PHP">Tutoriels</a></li>
+                            <li><a accesskey="4" href="http://www.apprendre-php.com/portions-de-script.html" title="Les portions de code triées par catégories">Scripts</a></li>
+                            <li><a accesskey="5" href="http://www.apprendre-php.com/forums.html" title="Accéder aux forums de discussions">Forums</a></li>
+                                                    <li><a accesskey="6" href="http://www.apprendre-php.com/forums/inscription.html" title="Devenir membre du site">Inscription</a></li>
+                                                    <li><a accesskey="7" href="http://www.apprendre-php.com/guestbook.html" title="Signer le livre d&#39;or">Livre d'or</a></li>
+                            <li><a accesskey="9" href="http://www.apprendre-php.com/contacts/contactez-nous.html" title="Formulaire de contact">Contact</a></li>
+                        </ul>
+                                            </div><!-- end of #header -->
+                    <div id="content">
+                                                <div id="articles">
+                            <div id="publicite">
+                                <script type="text/javascript"><!--
+                                    google_ad_client = "pub-7753901842799835";
+                                    google_ad_width = 468;
+                                    google_ad_height = 60;
+                                    google_ad_format = "468x60_as";
+                                    google_ad_type = "image";
+                                    google_ad_channel = "5793904880+8022013819+9063761553+6586917175";
+                                    google_color_border = "341473";
+                                    google_color_bg = "ffffff";
+                                    google_color_link = "000033";
+                                    google_color_text = "000000";
+                                    google_color_url = "660000";
+                                    //-->
+                                </script>
+                                <a href="http://cpc.trafiz.net/tracking.php?id=503&amp;amp;typeclic=partner&amp;amp;typeclic_tool=206&amp;amp;urlredirect=http%3A%2F%2Fraynette.fr%2Fscript-pro%2Fmoteur-de-recherche%2F" title="Boutique en ligne, solution e-commerce, script PHP et PERL : RAYNETTE">
+    <img src="./Les sessions_files/raynette.gif" alt="Boutique en ligne, solution e-commerce, script PHP et PERL : RAYNETTE">
+</a>
+                            </div>
+                                                                                        <h2>Les sessions</h2>
+    <div id="infosPost">
+        <ul>
+            <li class="iconeAuteur">Par Emacs</li>
+            <li class="iconeCommentaires">
+                11
+                commentaires
+            </li>
+            <li class="iconeEtoile">60239 lectures</li>
+            <li class="iconeSyndication">
+                <a href="http://www.apprendre-php.com/syndication/rss-tutoriels.php" title="S&#39;abonner au flux RSS des tutoriels">RSS</a>&nbsp;-&nbsp;
+                 <a href="http://www.apprendre-php.com/syndication/atom-tutoriels.php" title="S&#39;abonner au flux Atom des tutoriels">Atom</a>
+            </li>
+                </ul>
+        <img src="./Les sessions_files/defaut.png" alt="" class="imageDroite">
+    </div>
+
+    <div>
+        <p>
+Depuis PHP4, on entend beaucoup parler de sessions. De nombreuses personnes utilisant PHP ignorent encore ce qu'elles sont et à quoi elles servent. D'autres, en revanche, ne savent pas les utiliser à bon escient. Ce tutoriel est une approche à la fois théorique et pratique des sessions. Elles seront présentées au moyen d'un exemple simple tout au long de ce cours. Il s'agit d'un espace de site sécurisé par authentification.
+</p>
+<h3>Une session c'est quoi ?</h3>
+<p>
+Une session est un mécanisme technique permettant de sauvegarder <strong>temporairement sur le serveur</strong> des informations relatives à un internaute. Ce système a notamment été inventé pour palier au fait que le protocole <abbr title="HyperText Transfer Protocol">HTTP</abbr> agit en mode <strong>non connecté</strong>. A chaque ouverture de nouvelle session, l'internaute se voit attribué un identifiant de session. Cet identifiant peut-être transmis soit en GET (PHPSESSID ajouté à la fin de l'url), POST ou Cookie (cookie sur poste client) selon la configuration du serveur. Les informations seront quant à elles transférées de page en page par le serveur et non par le client. Ainsi, la sécurité et l'intégrité des données s'en voient améliorées ainsi que leur disponibilité tout au long de la session. Une session peut contenir tout type de données : nombre, chaîne de caractères et même un tableau.
+</p>
+<p>
+Contrairement à une base de données ou un système de fichiers, la session conserve les informations pendant quelques minutes. Cette durée dépend de la configuration du serveur mais est généralement fixée à 24 minutes par défaut. Le serveur crée des fichiers stockés dans un repertoire particulier.
+</p>
+<p>
+Les sessions sont particulièrement utilisées pour ce type d'applications :
+</p>
+<ul>
+	<li>Les espaces membres et accès sécurisés avec authentification.</li>
+	<li>Gestion d'un caddie sur un site de vente en ligne.</li>
+	<li>Formulaires éclatés sur plusieurs pages.</li>
+	<li>Stockage d'informations relatives à la navigation de l'utilisateur (thème préféré, langues...).</li>
+</ul>
+<p>
+La théorie, c'est bien beau mais en pratique comment ça se passe ? La partie suivante explique l'initialisation et la restauration d'une session ouverte.
+</p>
+<h3>Initialisation (et restauration) d'une session</h3>
+<p>
+PHP introduit nativement une unique fonction permettant de démarrer ou de continuer une session. Il s'agit de <a href="http://fr.php.net/session-start" title="Documentation officielle de session_start()">session_start()</a>. Cette fonction ne prend pas de paramètre et renvoit toujours <strong>true</strong>. Elle vérifie l'état de la session courante. Si elle est inexistante, alors le serveur la crée sinon il la poursuit.
+</p>
+<pre class="php"><div class="head">Initialisation et restauration d'une session</div><div class="de1"><span class="kw2">&lt;?php</span>  </div><div class="de1">     <a href="http://www.php.net/session_start"><span class="kw3">session_start</span></a><span class="br0">(</span><span class="br0">)</span>;  </div><div class="de1"><span class="kw2">?&gt;</span></div></pre>
+<p>
+Dans le cas d'une utilisation des sessions avec les cookies, la fonction session_start() doit obligatoirement être appellée avant tout envoi au navigateur sous peine de voir afficher les fameuses erreurs :<br>
+<br>
+<em>"Cannot modify header information - headers already sent by ..."</em> ou <em>"Cannot send session cookie - headers already sent by ..."</em>. Cela est du au fait que PHP ne peut plus envoyer de cookie à l'utilisateur car il y'a déjà eu une sortie au navigateur (echo(), print(), espace blanc, tag html...).
+</p>
+<p>
+<em><strong><ins>Note</ins> :</strong> il faut appeller session_start() sur chaque page utilisant le système de session.</em>
+</p>
+<h3>Lecture et ecriture d'une session</h3>
+<h4>Le tableau $_SESSION</h4>
+<p>
+Lorsqu'une session est créée, elle est par défaut vide. Elle n'a donc aucun intérêt. Il faut donc lui attribuer des valeurs à sauvegarder temporairement. Pour cela, le langage PHP met en place le tableau superglobal <strong>$_SESSION</strong>. Le terme <em>superglobal</em> signifie que le tabeau a une visibilité maximale dans les scripts. C'est à dire que l'on peut y faire référence de manière globale comme locale dans une fonction utilisateur sans avoir à le passer en paramètre. Le tableau <strong>$_SESSION</strong> peut-être indexé numériquement mais aussi associativement. En règle générale, on préfère la seconde afin de pouvoir donner des noms de variables de session clairs et porteurs de sens.
+</p>
+<h4>L'écriture de session</h4>
+<p>
+Pour enregistrer une nouvelle variable de session, c'est tout simple. Il suffit juste d'ajouter un couple clé / valeur au tableau $_SESSION comme l'illustre l'exemple suivant.
+</p>
+<pre class="php"><div class="head">Déclaration et initialisation d'une variable une session</div><div class="de1"><span class="kw2">&lt;?php</span></div><div class="de1">  <span class="co1">// Démarrage ou restauration de la session</span></div><div class="de1">  <a href="http://www.php.net/session_start"><span class="kw3">session_start</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1">  <span class="co1">// Ecriture d'une nouvelle valeur dans le tableau de session</span></div><div class="de1">  <span class="re0">$_SESSION</span><span class="br0">[</span><span class="st0">'login'</span><span class="br0">]</span> = <span class="st0">'Dupond'</span>;</div><div class="de1"><span class="kw2">?&gt;</span></div></pre>
+<p>
+Le tableau $_SESSION, qui était vide jusqu'à présent, s'est agrandit dynamiquement et contient maintenant une valeur (<strong>Dupond</strong>) à la clé associative <strong>login</strong>. Une variable de session est alors créée.
+</p>
+<p>
+<em><strong><ins>Note de rappel</ins> :</strong> à place de la chaîne de caractères « Dupond », nous aurions pu mettre un nombre, un booléen ou encore un tableau par exemple.</em>
+</p>
+<h4>Lecture d'une variable de session</h4>
+<p>
+Après l'écriture, c'est au tour de la lecture. Il n'y a rien de plus simple. Pour lire la valeur d'une variable de session, il faut tout simplement appeler le tableau de session avec la clé concernée. L'exemple ci-dessous illustre tout ça.
+</p>
+<pre class="php"><div class="head">Lecture d'une variable de session</div><div class="de1"><span class="kw2">&lt;?php</span></div><div class="de1">  <span class="co1">// Démarrage ou restauration de la session</span></div><div class="de1">  <a href="http://www.php.net/session_start"><span class="kw3">session_start</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1">  <span class="co1">// Lecture d'une valeur du tableau de session</span></div><div class="de1">  <a href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="re0">$_SESSION</span><span class="br0">[</span><span class="st0">'login'</span><span class="br0">]</span>;</div><div class="de1"><span class="kw2">?&gt;</span></div></pre>
+<p>
+Cette instruction aura pour effet d'afficher à l'écran la chaîne de caractères <strong>Dupond</strong>.
+</p>
+<h3>Destruction d'une session</h3>
+<p>
+Comme cela a été évoqué plus haut, le serveur détruit lui même la session au bout d'un certain temps si la session n'a pas été renouvellée. En revanche, il est possible de forcer sa destruction au moyen de la fonction <a href="http://fr.php.net/session-destroy" title="Documentation de la fonction session_destroy()">session_destroy()</a>. Cela permet par exemple aux webmasters de proposer une page de déconnexion aux membres loggués à leur espace personnel. Cependant, l'utilisation de session_destroy() seule n'est pas très "propre". Le code suivant présente une manière plus correcte de mettre fin à une session.
+</p>
+<pre class="php"><div class="head">Destruction propre et complète d'une session</div><div class="de1"><span class="kw2">&lt;?php</span></div><div class="de1">  <span class="co1">// Démarrage ou restauration de la session</span></div><div class="de1">  <a href="http://www.php.net/session_start"><span class="kw3">session_start</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1">  <span class="co1">// Réinitialisation du tableau de session</span></div><div class="de1">  <span class="co1">// On le vide intégralement</span></div><div class="de1">  <span class="re0">$_SESSION</span> = <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1">  <span class="co1">// Destruction de la session</span></div><div class="de1">  <a href="http://www.php.net/session_destroy"><span class="kw3">session_destroy</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1">  <span class="co1">// Destruction du tableau de session</span></div><div class="de1">  <a href="http://www.php.net/unset"><span class="kw3">unset</span></a><span class="br0">(</span><span class="re0">$_SESSION</span><span class="br0">)</span>;</div><div class="de1"><span class="kw2">?&gt;</span></div></pre>
+<p>
+Pour être convaincu de la destruction de la session, il suffit juste d'essayer d'afficher le contenu du tableau de session au moyen de la fonction <a href="http://fr.php.net/print-r" title="Documentation de la fonction print_r()">print_r()</a>.
+</p>
+<h3>Configuration des sessions sur le serveur</h3>
+<p>
+Une session ne reste ouverte que pendant un certain temps. Tout au plus ce sera celle indiquée par la directive <em>session.gc_maxlifetime</em> du php.ini, entre deux clics consécutifs du client. Il est recommandé de ne pas augmenter la valeur inscrite par défaut. Mais pourquoi ? Tout simplement parceque si la session à une durée de vie plus importante, on s'expose à des risques de piratage par <em>vol de session</em> notamment (cf: voir les liens annexes en fin de tutoriel pour plus d'informations).
+</p>
+<p>
+Pour les mêmes raisons de sécurité, il est conseillé de configurer le serveur de la façon suivante :
+</p>
+<pre class="php"><div class="head">Configuration de PHP recommandée pour les sessions</div><div class="de1">session.use_cookies <span class="nu0">1</span> </div><div class="de1">session.use_only_cookies <span class="nu0">1</span> </div><div class="de1">session.use_trans_sid <span class="nu0">0</span></div></pre>
+<p>
+Cette configuration implique néanmoins une restriction totale pour les personnes n'acceptant pas les cookies. Ci-dessous, la signification dans le même ordre des 3 lignes de configuration précédentes.
+</p>
+<ul>
+	<li>L'identifiant de session est transmis par un cookie.</li>
+	<li>Seul le cookie peut transmettre l'identifiant de session.</li>
+	<li>Le PHPSESSID transmis dans l'url est strictement refusé.</li>
+</ul>
+<h3>Approche pratique : concevoir un accès restreint</h3>
+<h4>Présentation du cas pratique</h4>
+<p>
+Le présent chapitre introduit un cas concret d'utilisation des sessions. Il s'agit d'un accès restreint basique. Seul un utilisateur n'est autorisé à être loggué mais cet exemple est à la base de la création d'un espace membre. C'est exactement la même chose. Pour réaliser tout ça, nous aurons besoin de 2 fichiers : le formulaire accompagné de son script de login, et la page protégée. Commençons par le formulaire de login. Le code étant commenté, il n'y aura pas plus d'explications.
+</p>
+<h4>Formulaire d'authentification : authentification.php</h4>
+<pre class="php"><div class="head">Cas pratique : formulaire d'identification à un espace membre</div><div class="de1"><span class="kw2">&lt;?php</span></div><div class="de1">  <span class="co1">// Definition des constantes et variables</span></div><div class="de1">  <a href="http://www.php.net/define"><span class="kw3">define</span></a><span class="br0">(</span><span class="st0">'LOGIN'</span>,<span class="st0">'toto'</span><span class="br0">)</span>;</div><div class="de1">  <a href="http://www.php.net/define"><span class="kw3">define</span></a><span class="br0">(</span><span class="st0">'PASSWORD'</span>,<span class="st0">'tata'</span><span class="br0">)</span>;</div><div class="de1">  <span class="re0">$errorMessage</span> = <span class="st0">''</span>;</div><div class="de1"> </div><div class="de1">  <span class="co1">// Test de l'envoi du formulaire</span></div><div class="de1">  <span class="kw1">if</span><span class="br0">(</span>!<a href="http://www.php.net/empty"><span class="kw3">empty</span></a><span class="br0">(</span><span class="re0">$_POST</span><span class="br0">)</span><span class="br0">)</span> </div><div class="de1">  <span class="br0">{</span></div><div class="de1">    <span class="co1">// Les identifiants sont transmis ?</span></div><div class="de1">    <span class="kw1">if</span><span class="br0">(</span>!<a href="http://www.php.net/empty"><span class="kw3">empty</span></a><span class="br0">(</span><span class="re0">$_POST</span><span class="br0">[</span><span class="st0">'login'</span><span class="br0">]</span><span class="br0">)</span> &amp;&amp; !<a href="http://www.php.net/empty"><span class="kw3">empty</span></a><span class="br0">(</span><span class="re0">$_POST</span><span class="br0">[</span><span class="st0">'password'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> </div><div class="de1">    <span class="br0">{</span></div><div class="de1">      <span class="co1">// Sont-ils les mêmes que les constantes ?</span></div><div class="de1">      <span class="kw1">if</span><span class="br0">(</span><span class="re0">$_POST</span><span class="br0">[</span><span class="st0">'login'</span><span class="br0">]</span> !== LOGIN<span class="br0">)</span> </div><div class="de1">      <span class="br0">{</span></div><div class="de1">        <span class="re0">$errorMessage</span> = <span class="st0">'Mauvais login !'</span>;</div><div class="de1">      <span class="br0">}</span></div><div class="de1">        <span class="kw1">elseif</span><span class="br0">(</span><span class="re0">$_POST</span><span class="br0">[</span><span class="st0">'password'</span><span class="br0">]</span> !== PASSWORD<span class="br0">)</span> </div><div class="de1">      <span class="br0">{</span>  </div><div class="de1">        <span class="re0">$errorMessage</span> = <span class="st0">'Mauvais password !'</span>;</div><div class="de1">      <span class="br0">}</span></div><div class="de1">        <span class="kw1">else</span></div><div class="de1">      <span class="br0">{</span></div><div class="de1">        <span class="co1">// On ouvre la session</span></div><div class="de1">        <a href="http://www.php.net/session_start"><span class="kw3">session_start</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1">        <span class="co1">// On enregistre le login en session</span></div><div class="de1">        <span class="re0">$_SESSION</span><span class="br0">[</span><span class="st0">'login'</span><span class="br0">]</span> = LOGIN;</div><div class="de1">        <span class="co1">// On redirige vers le fichier admin.php</span></div><div class="de1">        <a href="http://www.php.net/header"><span class="kw3">header</span></a><span class="br0">(</span><span class="st0">'Location: http://www.monsite.com/admin.php'</span><span class="br0">)</span>;</div><div class="de1">        <a href="http://www.php.net/exit"><span class="kw3">exit</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1">      <span class="br0">}</span></div><div class="de1">    <span class="br0">}</span></div><div class="de1">      <span class="kw1">else</span></div><div class="de1">    <span class="br0">{</span></div><div class="de1">      <span class="re0">$errorMessage</span> = <span class="st0">'Veuillez inscrire vos identifiants svp !'</span>;</div><div class="de1">    <span class="br0">}</span></div><div class="de1">  <span class="br0">}</span></div><div class="de1"><span class="kw2">?&gt;</span></div><span class="kw2"></span><div class="de1"><span class="sc0">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;</span></div><span class="sc0"></span><div class="de1"><span class="sc2"><a href="http://december.com/html/4/element/html.html"><span class="kw2">&lt;html</span></a> xmlns=<span class="st0">"http://www.w3.org/1999/xhtml"</span> xml:<span class="kw3">lang</span>=<span class="st0">"fr"</span><span class="kw2">&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">  <span class="sc2"><a href="http://december.com/html/4/element/head.html"><span class="kw2">&lt;head&gt;</span></a></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">    <span class="sc2"><a href="http://december.com/html/4/element/title.html"><span class="kw2">&lt;title&gt;</span></a></span>Formulaire d'authentification<span class="sc2"><span class="kw2">&lt;/title&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">  <span class="sc2"><span class="kw2">&lt;/head&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">  <span class="sc2"><a href="http://december.com/html/4/element/body.html"><span class="kw2">&lt;body&gt;</span></a></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">    <span class="sc2"><a href="http://december.com/html/4/element/form.html"><span class="kw2">&lt;form</span></a> <span class="kw3">action</span>=<span class="st0">"&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?&gt;</span>" method="post"&gt;</span></div><span class="sc2"></span><div class="de1">      <span class="sc2">&lt;fieldset&gt;</span></div><span class="sc2"></span><div class="de1">        <span class="sc2">&lt;legend&gt;</span>Identifiez-vous<span class="sc2">&lt;/legend&gt;</span></div><span class="sc2"></span><div class="de1">        <span class="kw2">&lt;?php</span></div><span class="kw2"></span><div class="de1">          <span class="co1">// Rencontre-t-on une erreur ?</span></div><span class="co1"></span><div class="de1">          <span class="kw1">if</span><span class="br0">(</span>!<a href="http://www.php.net/empty"><span class="kw3">empty</span></a><span class="br0">(</span><span class="re0">$errorMessage</span><span class="br0">)</span><span class="br0">)</span> </div><div class="de1">          <span class="br0">{</span></div><span class="br0"></span><div class="de1">            <a href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'&lt;p&gt;'</span>, <a href="http://www.php.net/htmlspecialchars"><span class="kw3">htmlspecialchars</span></a><span class="br0">(</span><span class="re0">$errorMessage</span><span class="br0">)</span> ,<span class="st0">'&lt;/p&gt;'</span>;</div><div class="de1">          <span class="br0">}</span></div><span class="br0"></span><div class="de1">        <span class="kw2">?&gt;</span></div><span class="kw2">       &lt;p&gt;</span><span class="kw2"></span><div class="de1">          <span class="sc2"><a href="http://december.com/html/4/element/label.html"><span class="kw2">&lt;label</span></a> <span class="kw3">for</span>=<span class="st0">"login"</span><span class="kw2">&gt;</span></span>Login :<span class="sc2"><span class="kw2">&lt;/label&gt;</span></span> </div><div class="de1">          <span class="sc2"><a href="http://december.com/html/4/element/input.html"><span class="kw2">&lt;input</span></a> <span class="kw3">type</span>=<span class="st0">"text"</span> <span class="kw3">name</span>=<span class="st0">"login"</span> <span class="kw3">id</span>=<span class="st0">"login"</span> <span class="kw3">value</span>=<span class="st0">""</span> /<span class="kw2">&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">        <span class="sc2"><span class="kw2">&lt;/p&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">        <span class="sc2"><a href="http://december.com/html/4/element/p.html"><span class="kw2">&lt;p&gt;</span></a></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">          <span class="sc2"><a href="http://december.com/html/4/element/label.html"><span class="kw2">&lt;label</span></a> <span class="kw3">for</span>=<span class="st0">"password"</span><span class="kw2">&gt;</span></span>Password :<span class="sc2"><span class="kw2">&lt;/label&gt;</span></span> </div><div class="de1">          <span class="sc2"><a href="http://december.com/html/4/element/input.html"><span class="kw2">&lt;input</span></a> <span class="kw3">type</span>=<span class="st0">"password"</span> <span class="kw3">name</span>=<span class="st0">"password"</span> <span class="kw3">id</span>=<span class="st0">"password"</span> <span class="kw3">value</span>=<span class="st0">""</span> /<span class="kw2">&gt;</span></span> </div><div class="de1">          <span class="sc2"><a href="http://december.com/html/4/element/input.html"><span class="kw2">&lt;input</span></a> <span class="kw3">type</span>=<span class="st0">"submit"</span> <span class="kw3">name</span>=<span class="st0">"submit"</span> <span class="kw3">value</span>=<span class="st0">"Se logguer"</span> /<span class="kw2">&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">        <span class="sc2"><span class="kw2">&lt;/p&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">      <span class="sc2"><span class="kw2">&lt;/fieldset&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">    <span class="sc2"><span class="kw2">&lt;/form&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">  <span class="sc2"><span class="kw2">&lt;/body&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1"><span class="sc2"><span class="kw2">&lt;/html&gt;</span></span></div></pre>
+<h4>Exemple de page protégée : admin.php</h4>
+<pre class="php"><div class="head">Exemple de page sécurisée avec les sessions</div><div class="de1"><span class="kw2">&lt;?php</span></div><div class="de1"><span class="co1">// On prolonge la session</span></div><div class="de1"><a href="http://www.php.net/session_start"><span class="kw3">session_start</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1"><span class="co1">// On teste si la variable de session existe et contient une valeur</span></div><div class="de1"><span class="kw1">if</span><span class="br0">(</span><a href="http://www.php.net/empty"><span class="kw3">empty</span></a><span class="br0">(</span><span class="re0">$_SESSION</span><span class="br0">[</span><span class="st0">'login'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> </div><div class="de1"><span class="br0">{</span></div><div class="de1">  <span class="co1">// Si inexistante ou nulle, on redirige vers le formulaire de login</span></div><div class="de1">  <a href="http://www.php.net/header"><span class="kw3">header</span></a><span class="br0">(</span><span class="st0">'Location: http://www.monsite.com/authentification.php'</span><span class="br0">)</span>;</div><div class="de1">  <a href="http://www.php.net/exit"><span class="kw3">exit</span></a><span class="br0">(</span><span class="br0">)</span>;</div><div class="de1"><span class="br0">}</span></div><div class="de1"><span class="kw2">?&gt;</span></div><span class="kw2"></span><div class="de1"><span class="sc0">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;</span></div><span class="sc0"></span><div class="de1"><span class="sc2"><a href="http://december.com/html/4/element/html.html"><span class="kw2">&lt;html</span></a> xmlns=<span class="st0">"http://www.w3.org/1999/xhtml"</span> xml:<span class="kw3">lang</span>=<span class="st0">"fr"</span><span class="kw2">&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">  <span class="sc2"><a href="http://december.com/html/4/element/head.html"><span class="kw2">&lt;head&gt;</span></a></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">    <span class="sc2"><a href="http://december.com/html/4/element/title.html"><span class="kw2">&lt;title&gt;</span></a></span>Administration<span class="sc2"><span class="kw2">&lt;/title&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">  <span class="sc2"><span class="kw2">&lt;/head&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1">  <span class="sc2"><a href="http://december.com/html/4/element/body.html"><span class="kw2">&lt;body&gt;</span></a></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1"><span class="kw2"> &lt;?php</span></div><span class="kw2"></span><div class="de1">    <span class="co1">// Ici on est bien loggué, on affiche un message</span></div><span class="co1"></span><div class="de1">    <a href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'Bienvenue '</span>, <span class="re0">$_SESSION</span><span class="br0">[</span><span class="st0">'login'</span><span class="br0">]</span>;</div>  <span class="kw2">?&gt;</span><span class="kw2"></span><div class="de1"><span class="sc2"><span class="kw2">  &lt;/body&gt;</span></span></div><span class="sc2"><span class="kw2"></span></span><div class="de1"><span class="sc2"><span class="kw2">&lt;/html&gt;</span></span></div></pre>
+<p>
+<strong>Petite explication</strong> : pour protéger chacune des pages de l'administration, il faut absolument ajouter en tête de fichier le premier script entièrement. Celui-ci redirige instantanément l'utilisateur s'il n'est pas convenablement loggué. Sinon il affiche la page Web.
+</p>
+<h3>Liens annexes</h3>
+<p>
+Voici une serie de liens pour obtenir un complément d'information sur l'utilisation des sessions.
+</p>
+<ul>
+	<li><a href="http://fr.php.net/session" title="Documentation officielle des sessions PHP">Documentation officielle des sessions - PHP.net</a></li>
+	<li><a href="http://phpdebutant.org/article69.php" title="Tutoriel des sessions de PHPDebutant.org">Les sessions - tutoriel de PHPDebutant.org</a></li>
+	<li><a href="http://www.phpfrance.com/tutoriaux/index.php/2005/07/20/34-les-sessions-php" title="Tutoriel des sessions de PHPFrance.com">Les sessions - tutoriel de PHPFrance.com</a></li>
+	<li><a href="http://www.phpteam.net/index.php?option=com_content&amp;task=view&amp;id=29&amp;Itemid=54" title="Tutoriel de création d&#39;un espace sécurisé par le groupe PHPTeam">Créer un espace sécurisé - PHPTeam.net</a></li>
+	<li><a href="http://phpsec.org/projects/guide/fr/4.html" title="Principes de sécurité et failles courantes des sessions">La sécurité des sessions PHP</a></li>
+	<li><a href="http://www.nikrou.net/2006/09/02/112-ouverture-d-une-session-avec-php" title="Ouverture d&#39;une session PHP - Nicolas Roudaire">Ouverture d'une session PHP - Nikrou.net</a></li>
+	<li><a href="http://frederic.bouchery.free.fr/?2004/08/16/10-Simple-Comme-Les-Sessions" title="Simple comme les sessions - Frédéric Bouchery">Simple comme les sessions - Les mises au point de Frédéric Bouchery</a></li>
+</ul>
+<h3>Conclusion</h3>
+<p>
+Le tutoriel s'achève sur ces références. Nous vous recommandons vivement de jeter un oeil à la documentation de PHP au sujet des sessions pour regarder du côté des autres fonctions existantes non évoquées ici. Ceci n'était que le fondement théorique des sessions basé sur un exemple concret et pratique. Vous serez à présent en mesure de construire vos propres applications web à partir de sessions.
+</p>
+    </div>
+
+    <div class="visualClear">
+        <hr>
+    </div>
+    <ul class="paginationTutoriel">
+                <li class="lienTutoGauche">
+            <a href="http://www.apprendre-php.com/tutoriels/tutoriel-13-les-cookies.html">« Les cookies</a>
+        </li>
+    
+                <li class="lienTutoDroite">
+            <a href="http://www.apprendre-php.com/tutoriels/tutoriel-21-les-importations-de-fichiers-avec-require-et-include.html">Les importations de fichiers avec require() et include() »</a>
+        </li>
+        </ul>
+    <div class="visualClear">
+        <hr>
+    </div>
+
+    <h2>Les commentaires</h2>
+
+    <div id="commentaires">
+                    <div id="comment90" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">1.</span>
+                <span>Par saturn2</span>
+                <span>le 29/12/2007 01:48</span>
+            </p>
+            <blockquote>
+                <p>Bon clair et précis. Mais je pense que je vais allez faire un tour dans les liens annexes pour étoffer un peu tout cela !! <img src="./Les sessions_files/smile.gif" alt=""></p>
+            </blockquote>
+        </div>
+            <div id="comment158" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">2.</span>
+                <span>Par FranzOnBSD</span>
+                <span>le 08/02/2008 17:54</span>
+            </p>
+            <blockquote>
+                <p>Merci Emacs pour ce tutoriel. Très clair et très précis, et surtout très bien illustré, ce qui est le plus important pour les jeunes.</p>
+            </blockquote>
+        </div>
+            <div id="comment175" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">3.</span>
+                <span>Par algeo</span>
+                <span>le 15/02/2008 14:48</span>
+            </p>
+            <blockquote>
+                <p>je ne comprend toujours pas une chose avec les sessions. est ce qu'il faut que l'utilisateur accepte les cookies ou cela n'est pas obligatoire.</p>
+            </blockquote>
+        </div>
+            <div id="comment176" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">4.</span>
+                <span>Par Emacs</span>
+                <span>le 15/02/2008 15:45</span>
+            </p>
+            <blockquote>
+                <p>Oui ou non ! Tout dépend de la configuration des sessions sur ton serveur Web. Si tu as configuré les sessions pour que l'identifiant de session soit propagé dans un cookie, alors oui l'utilisateur doit accepter les cookies. Si tu configures les sessions pour que l'identifiant de session transite dans l'url en clair, alors non les cookies ne sont pas nécessaire. Le problème avec les identifiants de session dans l'url, c'est que c'est beaucoup plus facilement hackable que lorsque le cookie est propagé chez le client dans un cookie. Il faut toujours transporté l'identifiant de session dans un cookie et refuser strictement la transmission de l'identifiant par l'url. Après si ton client n'accepte pas les cookies, tant pis pour lui...</p>
+            </blockquote>
+        </div>
+            <div id="comment342" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">5.</span>
+                <span>Par Milka</span>
+                <span>le 23/07/2008 15:15</span>
+            </p>
+            <blockquote>
+                <p>Merci pour ce tutoriel instructif. Il est clair et précis, ce qui me fixe les idées et  m'aide à comprendre de manière exacte les sessions ! <img src="./Les sessions_files/smile.gif" alt=""></p>
+            </blockquote>
+        </div>
+            <div id="comment345" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">6.</span>
+                <span>Par Emacs</span>
+                <span>le 23/07/2008 19:34</span>
+            </p>
+            <blockquote>
+                <p>Merci beaucoup Milka <img src="./Les sessions_files/smile.gif" alt=""></p>
+            </blockquote>
+        </div>
+            <div id="comment673" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">7.</span>
+                <span>Par nko44</span>
+                <span>le 11/03/2009 16:41</span>
+            </p>
+            <blockquote>
+                <p>Bonjour et merci pour ce tutoriel très instructif.<br>
+J'ai néanmoins une question (de néophyte) : n'est-il pas risqué de véhiculer un login et un password dans des constantes comme il semble que ce soit le cas dans l'exemple ?<br>
+Ne vaudrait-il pas mieux les stocker dans une BDD et interroger cette BDD à chaque validation de formulaire d'authentification ?</p>
+            </blockquote>
+        </div>
+            <div id="comment674" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">8.</span>
+                <span>Par Emacs</span>
+                <span>le 12/03/2009 00:06</span>
+            </p>
+            <blockquote>
+                <p>@nko44 : il n'y a aucun risque puisque les constantes se trouvent dans le fichier PHP. Elles n'apparaîtront jamais au client. En quoi penses-tu que cela peut être moins sécurisé qu'une base de données ?</p>
+            </blockquote>
+        </div>
+            <div id="comment702" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">9.</span>
+                <span>Par philipsnet</span>
+                <span>le 06/04/2009 17:49</span>
+            </p>
+            <blockquote>
+                <p>merci je vais essayer mais en cas de problème je vais vous contacter encore</p>
+            </blockquote>
+        </div>
+            <div id="comment729" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">10.</span>
+                <span>Par Abdel</span>
+                <span>le 25/04/2009 20:32</span>
+            </p>
+            <blockquote>
+                <p>super tuto Merci, je voulu juste savoir pourquoi htmlspecialchars alors que le PHP_SELF il va retourné le nom de script sans une balise html<br>
+Merci une autre fois pour votre travail</p>
+            </blockquote>
+        </div>
+            <div id="comment859" class="commentaire">
+            <p class="infosPost">
+                <span class="commentNumber">11.</span>
+                <span>Par Voitures</span>
+                <span>le 18/07/2009 17:34</span>
+            </p>
+            <blockquote>
+                <p>J'avoue que j'ai déjà lu pas mal de tutoriel sur les sessions, j'ai vu des exemples et j'ai même testé quelques uns, mais j'avais toujours du mal à les exploiter comme je le souhaitais... Maintenant ce n'est plus le cas, grâce à ce tutoriel que je trouve assez claire, simple et très complet.<br>
+Un grand merci pour toi Emacs</p>
+            </blockquote>
+        </div>
+    
+    </div>
+
+                            </div><!-- end of #articles -->
+                    </div><!-- end of #content -->
+                </div><!-- end of #container -->
+                <div id="side">
+                    <div id="login-box">
+                                                    <form method="post" action="http://www.apprendre-php.com/auth">
+    <fieldset>
+        <legend>Identifiez-vous</legend>
+        <div>
+            <label for="login"><abbr title="Identifiant">ID</abbr></label>
+            <input type="text" id="login" name="login" value="">
+        </div>
+        <div>
+            <label for="pass"><abbr title="Mot de passe">MDP</abbr></label>
+            <input type="password" id="pass" name="password" value="">
+        </div>
+        <div id="actions">
+            <input type="submit" name="gotolog" value="OK" class="submit">
+            <a href="http://www.apprendre-php.com/forums/inscription.html" title="Rejoignez Apprendre-PHP !">Join</a><span class="masquer">&nbsp;|&nbsp;</span>
+            <a href="http://www.apprendre-php.com/forums/identifiants-perdus.html" title="Vous avez oublié vos identifiants ?"><abbr title="Identifiant">ID</abbr>/<abbr title="Mot de passe">MDP</abbr>?</a><span class="masquer">&nbsp;|&nbsp;</span>
+            <div class="clear">&nbsp;</div>
+        </div>
+    </fieldset>
+</form>
+                                            </div><!-- end of #login-box -->
+                    <div id="nav">
+                        
+                        <!-- Menu secondaire -->
+                            <h3>Cours &amp; tutoriels</h3>
+
+<ul>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-1-1-introduction-au-langage-php.html" title="Introduction au langage PHP">Introduction à PHP</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-2-1-les-environnements-de-travail-pour-dvelopper-en-php.html" title="Les environnements de travail pour développer en PHP">Environnements de...</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-3-1-les-bases-du-langage-php.html" title="Les bases du langage PHP">Les bases</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-12-1-traitement-d-images-avec-php.html" title="Traitement d&#39;images avec PHP">Les images</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-6-1-la-programmation-oriente-objet-poo.html" title="La programmation orientée objet (POO)">La POO</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-18-1-les-motifs-de-conception-design-patterns.html" title="Les motifs de conception (design patterns)">Les design patterns</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-17-1-scurit-des-applications-php.html" title="Sécurité des applications PHP">Sécurité PHP</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-21-1-les-frameworks-php.html" title="Les frameworks PHP">Les frameworks</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-19-1-bonnes-pratiques-de-dveloppement.html" title="Bonnes pratiques de développement">Bonnes pratiques</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-7-1-dveloppement-avanc-et-optimisation-des-applications.html" title="Développement avancé et optimisation des applications">Développement avancé...</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-8-1-exemples-concrets-de-scripts-php-utiles.html" title="Exemples concrets de scripts PHP utiles">Exemples concrets</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-10-1-les-serveurs-web-configuration-et-utilisation.html" title="Les serveurs Web : configuration et utilisation">Serveurs Web</a>
+    </li>
+    <li>
+        <a href="http://www.apprendre-php.com/tutoriels/categorie-24-1-congrs-salons-forums-autour-de-php.html" title="Congrès, salons, forums... autour de PHP">Evènements PHP</a>
+    </li>
+</ul>
+
+                        <!-- Livres PHP -->
+                        <h3>Livres utiles</h3>
+                            <p id="book">
+                                <a href="http://www.amazon.fr/gp/product/2212121679?ie=UTF8&amp;tag=appphp-21&amp;linkCode=as2&amp;camp=1642&amp;creative=6746&amp;creativeASIN=2212121679" title="">
+    <img src="./Les sessions_files/php-5-avance.jpg" alt="">
+</a>
+                            </p>
+
+                        <!-- Partenaires -->
+                        <h3>Partenaires</h3>
+                            <ul>
+                                <li><a href="http://www.urlrewriting.fr/" title="Url Rewriting, Regex: actualité, tutoriel, download">URL Rewriting</a></li>
+                                <li><a href="http://www.raynette.fr/script-gratuit/" title="Scripts PHP gratuits et professionnels avec Raynette">Scripts PHP gratuits</a></li>
+                                <li><a href="http://training.sensiolabs.com/fr/course/PHPC1/developpement-web-avec-php-mysql" title="Construire un site web dynamique avec PHP et MySQL">Formation PHP MySQL</a></li>
+                                <li><a href="http://training.sensiolabs.com/fr/course/PHPC2/programmation-orientee-objet-php" title="Programmation orientée objet avec PHP 5.3">Formation PHP 5.3 POO</a></li>
+                                <li><a href="http://training.sensiolabs.com/fr/course/GITC1/controle-version-code-git" title="Git pour les développeurs">Formation Git</a></li>
+                                <li><a href="http://training.sensiolabs.com/fr/course/SF2C2/developpement-web-avec-symfony2" title="Développement web avec Symfony2">Formation Symfony</a></li>
+                                <li><a href="http://www.jobsphp.fr/" title="Trouvez un emploi avec JobsPHP.fr">Emplois PHP</a></li>
+                                <li><a href="http://www.lephpfacile.com/" title="Cours de PHP">Le PHP Facile</a></li>
+                            </ul>
+                    </div><!-- end of #nav -->
+                </div><!-- end of #side -->
+                <div class="clear">&nbsp;</div><!-- presentational div -->
+            </div><!-- end of #fond-content -->
+        </div><!-- end of #page -->
+        <p id="footer">
+            Copyright © 2007 -  Apprendre-PHP.com - Tous droits réservés - Reproduction interdite même partielle - <a href="http://www.apprendre-php.com/tutoriels/tutoriel-14-les-sessions.html#page" title="Retour en haut de page">haut de page</a>
+            <br><br>
+            Webdesign par KAC - Intégration XHTML / CSS par Neovov - Développement par Emacs &amp; Palleas.
+        </p>
+        <div id="footer-img">&nbsp;</div>
+            <script type="text/javascript">
+        $(document).ready(function () {
+            $.post("/tutoriels/tutoriel-14/hits");
+        });
+    </script>
+        <script type="text/javascript" src="http://www.assoc-amazon.fr/s/link-enhancer?tag=appphp-21&amp;o=8"></script>
+        <noscript>
+            &lt;p&gt;
+                &lt;img src="http://www.assoc-amazon.fr/s/noscript?tag=appphp-21" alt="Boutique Amazon" /&gt;
+            &lt;/p&gt;
+        </noscript>
+        <script type="text/javascript" src="./Les sessions_files/jquery.min.js.téléchargement"></script>
+        <script type="text/javascript" src="./Les sessions_files/highlight.pack.js.téléchargement"></script>
+        <script type="text/javascript">
+            hljs.tabReplace = '    ';
+            hljs.initHighlightingOnLoad();
+        </script>
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+            </script><script src="./Les sessions_files/ga.js.téléchargement" type="text/javascript"></script>
+            <script type="text/javascript">
+            var pageTracker = _gat._getTracker("UA-3507931-1");
+            pageTracker._initData();
+            pageTracker._trackPageview();
+        </script>
+    
+</body></html>

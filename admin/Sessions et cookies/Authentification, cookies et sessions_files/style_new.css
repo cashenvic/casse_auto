@@ -1,0 +1,813 @@
+html {
+    /* Suppression des marges et remplissages :
+       Ecrasement des styles par défaut des divers navigateurs */
+    margin           : 0 ;
+    padding          : 0 ;
+    color            : black ;
+    background-color : transparent ;
+}
+
+/* Taille des polices */
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif ;
+}
+
+code, pre, pre.code, pre.terminal {
+    font-family: "Lucida Console", Monaco, monospace ;
+    font-size : 1.2em ;
+}
+/* FIN 
+ * Taille des polices */
+
+body {
+    /* Le corps du document */
+    /* text-align       : justify  ; */
+    overflow-y : scroll ;
+    color            : white ;
+    vertical-align   : text-bottom ;
+    margin           : 0.3em ;
+    padding          : 0.3em ;
+    background-color : black ;
+}
+
+#page {
+    color            : black ;
+    text-align       : left ;
+    margin-left      : auto ;
+    margin-right     : auto ;
+    width            : 1000px ;
+    min-height       : 100% ;
+    overflow         : visible ;
+    position         : relative ;
+    background-color : white ;
+    padding          : 5px ;
+}
+
+a:link, a:visited, a:active {
+    /***** background-color : #E6E6FA ; *****/
+    /***** text-decoration  : underline ; *****/
+    /* text-decoration  : none ; */
+    /***** border-bottom    : 1px dotted rgb(0,128,0) ; *****/
+    /***** color            : rgb(0,128,0) ; *****/
+    /***** border-bottom    : 2px dashed rgb(90, 0, 90) ; *****/
+    color            : rgb(90, 0, 90) ;
+    color            : rgb(60, 60, 180) ;
+    text-decoration  : none ;
+    font-weight : bold ;
+    /***** color            : rgb(80, 80, 80) ; *****/
+    background-color : transparent ;
+    /* font-weight      : bold ; */
+} 
+
+a:link:hover, a:visited:hover {
+    /***** border-bottom : 2px dotted rgb(150, 0, 150) ; *****/
+    /***** background-color : rgb(200, 200, 200) ; *****/
+    /***** text-decoration  : underline ; *****/
+    text-shadow     : 0.08em 0.05em 0.01em rgba(0,0,0,.4) ; /* Ombrage, sauf sur I.E. */
+} 
+
+div#accueil {
+    text-align : center ;
+}
+
+/* Liens de la page d'accueil */
+.lien a {
+    display         : block ;
+    font-size       : 130% ;
+    border-top      : solid 1px transparent ;
+    border-bottom   : solid 2px transparent ;
+    text-decoration : none ;
+}
+
+.lien a:hover {
+    /* text-shadow     : 0.05em 0.05em 0.1em black ; /* Ombrage, sauf sur I.E. */
+    /***** border-top          : solid 1px gray ; *****/
+    /***** border-bottom       : solid 2px gray ; *****/
+    text-decoration     : none ;
+    padding-left        : 1em ;
+    background-image    : url("images/right-mini.png") ;
+    background-position : left center ;
+    background-repeat   : no-repeat ;
+}
+
+div#page,
+div.titre_page,
+h1,
+h2,
+h3,
+div.Correction_PartieSujet > div.contenu,
+pre.code,
+pre.terminal,
+span.Correction_Correction,
+div.fieldset,
+div.legend,
+div.Correction_Examen,
+div.Correction_Sujet,
+div.extranet,
+div.erreur,
+iframe.code {
+    box-shadow     : 0.05em 0.05em 5px black ; /* Ombrage, sauf sur I.E. */
+    /* Propriété spécique à Mozilla */
+    -moz-border-radius : 5px ;
+    /* Propriété spécique à Safari et Chrome */
+    -webkit-border-radius : 5px ;
+    border-radius : 5px ;
+}
+
+div#page {
+    /* Propriété spécique à Mozilla */
+    -moz-border-radius : 10px ;
+    /* Propriété spécique à Safari et Chrome */
+    -webkit-border-radius : 10px ;
+    border-radius : 10px ;
+}
+
+/*
+@font-face {
+    font-family: monTitre;
+    src: url("OldNewspaperTypes.ttf") format("truetype");
+}
+    font-family: "monTitre", Serif;
+*/
+
+div.tete div.titre_page {
+    font-size        : 2.5em ;
+    font-weight      : normal ;
+    text-align       : center ;
+    font-variant     : small-caps ;
+    color            : white ;
+    background-color : black ;
+    margin           : 5px ;
+}
+
+h1 {
+    margin-top        : 15px ;
+    margin-bottom     : 5px ;
+    padding-top       : 0 ;
+    margin-right      : 10px  ;
+    padding-left      : 10px  ;
+    border            : 2px solid #B6B6B6 ;
+    border-top        : 2px solid white ;
+    border-left       : 2px solid white ;
+    background-color  : rgb(120, 120, 120) ;
+    /***** color             : rgb(150, 50, 50) ; *****/
+    color             : white ;
+    background-image  : url("images/fond-h1.png") ;
+    background-repeat : repeat-y ;
+    font-size         : 1.7em ;
+    font-variant      : small-caps ;
+    font-weight       : bold ;
+}
+
+h2 {
+    color             : rgb(0,0,0) ;
+    font-variant      : small-caps ;
+    margin-bottom     : 5px ;
+    margin-left       : -8px ;
+    padding-left      : 10px ;
+    position          : relative ;
+    /***** left              : -20px ; *****/
+    /***** width             : 955px ; *****/
+    background        : white ;
+    border            : solid 1px black ;
+    background-color  : rgb(120, 120, 120) ;
+    background-image  : url("images/fond-h2.png") ;
+    background-repeat : repeat-y ;
+    font-weight       : bold ;
+    font-size         : 1.3em ;
+}
+
+h3 {
+    margin-bottom     : 5px ;
+    margin-left       : -8px ;
+    padding-left      : 10px ;
+    background-color  : rgb(120, 120, 120) ;
+    font-variant      : small-caps ;
+    border            : solid 1px white ;
+}
+
+img {
+    /* Les images */
+    border         : none ;
+    vertical-align : middle ;
+}
+
+img.capture {
+    /* Les images 'capture d'écran' */
+    display          : block ;
+    border           : 2px solid gray ;
+    margin           : 0.2em ;
+    padding          : 8px ;
+    background-image : url("images/capture.png") ;
+}
+
+div.Correction_PartieSujet {
+    margin           : 0 ;
+    padding          : 0 ;
+    background-color : transparent ;
+    border           : none ;
+}
+
+div.Correction_PartieSujet h1 {
+    margin-bottom      : 4px ;
+    border-right       : 2px solid black ;
+    border-bottom : none ;
+}
+
+div.Correction_PartieSujet > div.contenu {
+    border-right       : 2px solid black ;
+    border-bottom      : 2px solid black ;
+    border-left        : 1px solid white ;
+    border-top         : none ;
+    margin             : 10px ;
+    margin-top         : 0 ;
+    margin-left        : 20px ;
+    padding            : 10px ;
+    background-color   : rgb(220, 220, 220) ;
+    color              : black ;
+    text-align : justify ;
+}
+
+div.Correction_PartieSujet > div.contenu div.contenu {
+    margin-left  : 0 ;
+    margin-right : 0 ;
+    border-width : 0 ;
+}
+
+table {
+    /* Les tableaux */
+    color            : black ;
+    background-color : white ;
+    text-align       : justify  ;
+    border-collapse  : separate ; /* Ne pas coller les cellules */
+    border-style     : none ;     /* Pas de bords */
+    empty-cells      : show ;     /* Ne pas masquer les cellules vides */
+}
+
+caption {
+    caption-side : top ;  /* Bien que IE ne sache pas faire autrement... */
+    text-align   : left ;
+    font-weight  : bold ;
+}
+
+td {
+    background-color : #B6B6B6 ;
+    color            : black ;
+    white-space      : nowrap ; /* Ne pas couper les espaces */
+}
+
+td.centre {
+    text-align : center ;
+}
+
+table.Correction_PartieSujet {
+    border-collapse  : collapse ;
+    empty-cells      : show ;
+    background-color : transparent ;
+    color            : black ;
+}
+
+table.Correction_PartieSujet td {
+    margin           : 0 ;
+    padding          : 0 ;
+    background-color : transparent ;
+    vertical-align   : middle ;
+}
+
+/*
+table.Correction_PartieSujet td.csg {
+    background-image : url("csg.png") ;
+}
+
+table.Correction_PartieSujet td.mil {
+    background-color : #B6B6B6 ;
+}
+*/
+
+th {
+    font-weight      : bold ;
+    padding          : 4px ;
+    background-color : #969696 ;
+    color            : black ;
+}
+
+code {
+    font-weight  : bold ;
+    font-variant : normal ;
+    font-family  : monospace ;
+}
+
+code.cmd {
+    font-style : italic ;
+}
+
+pre.code {
+    padding          : 0.4em 1em 0.4em 1em;
+    font-family      : monospace ;
+    font-weight      : bold ;
+    overflow         : auto ;
+    background-color : white ;
+    border           : solid 1px black ;
+}
+
+pre.terminal {
+    padding          : 0.4em 1em 0.4em 1em;
+    background-color : black ;
+    font-family      : monospace ;
+    font-weight      : bold ;
+    overflow         : auto ;
+    color            : white ;
+    border           : solid 1px white ;
+}
+
+iframe.code {
+    margin-top       : 10px ;
+    margin-bottom    : 10px ;
+    width            : 100% ;
+    border           : solid 1px black ;
+    display          : block ;
+    background-color : white ;
+}
+
+@keyframes animateColor {
+    0% {
+        color : rgb(32, 160, 32) ;
+    }
+    50% {
+        color : rgb(160, 32, 32) ;
+    }
+    100% {
+        color : rgb(32, 160, 32) ;
+    }
+}
+
+@-webkit-keyframes animateColor {
+    0% {
+        color : rgb(32, 160, 32) ;
+    }
+    50% {
+        color : rgb(160, 32, 32) ;
+    }
+    100% {
+        color : rgb(32, 160, 32) ;
+    }
+}
+
+@-moz-keyframes animateColor {
+    0% {
+        color : rgb(32, 160, 32) ;
+    }
+    50% {
+        color : rgb(160, 32, 32) ;
+    }
+    100% {
+        color : rgb(32, 160, 32) ;
+    }
+}
+
+samp {
+    font              : inherit ;
+    color             : rgb(32, 160, 32) ;
+    background-color  : transparent ;
+    animation         : animateColor 3s infinite;
+    -webkit-animation : animateColor 3s infinite;
+    -moz-animation    : animateColor 3s infinite;
+}
+
+em {
+    color            : rgb(160, 32, 32) ;
+    background-color : transparent ;
+    font-weight      : bold ;
+}
+
+dt {
+    font-weight : bold ;
+}
+
+ul, ol {
+    margin-top : 0.1em ;
+}
+
+ul {
+    list-style-image : url("images/puce.2.png") ;
+}
+
+li {
+    margin-top : 0.1em ;
+}
+
+form {
+    margin-top    : 0 ;
+    margin-bottom : 0 ;
+}
+
+input.button {
+    background   : #D6D6D6 ;
+    color        : #000000 ;
+    font-weight  : bold ;
+    border-width : 2px 2px 2px 2px ;
+    border-style : solid ;
+    border-color : #B4B2B4 #444444 #444444 #B4B2B4 ;
+} 
+
+div.fieldset {
+    background       : white ;
+    background-color : transparent ;
+    border           : 1px solid black ;
+    padding          : 1em ;
+    margin           : 1.2em ;
+    padding          : 10px ;
+    margin-left      : 0 ;
+    margin-right     : 0 ;
+}
+
+div.legend {
+    position     : relative ;
+    bottom       : 1.4em ;
+    padding      : 2px ;
+    padding-left : 0.5em ;
+    font-weight  : bold ;
+}
+
+div.fieldset > * {
+    margin-top: -1.2em;
+}
+
+div.fieldset > div.legend {
+    margin-top: 0;
+}
+
+div.Correction_MenuNavigation {
+    background-color : white ;
+    border           : solid 1px black ; ;
+    margin-left      : 20px  ;
+    padding-left     : 50px ;
+    margin-right     : 10px ;
+    padding-bottom : 0 ;
+}
+
+div.Correction_MenuNavigation > div.legend {
+    background-color : #B6B6B6 ;
+}
+
+div.Correction_MenuNavigation ul {
+    list-style-image : url("images/right-mini.png") ;
+    margin-top : 0 ;
+    margin-bottom : 0 ;
+}
+
+div.Correction_MenuNavigation ul li.home {
+    list-style-image : url("images/clasp-mini.png") ;
+}
+
+div.Correction_NoteAuxEnseignants {
+    border              : 2px solid rgb(32, 32, 160) ;
+    background-color    : rgb(224, 224, 245) ;
+    /* http://www.softicons.com/free-icons/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/ */
+    background-image    : url("images/user-admin.png") ;
+    background-position : left center ;
+    background-repeat   : no-repeat ;
+    padding-left        : 50px ;
+}
+
+div.Correction_NoteAuxEnseignants > div.legend {
+    background-color : rgb(32, 32, 160) ;
+    color            : white ;
+}
+
+div.Correction_Alerte {
+    display             : block ;
+    text-align          : left ;
+    color               : black ;
+    padding             : 0.3em ;
+    padding-left        : 0.5em ;
+    padding-right       : 0.5em ;
+    /* http://www.softicons.com/free-icons/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/ */
+    background-image    : url("images/alert.png") ;
+    background-position : left center ;
+    background-repeat   : no-repeat ;
+    background-color    : rgb(245, 224, 224) ;
+    border              : 2px solid rgb(160, 32, 32) ;
+    padding-left        : 50px ;
+}
+
+div.Correction_Alerte > div.legend {
+    background-color : rgb(160, 32, 32) ;
+    color            : white ;
+}
+
+div.Correction_TravailARealiser {
+    display             : block ;
+    text-align          : left ;
+    color               : black ;
+    padding             : 0.3em ;
+    padding-left        : 0.5em ;
+    padding-right       : 0.5em ;
+    /* http://www.softicons.com/free-icons/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/ */
+    background-image    : url("images/timer.png") ;
+    background-position : left center ;
+    background-repeat   : no-repeat ;
+    background-color    : rgb(224, 245, 245) ;
+    border              : 2px solid rgb(32, 160, 160) ;
+    padding-left        : 50px ;
+}
+
+div.Correction_TravailARealiser > div.legend {
+    background-color : rgb(32, 160, 160) ;
+    color            : white ;
+}
+
+div.valid {
+    clear : both ;
+    position   : relative ;
+    right      : 20px ;
+    text-align : right ;
+}
+
+span#lastmodified {
+    display      : block ;
+    text-align   : right ;
+    margin-right : 20px  ;
+}
+
+div.sujets {
+}
+
+div.Correction_Sujet {
+    border     : 2px solid navy ;
+    margin-top : 10px ;
+}
+
+div.Correction_Examen {
+    border              : 2px solid rgb(160, 32, 32) ;
+    background-image    : url("images/calendar.png") ;
+    background-position : right center ;
+    background-repeat   : no-repeat ;
+    margin-top          : 10px ;
+    padding-right       : 50px ;
+}
+
+@keyframes animateBorder {
+    0% {
+        border-color : inherit ;
+    }
+    50% {
+        border-color : green ;
+    }
+    100% {
+        border-color : inherit ;
+    }
+}
+
+@-webkit-keyframes animateBorder {
+    0% {
+        box-shadow     : 0.05em 0.05em 5px black ; /* Ombrage, sauf sur I.E. */
+    }
+    50% {
+        box-shadow     : 0.2em 0.2em 5px green ; /* Ombrage, sauf sur I.E. */
+    }
+    100% {
+        box-shadow     : 0.05em 0.05em 5px black ; /* Ombrage, sauf sur I.E. */
+    }
+}
+
+@-moz-keyframes animateBorder {
+    0% {
+        border-style : solid ;
+    }
+    50% {
+        border-style : dashed ;
+    }
+    100% {
+        border-style : solid ;
+    }
+}
+
+div.sujetcourant {
+    background-color : gray ;
+    color            : white ;
+    /***** border           : 2px solid rgb(32, 160, 32) ; *****/
+    animation         : animateBorder 5s infinite;
+    -webkit-animation : animateBorder 5s infinite;
+    -moz-animation    : animateBorder 5s infinite;
+}
+
+div.sujetcourant a:link,
+div.sujetcourant a:visited,
+div.sujetcourant a:active,
+div.sujetcourant div.titre {
+    font-weight : bold ;
+}
+
+div.Correction_Examen div.numero,
+div.Correction_Sujet div.numero {
+    margin-left : 30px ;
+    display     : inline ;
+}
+
+div.Correction_Examen div.descriptif,
+div.Correction_Sujet div.descriptif {
+    margin-left    : 30px ;
+    display        : block ;
+    padding-bottom : 5px ;
+    padding-top    : 5px ;
+}
+
+div.Correction_Examen div.titre,
+div.Correction_Sujet div.titre {
+    display     : inline ;
+    font-size   : 1.5em ;
+    font-weight : bold ;
+}
+
+div.Correction_Examen div.titre {
+    color : rgb(160, 32, 32) ;
+}
+div.Correction_Sujet div.titre a:link {
+    text-decoration : none ;
+}
+
+div.Correction_Examen div.periode,
+div.Correction_Sujet div.periode {
+    padding-left : 0.2em ;
+    font-weight  : bold ;
+}
+
+div.Correction_Sujet div.decompte {
+    padding-right : 0.2em ;
+    float : right ;
+}
+
+span.Correction_Correction, div.Correction_Correction {
+    border           : 2px solid rgb(32, 160, 32) ;
+    background-color : rgb(224, 245, 224) ;
+}
+
+span.Correction_Correction a:link, div.Correction_Correction a:link,
+span.Correction_Correction a:active, div.Correction_Correction a:active,
+span.Correction_Correction a:visited, div.Correction_Correction a:visited,
+span.Correction_Correction a:hover, div.Correction_Correction a:hover {
+    color           : rgb(32, 160, 32) ;
+    cursor : help ;
+}
+
+span.Correction_Correction {
+    display             : block ;
+    text-align          : left ;
+    color               : black ;
+    padding             : 0.3em ;
+    padding-left        : 0.5em ;
+    padding-right       : 0.5em ;
+    margin-top          : 8px ;
+    margin-bottom       : 8px ;
+    background-image    : url("images/tick-mini.png") ;
+    background-position : left center ;
+    background-repeat   : no-repeat ;
+    padding-left        : 26px ;
+}
+
+div.Correction_Correction {
+    background-image : url("images/tick.png") ;
+    background-position : left center ;
+    background-repeat : no-repeat ;
+    padding-left : 50px ;
+}
+
+div.Correction_Correction > div.legend {
+    background-color : rgb(32, 160, 32) ;
+    color            : white ;
+}
+
+.Correction_Correction input.Correction_Correction {
+    display : block ;
+    float   : right ;
+}
+
+div.erreur {
+    padding : 0.5em ;
+    background-color: #f57900 ;
+    border: solid 2px black ;
+}
+
+span.fichier {
+    display : block ;
+}
+
+span.date_modif {
+    font-style : italic ;
+    font-size  : 0.8em ;
+}
+
+div#info_div {
+    position         : absolute ;
+    border           : 1px solid black ;
+    background-color : #FFFFBF ;
+}
+
+
+
+span.Correction_Correction a:link, span.Correction_Correction a:visited {
+    cursor : help ;
+}
+
+
+
+span.fichier {
+    display : block ;
+}
+
+span.date_modif {
+    font-style : italic ;
+    font-size  : 0.8em ;
+}
+
+div#info_div {
+    position         : absolute ;
+    border           : 1px solid black ;
+    background-color : #FFFFBF ;
+    color            : black ;
+}
+
+div#info_div p {
+    font-weight      : bold ;
+    background-color : #B6B6B6 ;
+    color            : black ;
+    margin           : 0 ;
+    padding-left     : 10px ;
+}
+
+div#b_connexion {
+    padding       : 0 ;
+    margin        : 0 ;
+    margin-bottom : 5px ;
+    text-align    : right ;
+    margin-right  : 5px ;
+    margin-left   : 5px ;
+}
+
+div#b_connexion.erreur {
+    background-color : rgb(200, 0, 0) ;
+    color            : white ;
+    font-weight      : bold ;
+}
+
+tr.tr_1 td {
+    background-color : #DBDBDB ;
+}
+
+.clear {
+    clear : both ;
+}
+
+.hidden {
+    display : none ;
+}
+
+.ligne_commande:before {
+    /***** content : "$ " ; *****/
+}
+.ligne_commande {
+    display          : block ;
+    font-family      : "Courier new", monospace; 
+    color            : white ;
+    background-color : black ;
+    font-weight      : bold ;
+    border           : solid 1px gray ;
+    padding          : 0.1em 0.4em 0.1em 0.4em ;
+}
+
+form.activation,
+form.activation * {
+    margin : 0 ;
+    padding : 0 ;
+    display : inline ;
+}
+form.activation input.bouton {
+    background-color : transparent ;
+    background-color : rgb(224, 245, 224) ;
+    border           : 1px solid rgb(32, 160, 32) ;
+    border           : none ;
+    color            : rgb(32, 160, 32) ;
+}
+
+.extranet a:link,
+.extranet a:visited,
+.extranet a:active,
+.extranet a:link:hover,
+.extranet a:visited:hover,
+.extranet a:active:hover {
+    color            : white ;
+    font-weight      : bold ;
+    text-decoration  : underline ;
+}
+.extranet {
+    background-color    : rgb(200, 20, 20) ;
+    color               : white ;
+    font-weight         : bold ;
+    padding             : 1em 2em ;
+    /* http://www.softicons.com/free-icons/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/ */
+    background-image    : url("images/locked.png") ;
+    background-position : left center ;
+    background-repeat   : no-repeat ;
+    padding-left        : 50px ;
+}

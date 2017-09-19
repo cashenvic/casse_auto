@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://openclassrooms.com/forum/sujet/authentification-php-session-cookie -->
+<html class="js supports no-touchevents cssfilters" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+            var App = {};
+            App.startTime = (new Date()).getTime();
+
+            var _sf_startpt = App.startTime;
+        </script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQQOUlNSCRACVFJSBQAHUQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function p(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="msapplication-TileImage" content="/bundles/common/images/928bd40a-9507-4495-977d-ace7d554190b.png">
+<meta name="application-name" content="OpenClassrooms">
+<meta name="msapplication-TileColor" content="#002D40">
+<meta name="msapplication-TileImage" content="/bundles/common/images/928bd40a-9507-4495-977d-ace7d554190b.png">
+<meta name="theme-color" content="#E95325">
+<link rel="icon" sizes="144x144" href="https://openclassrooms.com/icon-white-trans.png?v=1">
+<link href="./Authentification PHP, session, cookie par GumDum_files/jquery-ui-47cbf8fc.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Authentification PHP, session, cookie par GumDum_files/master-27f387eb.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Authentification PHP, session, cookie par GumDum_files/old-eaf5fa3e.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Authentification PHP, session, cookie par GumDum_files/syntaxhl-fb83473f.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Authentification PHP, session, cookie par GumDum_files/old-common-5399598a.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Authentification PHP, session, cookie par GumDum_files/main-5273d06e.css" type="text/css" rel="stylesheet" media="all">
+<script>
+    /*! modernizr 3.3.1 (Custom Build) | MIT *
+    * https://modernizr.com/download/?-cssfilters-touchevents-setclasses !*/
+    !function(e,n,t){function o(e,n){return typeof e===n}function r(){var e,n,t,r,s,i,a;for(var l in C)if(C.hasOwnProperty(l)){if(e=[],n=C[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(r=o(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++)i=e[s],a=i.split("."),1===a.length?Modernizr[a[0]]=r:(!Modernizr[a[0]]||Modernizr[a[0]]instanceof Boolean||(Modernizr[a[0]]=new Boolean(Modernizr[a[0]])),Modernizr[a[0]][a[1]]=r),g.push((r?"":"no-")+a.join("-"))}}function s(e){var n=w.className,t=Modernizr._config.classPrefix||"";if(x&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(o,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),x?w.className.baseVal=n:w.className=n)}function i(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):x?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function a(){var e=n.body;return e||(e=i(x?"svg":"body"),e.fake=!0),e}function l(e,t,o,r){var s,l,u,f,p="modernizr",c=i("div"),d=a();if(parseInt(o,10))for(;o--;)u=i("div"),u.id=r?r[o]:p+(o+1),c.appendChild(u);return s=i("style"),s.type="text/css",s.id="s"+p,(d.fake?d:c).appendChild(s),d.appendChild(c),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),c.id=p,d.fake&&(d.style.background="",d.style.overflow="hidden",f=w.style.overflow,w.style.overflow="hidden",w.appendChild(d)),l=t(c,e),d.fake?(d.parentNode.removeChild(d),w.style.overflow=f,w.offsetHeight):c.parentNode.removeChild(c),!!l}function u(e,n){return!!~(""+e).indexOf(n)}function f(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function p(e,n){return function(){return e.apply(n,arguments)}}function c(e,n,t){var r;for(var s in e)if(e[s]in n)return t===!1?e[s]:(r=n[e[s]],o(r,"function")?p(r,t||n):r);return!1}function d(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function m(n,o){var r=n.length;if("CSS"in e&&"supports"in e.CSS){for(;r--;)if(e.CSS.supports(d(n[r]),o))return!0;return!1}if("CSSSupportsRule"in e){for(var s=[];r--;)s.push("("+d(n[r])+":"+o+")");return s=s.join(" or "),l("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return t}function h(e,n,r,s){function a(){p&&(delete k.style,delete k.modElem)}if(s=o(s,"undefined")?!1:s,!o(r,"undefined")){var l=m(e,r);if(!o(l,"undefined"))return l}for(var p,c,d,h,v,y=["modernizr","tspan","samp"];!k.style&&y.length;)p=!0,k.modElem=i(y.shift()),k.style=k.modElem.style;for(d=e.length,c=0;d>c;c++)if(h=e[c],v=k.style[h],u(h,"-")&&(h=f(h)),k.style[h]!==t){if(s||o(r,"undefined"))return a(),"pfx"==n?h:!0;try{k.style[h]=r}catch(g){}if(k.style[h]!=v)return a(),"pfx"==n?h:!0}return a(),!1}function v(e,n,t,r,s){var i=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+j.join(i+" ")+i).split(" ");return o(n,"string")||o(n,"undefined")?h(a,n,r,s):(a=(e+" "+E.join(i+" ")+i).split(" "),c(a,n,t))}function y(e,n,o){return v(e,t,t,n,o)}var g=[],C=[],S={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){C.push({name:e,fn:n,options:t})},addAsyncTest:function(e){C.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=S,Modernizr=new Modernizr;var w=n.documentElement,x="svg"===w.nodeName.toLowerCase(),_=S._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];S._prefixes=_;var b="CSS"in e&&"supports"in e.CSS,T="supportsCSS"in e;Modernizr.addTest("supports",b||T);var z=S.testStyles=l;Modernizr.addTest("touchevents",function(){var t;if("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch)t=!0;else{var o=["@media (",_.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");z(o,function(e){t=9===e.offsetTop})}return t});var P="Moz O ms Webkit",j=S._config.usePrefixes?P.split(" "):[];S._cssomPrefixes=j;var E=S._config.usePrefixes?P.toLowerCase().split(" "):[];S._domPrefixes=E;var N={elem:i("modernizr")};Modernizr._q.push(function(){delete N.elem});var k={style:N.elem.style};Modernizr._q.unshift(function(){delete k.style}),S.testAllProps=v,S.testAllProps=y,Modernizr.addTest("cssfilters",function(){if(Modernizr.supports)return y("filter","blur(2px)");var e=i("a");return e.style.cssText=_.join("filter:blur(2px); "),!!e.style.length&&(n.documentMode===t||n.documentMode>9)}),r(),s(g),delete S.addTest,delete S.addAsyncTest;for(var A=0;A<Modernizr._q.length;A++)Modernizr._q[A]();e.Modernizr=Modernizr}(window,document);
+    </script>
+<link rel="shortcut icon" href="https://openclassrooms.com/favicon.ico?8cc77d9">
+<title> Authentification PHP, session, cookie par GumDum </title>
+ 
+<script type="text/javascript">
+    var App = {
+        startTime: (new Date()).getTime(),
+        pageGenerationDate: 1490807194000
+    };
+
+    App.user = {
+        
+        
+        isPremium: false
+    };
+
+    App.preferences = {
+        debug: false,
+        assetVersion: '8cc77d9',
+        contactMail: 'hello\x40openclassrooms.com',
+        adyenPublicKey: '10001\x7C889EBFD4D434B82683E21DCA26E77C3E20E0EE09A5ECE3830B0ED51F2FA721A2F7E9EC871C6AB9A1E12C4492F4717673047757E02C5256D8E265CD51E413E5EFCCFEAC41B39C662A424ADC13EE187C38C372A7FCCEC1EA5DF841989437D78B252A8EB51008E60BB55B1E55A7A80DE1A9D60D998C128A576BFAE1DDB97D514AF0A073AEDDE84CEE40D1F8F6ECE85D0FFA50C95C06DB274021C1371376C6EB16561FD65C5E2704B570A7504D617D0F3820F176A0609F6162BDF5890533289FDC3DA7DB03B50BB3BD60A613E1FF72060F22987627E8F1A29F0128A94EC4C8FF7CF6B7AB9558D8433BF86D7A388AB927641CD6C02689139CEE3AAC9ACBFFE83806CB',
+        cdnImage: false,
+        layer: {
+            appId: 'layer\x3A\x2F\x2F\x2Fapps\x2Fstaging\x2F7757c53a\x2Db2ba\x2D11e5\x2Db2a6\x2D2584730b1501',
+            identityProviderUrl: '\x2Fajax\x2Fconversations\x2Fget\x2Didentity\x2Dtoken'
+        },
+        algolia: {
+            appId: 'JGRXRFVQM0',
+            apiKey: 'dfbdea500cb0b5f46e449ad334916c44', indexName: 'prod_v2_COURSES_fr'
+        },
+        routes: {
+            COURSE_EVENT: '/components/courses/:courseId',
+            COURSE_PART_EVENT: '/components/courses/:courseId/parts/:partId',
+
+            ACCEPT_COOKIE: '\x2Fcomponents\x2Fuser\x2Daccept\x2Dconsent\x2Dcookie'
+        },
+
+                    };
+
+    App.preferences.navigationPreference = {
+            };
+
+    App.preferences.modules = {
+        'smiley': {
+            basePath: '/bundles/common/images/smiley/'
+        }
+    };
+
+    App.notifications = {};
+    App.scripts = [];
+</script>
+ 
+<style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style></head>
+<body class="oc-body oldsdz "><div id="MathJax_Message" style="display: none;"></div>
+<div id="react_root"></div>
+<script id="_EVENTS-PAGE" type="application/json">
+        {
+            "type": "page",
+            "integrations": {
+                "HubSpot": false
+            }
+        }
+    </script>
+<header id="oc-header" class="js-tabs-mobile mainHeader  ">
+<!--[if lt IE 9]>
+<div class="disclaimer  disclaimer-error">
+    Vous utilisez un navigateur obsolète, veuillez le <a href="http://browsehappy.com/">mettre à jour</a>.
+</div>
+<![endif]-->
+<noscript>
+&lt;div class="disclaimer  disclaimer--error"&gt;
+Veuillez utiliser un &lt;a href="http://browsehappy.com/"&gt;navigateur internet moderne&lt;/a&gt; avec JavaScript activé pour naviguer sur OpenClassrooms.com
+&lt;/div&gt;
+</noscript>
+<div class="disclaimer  disclaimer--info hidden  js-cookie-disclaimer">
+<div class="disclaimer__wrapper">
+<span class="disclaimer__content">
+Bienvenue sur OpenClassrooms ! En poursuivant votre navigation, vous acceptez l'utilisation de cookies. <a href="https://openclassrooms.com/privacy-policy#personal-data-gathering">En savoir plus</a>
+</span>
+<span class="disclaimer__actions">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" class="disclaimer__button  js-close-button">ok</a>
+</span>
+</div>
+</div>
+<div class="mainHeader__wrapper">
+<div class="mainHeader__inner">
+<a href="https://openclassrooms.com/" class="mainHeader__logo" title="OpenClassrooms.com">
+OpenClassrooms.com
+</a>
+<div class="mainHeader__content">
+<div id="tab-main" class="mainHeader__tabs">
+<div class="mainHeader__container mainHeader__container--mainMenu">
+<nav>
+<ul class="mainTopNav">
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/paths/">Parcours</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/courses">Cours</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/forum/">Forums</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item" href="https://openclassrooms.com/premium">Premium</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item u--colorBusiness" href="https://openclassrooms.com/for-business">For Business</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="mainHeader__container  mainHeader__container--search">
+<div id="tab-search" class="mainHeader__search  js-header-searchContainer"><div class="js-courseSearch  topSearchBox">
+<form tabindex="0" class="js-courseSearch-form  oc-form" action="https://openclassrooms.com/courses" method="get">
+<div class="js-courseSearch-inputGroup oc-form__widget  inputGroup topSearchBox__inner u--block">
+<i class="topSearchBox__icon icon-search"></i>
+<input id="algolia-search-input" type="search" class="js-courseSearch-input oc-form__control inputGroup__input  topSearchBox__input" title="Rechercher" autocomplete="off" data-option_source="https://openclassrooms.com/components/courses/search?q=&lt;%= term %&gt;" placeholder="Rechercher" aria-label="Rechercher" name="q">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="mainHeader__container  mainHeader__container--login">
+<a href="https://openclassrooms.com/register" class="mainHeader__actionButton  button button--primary button--compact js-popin-activator" data-popin-selector="#popin-sign-in">
+S'inscrire
+</a>
+<a href="https://openclassrooms.com/login" class="mainHeader__actionButton  button button--compact js-popin-activator" data-popin-selector="#popin-log-in">
+Se connecter
+</a>
+</div>
+<aside tabindex="-1" role="dialog" aria-labelledby="popin-sign-in_popin_title" class="popin popin--small  js-popin" id="popin-sign-in">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<h3 id="popin-sign-in_popin_title" class="popin__title  js-popin-title">Inscription</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<div class="formLogin formLogin--smallSize">
+<ul class="table table--fullwidth u--noMargin">
+<li class="formLogin__column">
+<a class="button button--facebook button--fullwidth formLogin__facebook" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=277769842283905&amp;state=756974e8964b9a427873d83f5159f4d6&amp;response_type=code&amp;sdk=php-sdk-5.4.4&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_facebook&amp;scope=public_profile%2Cemail%2Cuser_birthday">
+<i class="icon-facebook"></i>S'inscrire avec Facebook
+</a>
+<a class="button button--google button--fullwidth formLogin__google" href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;access_type=online&amp;client_id=132418960718-jdnmpug3g9e6ub2p41ergcci1492qh82.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_google&amp;state&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&amp;approval_prompt=auto">
+<i class="icon-google"></i>S'inscrire avec Google
+</a>
+</li>
+<li class="formLogin__column">
+<form name="register" method="post" action="https://openclassrooms.com/register" class="js-registerForm oc-form">
+<div class="accessibility-hidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Wonder&nbsp;
+<abbr class="oc-form__required js-form-required wonder oc-form__required-hidden" title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_wonder" name="register[wonder]" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Prénom&nbsp;
+<abbr class="oc-form__required js-form-required firstName " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_firstName" name="register[firstName]" required="required" maxlength="100" autofocus="autofocus" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Nom&nbsp;
+<abbr class="oc-form__required js-form-required lastName " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="register_lastName" name="register[lastName]" required="required" maxlength="100" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Adresse email&nbsp;
+<abbr class="oc-form__required js-form-required email " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="email" id="register_email" name="register[email]" required="required" maxlength="80" aria-label=" " data-check-email="1" class=" textInput textInput--email"></span></label>
+<p>
+<em>
+Vous recevrez votre mot de passe sur cette adresse email.
+</em>
+</p>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row  oc-form__row--reversed  "><span class="oc-form__widget"><span class="ocCheckbox"><input type="checkbox" id="register_terms" name="register[terms]" required="required" aria-label=" " class="" value="1"><span class="ocCheckbox__check"></span></span></span><span class="oc-form__label-text"><span class="oc-form__label-text ">
+J'ai lu et j'accepte les <a target="_blank" href="https://openclassrooms.com/terms-conditions">Conditions Générales d'Utilisation</a>.&nbsp;
+<abbr class="oc-form__required js-form-required terms " title="requis"><span>*</span></abbr></span></span></label>
+</div>
+<div class="oc-form__group  center-text">
+<button type="submit" id="register_create" name="register[create]" class="button button--primary button"> S'inscrire</button>
+</div>
+<input type="hidden" id="register__target_path" name="register[_target_path]" class=" textInput textInput--hidden" value="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie"><input type="hidden" id="register__token" name="register[_token]" class=" textInput textInput--hidden" value="uIhvy6MQPIKXCpNn_PgWEyN20E9z53UpHCRml8djCMo"></form>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<aside tabindex="-1" role="dialog" aria-labelledby="popin-log-in_popin_title" class="popin popin--small  js-popin" id="popin-log-in">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<h3 id="popin-log-in_popin_title" class="popin__title  js-popin-title">Connexion</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<div class="formLogin formLogin--smallSize">
+<ul class="table table--fullwidth u--noMargin">
+<li class="formLogin__column">
+<a class="button button--facebook button--fullwidth formLogin__facebook" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=277769842283905&amp;state=756974e8964b9a427873d83f5159f4d6&amp;response_type=code&amp;sdk=php-sdk-5.4.4&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_facebook&amp;scope=public_profile%2Cemail%2Cuser_birthday"><i class="icon-facebook"></i> Se connecter avec Facebook</a>
+<a class="button button--google button--fullwidth formLogin__google" href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;access_type=online&amp;client_id=132418960718-jdnmpug3g9e6ub2p41ergcci1492qh82.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fopenclassrooms.com%2Flogin_check_google&amp;state&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&amp;approval_prompt=auto"><i class="icon-google"></i> Se connecter avec Google</a>
+</li>
+<li class="formLogin__column">
+<form name="" method="post" action="https://openclassrooms.com/login_check" class=" oc-form">
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Adresse email ou nom d'utilisateur&nbsp;
+<abbr class="oc-form__required js-form-required _username " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="text" id="_username" name="_username" required="required" autofocus="autofocus" aria-label=" " class=" textInput textInput--text"></span></label>
+</div>
+<div class="oc-form__group oc-form--requiredHidden">
+<label class="oc-form__row    "><span class="oc-form__label-text ">
+Mot de passe&nbsp;
+<abbr class="oc-form__required js-form-required _password " title="requis"><span>*</span></abbr></span><span class="oc-form__widget formWidget "><input type="password" id="_password" name="_password" required="required" aria-label=" " class=" textInput textInput--password"></span></label>
+</div>
+<div class="oc-form__group">
+<label class="oc-form__row  oc-form__row--reversed  "><span class="oc-form__widget"><span class="ocCheckbox"><input type="checkbox" id="_remember_me" name="_remember_me" aria-label=" " class="" value="1" checked="checked"><span class="ocCheckbox__check"></span></span></span><span class="oc-form__label-text"><span class="oc-form__label-text ">
+Se souvenir de moi&nbsp;
+<abbr class="oc-form__required js-form-required _remember_me oc-form__required-hidden" title="requis"><span>*</span></abbr></span></span></label>
+</div>
+<div class="oc-form__group right-text">
+<a href="https://openclassrooms.com/set-new-password">Mot de passe oublié</a>
+</div>
+<div class="oc-form__group  center-text">
+<input type="hidden" id="_target_path" name="_target_path" class=" textInput textInput--hidden" value="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie"><div>
+<button type="submit" id="login" name="login" class="button--primary button"> Se connecter</button></div><input type="hidden" id="_csrf_token" name="_csrf_token" class=" textInput textInput--hidden" value="jqHrs7IHss-fV9zvtDReGvPxny_pxmuMQJCKl3UKC30">
+</div>
+</form>
+</li>
+</ul>
+<p class="text-center space-top">
+Pas encore membre ? <a href="https://openclassrooms.com/register">Inscrivez-vous gratuitement</a> en 30s.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<nav role="navigation" class="icoTabs  mainHeader__tabSet">
+<div class="mainHeader__mobileNav">
+<span class="icoTabs__tab  mainHeader__tabLogin">
+<a href="https://openclassrooms.com/register" class="mainHeader__actionButton  button button--primary button--compact js-popin-activator" data-popin-selector="#popin-sign-in">
+S'inscrire
+</a>
+<a href="https://openclassrooms.com/login" class="mainHeader__actionButton  button button--compact js-popin-activator" data-popin-selector="#popin-log-in">
+Se connecter
+</a>
+</span>
+<a class="js-tabs-tab  icoTabs__tab  mainHeader__tabSearch" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#tab-search">
+<span class="accessibility-hidden">Rechercher</span>
+<i class="icon-search  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  mainHeader__tabCourseMenu  is-disabled" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#tab-courseMenu">
+<span class="accessibility-hidden">Cours</span>
+<i class="icon-plus  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#tab-courseEditMenu">
+<span class="accessibility-hidden">Créer un cours</span>
+<i class="icon-plus  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" data-tabs-default="true" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#tab-searchMenu">
+<span class="accessibility-hidden">Rechercher</span>
+<i class="icon-search  icoTabs__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#tab-main">
+<span class="accessibility-hidden">Menu principal</span>
+<i class="icon-menu  icoTabs__icon"></i>
+</a>
+</div>
+</nav>
+<div class="js-tabs-content  mainHeader__content"></div>
+</div>
+</div>
+</header>
+<div class="centered"><div id="mainSearch" class="mainSearch search-content"></div></div>
+<div id="mainContentWithHeader">
+<header id="mainHeader">
+<div style="clear: both;"></div>
+<section id="headerMiddle">
+<section class="containerSdz">
+<a href="https://openclassrooms.com/forum/"><div class="titlePicture forumSdz"></div></a>
+<h1> <a href="https://openclassrooms.com/forum/">Forums des <strong>Zéros</strong></a> </h1>
+<p>Une question ? Pas de panique, on va vous aider !</p>
+</section>
+</section>
+<section class="inset no-padding">
+<div class="centered">
+<h6 class="accessibility-hidden">Fil d'Ariane</h6>
+<nav class="breadcrumb">
+<ul class="breadcrumb__trail">
+<li class="breadcrumb__item breadcrumb__item--home " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/" itemprop="url">
+<span itemprop="title">Accueil</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/forum/" itemprop="url">
+<span itemprop="title">Forum</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/forum/categorie/site-web" itemprop="url">
+<span itemprop="title">Site Web</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/forum/categorie/php" itemprop="url">
+<span itemprop="title">PHP</span>
+</a>
+</li>
+<li class="breadcrumb__item  breadcrumb__item--current" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+Authentification PHP, session, cookie
+</li>
+</ul>
+</nav>
+</div>
+</section>
+<section id="headerBottom">
+<section class="containerSdz">
+<ul id="secondMenu" class="nav nav-tabs">
+<li><a href="https://openclassrooms.com/forum/">Liste des forums</a></li>
+<li class="text-right  nav-tab--fullwidth">
+<form class="oc-form   hidden-xs" action="https://openclassrooms.com/recherche/" method="get">
+<div class="oc-form__widget  inputGroup  inputGroup--medium">
+<input type="search" class="oc-form__control inputGroup__input" placeholder="Rechercher sur le forum" name="search" aria-label=" ">
+<button class="button button--iconOnly  inputGroup__button" type="submit" title="Rechercher dans le forum">
+<span class="accessibility-hidden">Rechercher dans le forum</span>
+<i class="inputGroup__icon icon-search"></i>
+</button>
+</div>
+</form>
+</li>
+</ul>
+</section>
+</section>
+</header>
+<section id="mainContent" class="containerSdz" role="main">
+<section id="mainSection" class="container">
+<div class="soc_hello_ials ">
+<span class="shared">Partage</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+</div>
+<div class="centered">
+<h1><a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie">Authentification PHP, session, cookie</a></h1>
+<section class="comments">
+<div class="row
+                                ">
+<div class="userInfos">
+<div class="avatar-oc">
+<div class="author">
+<a href="https://openclassrooms.com/membres/gumdum">
+GumDum
+</a>
+</div>
+<a href="https://openclassrooms.com/membres/gumdum">
+<img src="./Authentification PHP, session, cookie par GumDum_files/avatar_defaut.png" alt="" width="80px">
+</a>
+</div>
+<ul class="skills">
+</ul>
+</div>
+<div class="span10 comment" id="message-85283416">
+<ul class="actions">
+</ul>
+<div class="content">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#message-85283416" class="date">9 février 2014 à 12:35:14</a>
+<br>
+<br>
+<div class="message markdown-body" role="article">
+<p>Bonjour,</p>
+<p>Pour qu'un utilisateur puisse se connecter (dans le cadre d'un projet de site dans mon école), je dois utiliser l'authentification PHP.</p>
+<p>Le problème est le suivant : lorsque l'utilisateur se trompe de mot de passe ou de login, il faut fermer le navigateur (et non uniquement la fenêtre) pour que la fenêtre d'authentification se ré-ouvre. Pourtant il n'y a aucun cookie ni session mis en jeu, d'où ma question, comment cela se fait ? et comment puis-je éviter ça ?&nbsp;</p>
+<p>Mon code :</p>
+<pre class="brush: php;">&lt;?php
+if (!isset($_SERVER['PHP_AUTH_USER']))
+{
+	Header('WWW-Authenticate: Basic realm="Authentification"');
+	Header("HTTP/1.0 401 Pas autorisé");
+	print("Saisie annulée");
+	exit;
+}
+else
+{
+	if($_SERVER['PHP_AUTH_USER'] == '')
+	{
+		header('Location: index.php?error=1');
+	}
+	elseif ($_SERVER['PHP_AUTH_USER']!='truc' || $_SERVER['PHP_AUTH_PW']!='toto')
+	{
+		header('Location: index.php?error=2');
+	}
+	else
+	{
+		echo "bonjour";		
+	}
+}
+?&gt;</pre>
+<p><br>Merci d'avance !</p>
+<p>Paul</p>
+</div>
+<span class="commentVote">
+</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283416"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283416" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283416&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="span12">
+</div>
+</div>
+<div class="row
+                                ">
+<div class="userInfos">
+<div class="avatar-oc">
+<div class="author">
+<a href="https://openclassrooms.com/membres/rincevent01-88086">
+rincevent01
+</a>
+</div>
+<a href="https://openclassrooms.com/membres/rincevent01-88086">
+<img src="./Authentification PHP, session, cookie par GumDum_files/licorne2.jpg" alt="" width="80px">
+</a>
+</div>
+<ul class="skills">
+<li class="skill" data-original-title="Intermédiaire">
+<img src="./Authentification PHP, session, cookie par GumDum_files/icon_forum_php.png" alt="PHP" class="badgeSdz">
+<ul class="levels">
+<li class="full"></li>
+<li class="full"></li>
+<li class="empty"></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span10 comment" id="message-85283485">
+<ul class="actions">
+</ul>
+<div class="content">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#message-85283485" class="date">9 février 2014 à 12:48:30</a>
+<br>
+<br>
+<div class="message markdown-body" role="article">
+A mon avis le problème vient de ton $_SERVER['PHP_AUTH_USER'] et de la mise en cache des pages visités par le navigateur. regarde <a href="https://php.net/manual/fr/features.http-auth.php" rel="nofollow">par ici</a> ça pourrait peut-être t'aider.
+<p>-<br>Edité par rincevent01 9 février 2014 à 12:49:25</p>
+</div>
+<span class="commentVote">
+</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283485"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283485" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283485&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+<div class="signature">
+pensez au "+1" si ça vous a aider, ça fait toujours plaisir ;)
+</div>
+</div>
+</div>
+<div class="span12">
+</div>
+</div>
+<div class="row
+                                ">
+<div class="userInfos">
+<div class="avatar-oc">
+<div class="author">
+<a href="https://openclassrooms.com/membres/gumdum">
+GumDum
+</a>
+</div>
+<a href="https://openclassrooms.com/membres/gumdum">
+<img src="./Authentification PHP, session, cookie par GumDum_files/avatar_defaut.png" alt="" width="80px">
+</a>
+</div>
+<ul class="skills">
+</ul>
+</div>
+<div class="span10 comment" id="message-85283589">
+<ul class="actions">
+</ul>
+<div class="content">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#message-85283589" class="date">9 février 2014 à 13:10:47</a>
+<br>
+<br>
+<div class="message markdown-body" role="article">
+<p>Merci pour ta réponse rapide !&nbsp;</p>
+<p>J'ai déjà lu et relu cette page et je ne comprends toujours pas mon erreur. &nbsp;J'ai tenté plusieurs versions données en commentaires à cette page et toujours le même résultat.</p>
+<p>Comment je pourrais justement éviter cette mise en cache ?</p>
+</div>
+<span class="commentVote">
+</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283589"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283589" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283589&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="span12">
+</div>
+</div>
+<div class="row
+                                ">
+<div class="userInfos">
+<div class="avatar-oc">
+<div class="author">
+<a href="https://openclassrooms.com/membres/rincevent01-88086">
+rincevent01
+</a>
+</div>
+<a href="https://openclassrooms.com/membres/rincevent01-88086">
+<img src="./Authentification PHP, session, cookie par GumDum_files/licorne2.jpg" alt="" width="80px">
+</a>
+</div>
+<ul class="skills">
+<li class="skill" data-original-title="Intermédiaire">
+<img src="./Authentification PHP, session, cookie par GumDum_files/icon_forum_php.png" alt="PHP" class="badgeSdz">
+<ul class="levels">
+<li class="full"></li>
+<li class="full"></li>
+<li class="empty"></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span10 comment" id="message-85283747">
+<ul class="actions">
+</ul>
+<div class="content">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#message-85283747" class="date">9 février 2014 à 13:45:12</a>
+<br>
+<br>
+<div class="message markdown-body" role="article">
+<p>je n'ai pas tester cette solution, tu peux faire un :</p>
+<p>header('Pragma:nocache');</p>
+<p>mais du coup tu sera obligé de retaper l'identification a chaque fois (pas terrible)</p>
+<p>mais tu peux peut-être combiner avec une session ?</p>
+<p>-<br>Edité par rincevent01 9 février 2014 à 13:47:27</p>
+</div>
+<span class="commentVote">
+</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283747"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283747" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85283747&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+<div class="signature">
+pensez au "+1" si ça vous a aider, ça fait toujours plaisir ;)
+</div>
+</div>
+</div>
+<div class="span12">
+</div>
+</div>
+<div class="row
+                                ">
+<div class="userInfos">
+<div class="avatar-oc">
+<div class="author">
+<a href="https://openclassrooms.com/membres/gumdum">
+GumDum
+</a>
+</div>
+<a href="https://openclassrooms.com/membres/gumdum">
+<img src="./Authentification PHP, session, cookie par GumDum_files/avatar_defaut.png" alt="" width="80px">
+</a>
+</div>
+<ul class="skills">
+</ul>
+</div>
+<div class="span10 comment" id="message-85285698">
+<ul class="actions">
+</ul>
+<div class="content">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#message-85285698" class="date">9 février 2014 à 20:21:55</a>
+<br>
+<br>
+<div class="message markdown-body" role="article">
+<p>J'ai réussi à trouver une version chelou sur le site que tu m'as filé, et ça marche, on est obligé de retaper l'identification à chaque fois mais bon, j'essaierai de trouver mieux après !</p>
+<p>J'ai donc implanter session et cookie (pour rester connecter si le visiteur le choisis), mais lorsque je veux me déconnecter, avec le code qui suit, je ne suis pas déconnecté, et le problème viendrait toujours de l'authentification PHP (puisque si je quitte le navigateur et relance, les cookies sont bien enlevés etc.).</p>
+<pre class="brush: php;">&lt;?php
+	session_destroy();
+	setcookie('membre', NULL, -1); 
+	header('Location: index.php?logout=1');
+?&gt;</pre>
+<p><br>Si jamais tu vois une solution pour réussir à se déconnecter malgré tout, je t'en serais infiniment reconnaissant !</p>
+<p>Encore merci pour ton aide.</p>
+</div>
+<span class="commentVote">
+</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85285698"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85285698" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85285698&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="span12">
+</div>
+</div>
+<div class="row
+                                ">
+<div class="userInfos">
+<div class="avatar-oc">
+<div class="author">
+<a href="https://openclassrooms.com/membres/rincevent01-88086">
+rincevent01
+</a>
+</div>
+<a href="https://openclassrooms.com/membres/rincevent01-88086">
+<img src="./Authentification PHP, session, cookie par GumDum_files/licorne2.jpg" alt="" width="80px">
+</a>
+</div>
+<ul class="skills">
+<li class="skill" data-original-title="Intermédiaire">
+<img src="./Authentification PHP, session, cookie par GumDum_files/icon_forum_php.png" alt="PHP" class="badgeSdz">
+<ul class="levels">
+<li class="full"></li>
+<li class="full"></li>
+<li class="empty"></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span10 comment" id="message-85285926">
+<ul class="actions">
+</ul>
+<div class="content">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#message-85285926" class="date">9 février 2014 à 21:40:01</a>
+<br>
+<br>
+<div class="message markdown-body" role="article">
+alors, la, ça va devenir plus compliqué pour moi, on arrive aux limites de mes compétences (pas bien grandes je le reconnais) dsl.
+</div>
+<span class="commentVote">
+</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85285926"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85285926" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85285926&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+<div class="signature">
+pensez au "+1" si ça vous a aider, ça fait toujours plaisir ;)
+</div>
+</div>
+</div>
+<div class="span12">
+</div>
+</div>
+<div class="row
+                                ">
+<div class="userInfos">
+<div class="avatar-oc">
+<div class="author">
+<a href="https://openclassrooms.com/membres/julp-99847">
+julp
+</a>
+</div>
+<a href="https://openclassrooms.com/membres/julp-99847">
+<img src="./Authentification PHP, session, cookie par GumDum_files/avatar_defaut.png" alt="" width="80px">
+</a>
+</div>
+<ul class="skills">
+</ul>
+</div>
+<div class="span10 comment" id="message-85286254">
+<ul class="actions">
+</ul>
+<div class="content">
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#message-85286254" class="date">9 février 2014 à 23:08:43</a>
+<br>
+<br>
+<div class="message markdown-body" role="article">
+<p>Si le couple login/mdp est incorrect pourquoi tu fais une redirection au lieu de renvoyer un code 401 ?</p>
+<p>-<br>Edité par julp 9 février 2014 à 23:09:13</p>
+</div>
+<span class="commentVote">
+</span>
+<ul class="addthis_buttons addthis_share">
+<li>
+<a class="addthis_button_facebook" title="Partager sur Facebook" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms" data-addthis-description="Authentification PHP, session, cookie via @openclassrooms" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85286254"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_facebook.png" alt="Partager sur Facebook"></a>
+</li>
+<li>
+<a class="addthis_button_twitter" title="Partager sur Twitter" data-addthis-url="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85286254" data-addthis-title="Authentification PHP, session, cookie via @openclassrooms"><img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_twitter.png" alt="Partager sur Twitter"></a>
+</li>
+<li>
+<a class="googleplus" title="Partager via Google +1" href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https://openclassrooms.com/forum/sujet/authentification-php-session-cookie/85286254&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;); popUp.focus(); return false;">
+<img src="./Authentification PHP, session, cookie par GumDum_files/ico_addthis_googleplus.png" alt="Partager via Google +1">
+</a>
+</li>
+</ul>
+<div class="signature">
+PHP : <a href="http://www.julp.fr/articles/3-php-et-utf-8.html" rel="nofollow">UTF-8</a>, <a href="http://www.julp.fr/articles/2-pdo-mode-d-emploi.html" rel="nofollow">PDO</a>, <a href="http://www.julp.fr/articles/17-php-cookies-et-sessions.html" rel="nofollow">sessions</a>, <a href="http://www.julp.fr/blog/posts/2-de-bonnes-bases-pour-un-espace-membre" rel="nofollow">espace membre</a>, <a href="http://www.julp.fr/blog/posts/13-pdo-et-mysql-limiter-les-degats-en-cas-d-injection-sql" rel="nofollow">limiter injections</a> ; Apache : <a href="http://www.julp.fr/articles/18-apache-la-reecriture-d-url.html" rel="nofollow">réécriture</a>
+</div>
+</div>
+</div>
+<div class="span12">
+</div>
+</div>
+</section>
+<div id="newComment" class="message">
+<h2>Authentification PHP, session, cookie</h2>
+<div class="alert alert-info ">
+<a data-dismiss="alert" class="close">×</a> Après avoir cliqué sur "Répondre" vous serez invité à vous connecter pour que votre message soit publié.
+</div>
+<div class="alert alert-danger ">
+<a data-dismiss="alert" class="close">×</a> Attention, ce sujet est très ancien. Le déterrer n'est pas forcément approprié. Nous te conseillons de créer un nouveau sujet pour poser ta question.
+</div>
+<form action="https://openclassrooms.com/message/creer/authentification-php-session-cookie" method="post">
+<div class="js-wysiwyg-content wysiwyg-content wysiwygContent"><textarea id="Comment_wysiwyg_message" name="Comment[wysiwyg][message]" required="required" class="tinymce" data-theme="simple" placeholder="Rédigez votre message ici"></textarea><input type="hidden" id="Comment_wysiwyg" name="Comment[wysiwyg][writingType]" class="writingType" value="editor"><ul class="writingTypeSwitch"><li class="switchEditeur">Editeur<span class="ball" style="font-size:5px"> ● </span></li><li class="switchMarkdown inactive">Markdown</li></ul><p class="information infoMarkdown" style="display: none;float:left;">
+Vous pouvez rédiger votre message en <a href="https://openclassrooms.com/courses/redigez-en-markdown" target="_blank">Markdown</a> ou en HTML uniquement.
+</p></div>
+<input type="hidden" id="Comment__token" name="Comment[_token]" value="B_xQuNb-COBsEK5RCYoRPMNP90JWY_HIOCJtFI9j43c">
+<input name="submit_comment" type="submit" class="btn btn-primary" value="Répondre">
+<input type="button" class="btn showMarkdownOverview" value="Aperçu">
+</form>
+</div>
+<div class="modal" id="deleteActionModal" style="display:none;">
+<div class="modal-header">
+<a class="close" data-dismiss="modal">×</a>
+<span class="actionIcon iconModerer">×</span>
+<h2>Supprimer</h2>
+</div>
+<div class="modal-body modal-body-hidden modal-delete">
+<p class="messageDelete"></p>
+<div class="modal-footer">
+<p>Vous n'avez pas les droits suffisant pour supprimer ce sujet !</p>
+</div>
+</div>
+</div>
+<div class="modal" id="moderateActionModal" style="display:none;">
+<div class="modal-header">
+<a class="close" data-dismiss="modal">×</a>
+<span class="actionIcon iconModerer">×</span>
+<h2>Modérer</h2>
+</div>
+<div class="modal-body">
+<ul>
+</ul>
+</div>
+</div>
+<div class="modal" id="alertActionModal" style="display:none;">
+<div class="modal-header">
+<a class="close" data-dismiss="modal">×</a>
+<h2>Signaler le message aux modérateurs</h2>
+</div>
+<div class="modal-body modal-alert">
+<form action="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" method="post">
+<div><label for="alert_reason" class="required">Raison : </label><input type="text" id="alert_reason" name="alert[reason]" required="required"></div><input type="hidden" id="alert__token" name="alert[_token]" value="lTYXGLQMw6wm6ECXfsGrWHoIv1C0UHZFAZm0Bb8hKr4">
+<div class="error"></div>
+<div class="modal-footer">
+<input type="submit" class="btn btn-primary" value="Valider">
+<input type="button" data-dismiss="modal" class="btn" value="Annuler">
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</section>
+</div>
+<footer class="footer">
+<div class="centered">
+<div class="row">
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+OpenClassrooms
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<a href="https://openclassrooms.com/about-us" class="footer__link">Qui sommes-nous ?</a>
+</li>
+<li>
+<a href="https://openclassrooms.com/how-does-it-work" class="footer__link">Fonctionnement de nos cours</a>
+</li>
+<li>
+<a href="http://jobs.openclassrooms.com/" target="_blank" class="footer__link">Recrutement</a>
+</li>
+<li>
+<a href="https://openclassrooms.com/forum/sujet/authentification-php-session-cookie#" class="js-zendesk-show footer__link">Nous contacter</a>
+</li>
+</ul>
+</div>
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+Professionnels
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<a href="https://openclassrooms.com/affiliation" class="footer__link">
+Affiliation
+</a>
+</li>
+<li>
+<a href="https://openclassrooms.com/partners" class="footer__link">Partenaires</a>
+</li>
+</ul>
+</div>
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+En plus
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<a href="https://openclassrooms.com/new-teachers" class="footer__link">Créer un cours</a>
+</li>
+<li>
+<a href="https://openclassrooms.com/courses/courselab" class="footer__link">CourseLab</a>
+</li>
+<li>
+<strong>
+<a href="https://openclassrooms.com/terms-conditions" class="footer__link">
+Conditions Générales d'Utilisation
+</a>
+</strong>
+</li>
+</ul>
+</div>
+<div class="col3 col6-s  footer__item  linksList  foldable  js-foldable" data-options="mobileOnly: true, disableOnLargeScreen: true, initialState: &#39;closed&#39;">
+<h2 class="linksList__title footer__title foldable__button  js-foldable-button">
+Suivez-nous
+<i class="icon-next  foldable__icon"></i>
+</h2>
+<ul class="linksList__content foldable__content">
+<li>
+<a href="http://blog.openclassrooms.com/" class="footer__link">Le blog OpenClassrooms</a>
+</li>
+<li>
+<ul class="footer__socialNetwork">
+<li>
+<a href="https://www.facebook.com/openclassrooms" target="_blank" class="roundIcon roundIcon--facebook footer__socialButtons">
+<span class="hidden">Facebook</span>
+<i class="icon-facebook roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://twitter.com/openclassrooms" target="_blank" class="roundIcon roundIcon--twitter footer__socialButtons">
+<span class="hidden">Twitter</span>
+<i class="icon-twitter roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://plus.google.com/+OpenClassrooms/posts" target="_blank" class="roundIcon roundIcon--youtube footer__socialButtons">
+<span class="hidden">Google Plus</span>
+<i class="icon-google roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://instagram.com/openclassrooms" target="_blank" class="roundIcon roundIcon--instagram footer__socialButtons">
+<span class="hidden">Instagram</span>
+<i class="icon-instagram roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://www.youtube.com/user/TheOpenClassrooms" target="_blank" class="roundIcon roundIcon--googlePlus footer__socialButtons">
+<span class="hidden">Youtube</span>
+<i class="icon-youtube roundIcon__icon"></i>
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/company/openclassrooms" target="_blank" class="roundIcon roundIcon--linkedin footer__socialButtons">
+<span class="hidden">Linkedin</span>
+<i class="icon-linkedin roundIcon__icon"></i>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="text-right u--positionRelative">
+<hr>
+<div class="footer__onlineStatus" id="react_conversation_onlineStatus"></div>
+<ul class="no-decoration inline">
+<li>
+<a class="footer__link" href="https://openclassrooms.com/change-locale/en/upvm0e2C3r-CDyzDrlVfE_sOb7DPtebRGTj4VaMbU2M">English</a>
+</li>
+<li>
+<a class="footer__link" href="https://openclassrooms.com/change-locale/es/upvm0e2C3r-CDyzDrlVfE_sOb7DPtebRGTj4VaMbU2M">Español</a>
+</li>
+</ul>
+</div>
+</div>
+</footer>
+<script type="text/javascript" src="./Authentification PHP, session, cookie par GumDum_files/MathJax.js.téléchargement"></script>
+<script type="text/x-mathjax-config;executed=true">
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['\\(','\\)']],
+                    displayMath: [['$$','$$'], ['\\[','\\]']],
+                    skipTags: ["script","noscript","style","textarea","code"]
+                }
+            });
+        </script>
+<script type="text/javascript" src="./Authentification PHP, session, cookie par GumDum_files/legacy.js.téléchargement"></script>
+<script type="text/javascript" src="./Authentification PHP, session, cookie par GumDum_files/tiny_mce.js.téléchargement"></script>
+<script type="text/javascript" src="./Authentification PHP, session, cookie par GumDum_files/ready.min-691131b1.js.téléchargement"></script>
+<script type="text/javascript" src="./Authentification PHP, session, cookie par GumDum_files/init.standard-cc605808.js.téléchargement"></script>
+<script type="text/javascript">
+//<![CDATA[
+    initTinyMCE({"include_jquery":false,"textarea_class":"tinymce","theme":{"tiny":{"theme":"advanced","skin":"sdz","valid_elements":"strong\/b,em\/i,a[href|target|title]","theme_advanced_buttons1":"bold,italic,link","theme_advanced_buttons2":"","theme_advanced_buttons3":"","theme_advanced_toolbar_location":"top","theme_advanced_toolbar_align":"left","theme_advanced_statusbar_location":"bottom","theme_advanced_blockformats":"p,h1,h2,h3","plugins":"inlinepopups","language":"fr","forced_root_block":false,"force_br_newlines":false,"force_p_newlines":false,"entity_encoding":"raw","gecko_spellcheck":true},"simple":{"theme":"advanced","skin":"sdz","theme_advanced_buttons1":"formatselect,fontsizeselect,bold,italic,forecolor,bullist,link,image,syntaxhl,emotions","theme_advanced_buttons2":"","theme_advanced_buttons3":"","theme_advanced_toolbar_location":"top","theme_advanced_toolbar_align":"left","theme_advanced_statusbar_location":"bottom","theme_advanced_blockformats":"p,h1,h2,h3","plugins":"syntaxhl, emotions, inlinepopups, autolink","language":"fr","forced_root_block":false,"force_br_newlines":false,"force_p_newlines":true,"entity_encoding":"raw","gecko_spellcheck":true},"claire":{"theme":"advanced","skin":"claire","theme_advanced_buttons1":"formatselect,bullist,numlist,elementlist,kbd,syntaxhl,sdzcode,image,table,blockquote,bold,italic,link,sdzinfo,sdzwarning,sdzerror,sdzquestion,abbr,acronym,emotions,code","theme_advanced_buttons2":"","theme_advanced_buttons3":"","theme_advanced_toolbar_location":"top","theme_advanced_toolbar_align":"left","theme_advanced_statusbar_location":"bottom","height":"250","plugins":"resize, syntaxhl, advlink, xhtmlxtras, emotions, inlinepopups, elementlist,  kbd, sdzcode, table, sdzinfo, sdzwarning, sdzerror, sdzquestion","theme_advanced_blockformats":"p,h2,h3","extended_valid_elements":"article,section,figure,aside,pre","language":"fr","force_br_newlines":false,"force_p_newlines":true,"entity_encoding":"raw"},"strict":{"theme":"advanced","valid_styles":"color,font-size,font-weight,font-style,text-decoration","skin":"sdz","theme_advanced_buttons1":"formatselect,fontsizeselect,bold,italic,forecolor,bullist,link,image,syntaxhl,emotions","theme_advanced_buttons2":"","theme_advanced_buttons3":"","theme_advanced_toolbar_location":"top","theme_advanced_toolbar_align":"left","theme_advanced_statusbar_location":"bottom","theme_advanced_blockformats":"p,h1,h2,h3","plugins":"syntaxhl, emotions, inlinepopups","language":"fr","forced_root_block":false,"force_br_newlines":false,"force_p_newlines":true,"entity_encoding":"raw","gecko_spellcheck":true},"advanced":{"theme":"advanced","plugins":"syntaxhl,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template","theme_advanced_buttons1":"syntaxhl,|save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect","theme_advanced_buttons2":"cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor","theme_advanced_buttons3":"tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen","theme_advanced_buttons4":"insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak","theme_advanced_toolbar_location":"top","theme_advanced_toolbar_align":"left","theme_advanced_statusbar_location":"bottom","theme_advanced_resizing":true,"remove_linebreaks":false,"language":"fr","gecko_spellcheck":true}},"tinymce_jquery":false,"jquery_script_url":"\/bundles\/tinymce\/vendor\/tiny_mce\/tiny_mce.js?8cc77d9"});
+//]]>
+</script>
+<script type="text/javascript">
+    _old$('.lastUnreadComment').tooltip({title: 'Dernier message non lu', placement: "bottom"});
+</script>
+<script type="text/javascript">
+var contentTmp = new Array();
+var lockEdit = false;
+textareaContent = _old$('#newComment').find('textarea');
+wysiwygContent = _old$('#newComment').find('.wysiwygContent');
+currentFocus = {};
+if(_old$('.writingType').val() == 'markdown') {
+    currentFocus.editorId = null;
+}
+else {
+    currentFocus.editorId = 1;
+}
+
+_old$('.tinymce').live('click', function(e){
+    _old$(this).focus();
+    currentFocus = _old$(this);
+    textareaContent = _old$(this);
+});
+
+_old$("a.editAction").live('click',function(e){
+    // No event
+    e.preventDefault();
+
+    if (_old$(this).parents('.comment').find('.message form').length == 0 && lockEdit == false)
+    {
+        if(_old$(this).closest('#actionsAdmin').length != 0)
+        {
+            _old$('section.comments div.row:first-child a.editAction').click();
+        }
+        else
+        {
+            lockEdit = true;
+
+            var el = _old$(this);
+            var divContent = el.parents('.comment').find('.content');
+            divContent.find('.addthis_share').hide();
+            contentTmp[el.parents('.comment').attr('id')] = el.parents('.comment').find('.content').html();
+
+            ajax(el.attr('href'), 'GET', null, function(result){
+                if(el.closest('.badVotes'))
+                {
+                    el.closest('.badVotes').find('.avatar img').hide();
+                }
+
+                divContent.html(result);
+                var addThis = divContent.find('.addthis_share');
+                addThis.addClass('off').hide();
+
+                el.closest('.row').find('.message').show();
+                lockEdit = false;
+
+                // Add wysiwyg or switch to markdown
+                updateTextareaDisplay(divContent);
+                sendImage();
+
+                if(el.closest('.row').find('.mceEditor').length != 0) {
+                  tinyMCE.activeEditor.focus();
+                  tinyMCE.activeEditor.selection.setContent('\n');
+                  currentFocus = tinyMCE.activeEditor;
+                }
+                else {
+                  el.closest('.row').find('.message form textarea').focus();
+                  currentFocus = el.closest('.row').find('.message form textarea');
+                }
+
+                wysiwygContent = el.closest('.row').find('.message form .wysiwygContent');
+                textareaContent = el.closest('.row').find('.message form textarea');
+            });
+        }
+    }
+    else
+    {
+        if(_old$(this).closest('.row').find('.mceEditor').length != 0) {
+          tinyMCE.activeEditor.focus();
+          tinyMCE.activeEditor.selection.setContent('');
+          currentFocus = tinyMCE.activeEditor;
+        }
+        else {
+          _old$(this).closest('.row').find('.message form textarea').focus();
+          currentFocus = _old$(this).closest('.row').find('.message form textarea');
+        }
+
+        wysiwygContent = _old$(this).closest('.row').find('.message form .wysiwygContent');
+        textareaContent = _old$(this).closest('.row').find('.message form textarea');
+    }
+});
+
+_old$(".comment .message form input.btn-reset").live('click',function(e){
+    e.preventDefault();
+
+    var divContent = _old$(this).closest('.comment').find('.content');
+
+    // Remove wysiwyg
+    if(divContent.find('.writingType').val() == 'editor')
+    {
+        tinyMCE.execCommand('mceRemoveControl', false, divContent.find('textarea.tinymce').attr('id'));
+    }
+
+    divContent.html(contentTmp[_old$(this).parents('.comment').attr('id')]);
+
+    _old$("ul.actions").hide();
+});
+
+_old$(".comment .message form").live('submit',function(e){
+    if(_old$(this).hasClass('markdownWrap'))
+    {
+        return true;
+    }
+
+    e.preventDefault();
+    var el = _old$(this);
+    var divContent = el.parents('.comment').find('.content');
+
+    ajax(el.attr('action'), 'POST', el.serialize(), function(result){
+        var isThread = (_old$('#ThreadForum_title').size() > 0);
+        if(isThread && result.substr(0, 1) == '/') {
+            window.location = result;
+        }
+        else {
+            divContent.html(result);
+
+            // Add wysiwyg or switch to markdown
+            updateTextareaDisplay(divContent);
+
+            applyTooltip();
+
+            //Updates HTML content not hightlighted
+            updateContent(divContent.find('.markdown-body'));
+            SyntaxHighlighter.highlight();
+        }
+    });
+});
+
+_old$("a.citeAction").live('click',function(e){
+    // No event
+    e.preventDefault();
+
+    // Find textarea object
+    var textarea = textareaContent;
+    var divContent = wysiwygContent;
+
+    // Author
+    var author = $.trim(_old$(this).parents('.row').find('.author a').html());
+
+
+    // If wysiwyg is ON / OFF
+    if (currentFocus.editorId == null)
+    {
+        // Replace
+        var val = $.trim(_old$(this).parents('.comment').find('.markdown').html());
+
+        val = val.replace(/&amp;/g, "&");
+        val = val.replace(/&lt;/g, "<");
+        val = val.replace(/&gt;/g, ">");
+        val = val.replace(/\n/g, "\n> ");
+        val = val.replace(/\r/g, "\r> ");
+        var texte = '**'+author+' a écrit:**\n> '+val+'\n\n';
+
+        textarea.val(textarea.val()+((isTextareaEmpty(divContent,false)) ? '' : '\n\n')+texte);
+        textarea.focus();
+        switchMenuDisplay(textarea.attr('id'));
+    }
+    else
+    {
+        // Replace
+        var val = $.trim(contents[_old$(this).parents('.comment').attr('id')]);
+
+        var texte = '<p><strong>'+author+' a écrit:</strong></p><blockquote>'+val+'</blockquote>';
+
+        textarea.parents('div').append('<a class="focusWys" href="#" >&nbsp;</a>');
+        _old$('.focusWys').click();
+        _old$('.focusWys').focus();
+        _old$('.focusWys').remove();
+        tinyMCE.activeEditor.selection.setContent(texte);
+        $content = tinyMCE.activeEditor.getContent();
+        tinyMCE.activeEditor.setContent($content+'<br><br>');
+        tinyMCE.activeEditor.focus();
+    }
+});
+</script>
+<script type="text/javascript">
+
+function hideTooltip()
+{
+}
+
+function applyTooltip()
+{
+}
+
+function hideVoteInfo()
+{
+    _old$('.voteInfo').fadeOut("slow");
+}
+
+
+_old$(document).ready(function() {
+
+    var isVoting = false;
+    var nbVotesMin = parseInt('10');
+
+    _old$('section.comments .row').hover(function(){
+        _old$(this).find('ul.actions').show();
+        if(!_old$(this).find('ul.addthis_share').hasClass('off'))
+        {
+            _old$(this).find('ul.addthis_share').show();
+        }
+
+        _old$(this).find('span.commentVote .noVote').css('visibility','visible');
+    },function(){
+        _old$(this).find('ul.actions').hide();
+        _old$(this).find('ul.addthis_share').hide();
+        _old$(this).find('span.commentVote .noVote').css('visibility','hidden');
+    });
+
+    _old$('.comment .toggleMessage').live("click",function(e){
+       e.preventDefault();
+
+       _old$(this).closest('.content').find('.message').toggle('fast');
+       _old$(this).closest('div.row').find('.avatar img').toggle();
+
+       if(_old$(this).hasClass('messageOpen'))
+       {
+           _old$(this).removeClass('messageOpen');
+           _old$(this).html('Lire quand même<span class="toggleArrow"></span>');
+       }
+       else
+       {
+           _old$(this).addClass('messageOpen');
+           _old$(this).html('Masquer le message<span class="toggleArrow"></span>');
+       }
+    });
+
+    applyTooltip();
+
+    _old$('a.voteUpAction, a.voteDownAction').live('click',function(e){
+        // No event
+        e.preventDefault();
+
+        if(!isVoting)
+        {
+            isVoting = true;
+            var element = _old$(this);
+            var commentBloc = element.closest('div.row');
+
+            ajax(element.attr('href'), 'GET', null, function(result){
+                element.parents('.commentVote').html(result);
+                hideTooltip();
+                applyTooltip();
+                isVoteUtile(commentBloc);
+                isVoting = false;
+                setTimeout(hideVoteInfo, 5000);
+            });
+        }
+
+    });
+
+
+
+    _old$('a.deleteThread').click(function(){
+       if(!confirm("Etes-vous sûr de vouloir supprimer ce MP ?"))
+       {
+           return false;
+       }
+    });
+
+    function isVoteUtile(commentBloc)
+    {
+        var nbVoteUp = (commentBloc.find('.votePlus').html() != '') ? parseInt(commentBloc.find('.votePlus').html()) : 0;
+        var nbVoteDown = (commentBloc.find('.voteMoins').html() != '') ? Math.abs(parseInt(commentBloc.find('.voteMoins').html())) : 0;
+
+        if(nbVoteUp > nbVotesMin && nbVoteDown <= (nbVoteUp / 2))
+        {
+            commentBloc.addClass('topVotes');
+        }
+        else if(false && nbVoteDown > nbVotesMin && nbVoteUp <= (nbVoteDown / 2))
+        {
+            commentBloc.addClass('badVotes');
+        }
+        else
+        {
+            commentBloc.removeClass('topVotes');
+            commentBloc.removeClass('badVotes');
+            commentBloc.find('.message').show();
+            commentBloc.find('.avatar img').show();
+        }
+    }
+
+
+    _old$('p#follow a, p#notFollow a').live('click', function(e){
+        // No event
+        e.preventDefault();
+        var element = _old$(this);
+
+        if(!element.hasClass('loading'))
+        {
+            _old$('.followInfo').hide();
+            element.addClass('loading');
+            ajax(element.attr('href'), 'GET', null, function(result){
+                element.removeClass('loading');
+                element.parent().removeClass('active');
+                if(element.parent().attr('id') == 'follow')
+                {
+                    // remove Follow
+                    _old$('p#notFollow').addClass('active');
+                }
+
+                if(element.parent().attr('id') == 'notFollow')
+                {
+                    // add Follow
+                    _old$('p#follow').addClass('active');
+                }
+
+                _old$('.followInfo').show();
+                setTimeout(function(){_old$('.followInfo').fadeOut('slow');},5000);
+            });
+         }
+
+    });
+});
+
+
+</script>
+<script type="text/javascript">
+
+    jQuery.fn.extend({
+        insertAtCaret: function(myValue){
+        return this.each(function(i) {
+            if (document.selection) {
+                //For browsers like Internet Explorer
+                this.focus();
+                sel = document.selection.createRange();
+                sel.text = myValue;
+                this.focus();
+            }
+            else if (this.selectionStart || this.selectionStart == '0') {
+                //For browsers like Firefox and Webkit based
+                var startPos = this.selectionStart;
+                var endPos = this.selectionEnd;
+                if(startPos == '0'){
+                    endPos = startPos = this.value.length;
+                }
+                var scrollTop = this.scrollTop;
+                this.value = this.value.substring(0, startPos)+myValue+this.value.substring(endPos,this.value.length);
+                this.focus();
+                this.selectionStart = startPos + myValue.length;
+                this.selectionEnd = startPos + myValue.length;
+                this.scrollTop = scrollTop;
+            } else {
+                this.value += myValue;
+                this.focus();
+            }
+        })
+        }
+    });
+
+    function uploadReturn(returnCode, returnTxt){
+        var loading = activeTextarea.closest('form').find('span.loading');
+        loading.hide();
+        var wrapError = activeTextarea.closest('form').find('span.error');
+        if(returnCode){
+            activeTextarea.insertAtCaret('![]('+returnTxt+')');
+            wrapError.html('');
+        }
+        else{
+            wrapError.html(returnTxt);
+        }
+        _old$('div.uploadMarkdownSource input[type=file]').removeAttr('disabled');
+    }
+
+    // Updates switch menu display
+    _old$('.writingTypeSwitch').each(function(){
+        switchMenuDisplay(_old$(this).closest('.wysiwygContent').find('textarea.tinymce').attr('id'));
+    });
+
+    _old$('div.uploadMarkdownSource a').on('click', function(e){
+        e.preventDefault();
+        _old$(this).next().click();
+    });
+
+    var activeTextarea = null;
+    function sendImage(){
+        _old$('div.uploadMarkdownSource input[type=file]').unbind('change');
+        _old$('div.uploadMarkdownSource input[type=file]').change(function(){
+
+            // preparation de l'iframe async si inexistante
+            if(_old$('#uploadFrame').length<1)
+                _old$('<iframe id="uploadFrame" name="uploadFrame" src="#" style="display:none"></iframe>').appendTo('body');
+
+            var parentForm = _old$(this).closest('form');
+            activeTextarea = parentForm.find('textarea');
+
+            var loading = activeTextarea.closest('form').find('span.loading');
+            loading.css('display', 'inline-block');
+
+            var wrapError = activeTextarea.closest('form').find('span.error');
+            wrapError.html('');
+
+            var parentNode = _old$(this).parent();
+            var parentNodeClone = parentNode.clone(true).insertAfter(parentNode);
+            parentNodeClone.children('input').val('');
+
+            // deplacement du champ input dans un nouveau form pour upload
+            _old$('<form target="uploadFrame" action="/img/upload" method="post" class="markdownWrap" enctype="multipart/form-data" >').append(parentNode).insertAfter(parentForm);
+            _old$('form.markdownWrap').submit().remove();
+
+            _old$('div.uploadMarkdownSource input[type=file]').attr('disabled', 'disabled');
+
+        });
+    }
+    sendImage();
+
+    _old$('.switchMarkdown').on('click',function(){
+
+        var divContent = _old$(this).closest('.wysiwygContent');
+
+        if(isTextareaEmpty(divContent,true) && _old$(this).hasClass('inactive'))
+        {
+            switchToMarkdown(divContent);
+
+            divContent.find('.writingType').val('markdown');
+            // Remove wysiwyg
+            tinyMCE.execCommand('mceRemoveControl', false, divContent.find('textarea').attr('id'));
+
+            divContent.find('textarea').focus();
+            currentFocus = divContent.find('textarea');
+            wysiwygContent = divContent.find('.wysiwygContent');
+            textareaContent = divContent.find('textarea');
+        }
+    });
+
+    _old$('.switchEditeur').on('click',function(){
+        var divContent = _old$(this).closest('.wysiwygContent');
+
+        if(isTextareaEmpty(divContent,true) && _old$(this).hasClass('inactive'))
+        {
+            _old$(this).removeClass('inactive');
+
+            divContent.find('.uploadMarkdownSource').hide();
+            divContent.find('.switchMarkdown').addClass('inactive');
+            // Hide mardown info, overview button and overview
+            divContent.find('.infoMarkdown').hide();
+            divContent.parent().find('.showMarkdownOverview').hide();
+            if(divContent.parent().find('.markdownOverview').length > 0)
+            {
+                divContent.parent().find('.markdownOverview').remove();
+            }
+
+            divContent.find('.writingType').val('editor');
+            // Add wysiwyg
+            addWysiwyg(divContent.find('textarea').attr('id'), divContent.find('textarea').hasClass('error'));
+            divContent.find('textarea').removeAttr('required');
+
+            wysiwygContent = divContent.find('.wysiwygContent');
+            textareaContent = divContent.find('textarea');
+        }
+    });
+
+    // Display menu update when content changes
+    _old$('.wysiwygContent textarea').on('keyup',function(){
+        switchMenuDisplay(_old$(this).attr('id'));
+    });
+
+    // Mardown overview
+    var lockOverview = false;
+
+    _old$('.showMarkdownOverview').on('click',function(){
+        var overviewButton = _old$(this);
+        var parent = overviewButton.closest('form');
+        var textarea = parent.find('.wysiwygContent textarea.tinymce');
+        if(lockOverview == false)
+        {
+            lockOverview = true;
+            // Disables textarea and overview button
+            textarea.attr('disabled', 'disabled');
+            overviewButton.attr('disabled', 'disabled');
+            // Gets purified content
+            ajax('/apercu', 'POST', {content: textarea.val()}, function(result){
+                // Replaces div content if exists or adds div
+                if( parent.find('.markdownOverview').length > 0)
+                {
+                    parent.find('.markdownOverview').html(result);
+                }
+                else
+                {
+                    parent.append('<div class="markdownOverview comment">' + result + '</div>');
+                }
+                // Enables textarea and overview button
+                textarea.removeAttr('disabled');
+                overviewButton.removeAttr('disabled');
+                SyntaxHighlighter.highlight();
+                lockOverview = false;
+            });
+        }
+    });
+
+    // Display markdown info, overview button and updates switch classes
+    function switchToMarkdown(divContent)
+    {
+        divContent.find('.infoMarkdown').show();
+        divContent.parent().find('.showMarkdownOverview').show();
+        divContent.find('.switchEditeur').addClass('inactive');
+        divContent.find('.switchMarkdown').removeClass('inactive');
+        divContent.find('.uploadMarkdownSource').show();
+    }
+
+    // Updates writing type menu display
+    function switchMenuDisplay(id)
+    {
+        var divContent = _old$('#'+id).closest('.wysiwygContent');
+        var writingTypeSwitch = divContent.find('.writingTypeSwitch');
+
+        if(writingTypeSwitch.length > 0)
+        {
+            if(!writingTypeSwitch.is(':hidden') && !isTextareaEmpty(divContent,false))
+            {
+                writingTypeSwitch.hide();
+            }
+
+            if(writingTypeSwitch.is(':hidden') && isTextareaEmpty(divContent,false))
+            {
+                writingTypeSwitch.show();
+            }
+        }
+        if(writingTypeSwitch.hasClass('prefill'))
+        {
+            writingTypeSwitch.removeClass('prefill');
+            writingTypeSwitch.show();
+        }
+    }
+
+    // Retrieves if texterea is empty or not, with optionaly an alert message
+    function isTextareaEmpty(divContent, withMessage)
+    {
+        // if wysiwyg
+        if(divContent.find('.mceEditor').length > 0)
+        {
+            tinyMCE.execCommand('mceFocus', false, divContent.find('textarea').attr('id'));
+
+            if(tinyMCE.activeEditor.getContent() == '')
+            {
+                return true;
+            }
+        }
+        // if markdown
+        else if(divContent.find('textarea').val() == "")
+        {
+            return true;
+        }
+
+        if(withMessage)
+        {
+            alert("Vous ne pouvez plus changer de mode après avoir commencé à rédiger");
+        }
+
+        return false;
+    }
+
+    // Add wysiwyg or switch to markdown
+    function updateTextareaDisplay(divContent)
+    {
+        if(divContent.find('.writingType').val() == 'editor')
+        {
+            var textarea = divContent.find('textarea.tinymce');
+            tinyMCE.execCommand('mceRemoveControl', false, textarea.attr('id'));
+            addWysiwyg(textarea.attr('id'), textarea.hasClass('error'));
+        }
+        else
+        {
+            switchToMarkdown(divContent);
+        }
+    }
+</script>
+<script type="text/javascript">
+_old$(document).ready(function(){
+
+    // Open Modal
+    _old$('.moderateAction').click(function(e){
+
+        // Set message
+        if (_old$(this).hasClass('moderateActionAll'))
+        {
+            _old$('.modal-delete .messageDelete').html('Êtes-vous sûr de vouloir supprimer le sujet et TOUTES ses réponses ?')
+        }
+        else
+        {
+            _old$('.modal-delete .messageDelete').html('Attention vous allez supprimer définitivement ce message, êtes-vous sûr ?')
+        }
+
+        // Set action delete and moderate
+        _old$('.modal-delete form').attr('action', _old$(this).attr('data-simpleit-delete'));
+        _old$('.modal-moderate form').attr('action', _old$(this).attr('data-simpleit-moderate'));
+
+        // Alert
+        if(_old$(this).attr('data-simpleit-alert') == "true")
+        {
+            _old$('#alertAtClosed').show();
+        }
+        else
+        {
+            _old$('#alertAtClosed').hide();
+        }
+
+        // Set other reason behavior
+        if (_old$('#basicModerateReason select').val() == '8')
+        {
+            _old$('#otherModerateReason input').show();
+        }
+
+        // Open this
+        _old$('#moderateActionModal').fadeIn();
+    });
+
+    // Fixes anchor
+    _old$('.btn-action-desactivate').live('click', function(e){e.preventDefault();});
+
+    // Manage button
+    _old$('.btn-action-activate').live('click', function(e){
+
+        e.preventDefault();
+        _old$('.btn-action-desactivate').addClass('btn-action-activate');
+        _old$('.btn-action-desactivate').removeClass('btn-action-desactivate');
+        _old$(this).addClass('btn-action-desactivate');
+        _old$(this).removeClass('btn-action-activate');
+        _old$('.modal-body-hidden').hide();
+        _old$('.'+_old$(this).attr('data-simpleit-show')).fadeIn();
+
+    });
+
+    // Manage field hidden other reason
+    _old$('#basicModerateReason select').live('change', function(e){
+        _old$('#otherModerateReason input').hide();
+        if (_old$(this).val() == '8')
+        {
+            _old$('#otherModerateReason input').show();
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+    _old$('a.alertAction').click(function(){
+        _old$('.modal-alert form').attr('action', _old$(this).attr('data-simpleit-alert'));
+    });
+
+    _old$('.modal-alert input[type=submit]').click(function(e){
+        var error = "";
+
+        var value = _old$('#alert_reason').val();
+
+        if(value == '')
+        {
+            error = 'Veuillez indiquer une raison.';
+        }
+        else if(value.length > 500)
+        {
+            error = 'La raison ne doit pas dépasser 500 caractères.';
+        }
+
+        if(error != '')
+        {
+            e.preventDefault();
+            _old$(this).closest('.modal-alert').find('div.error').html(error);
+        }
+    });
+</script>
+<script type="text/javascript">
+_old$("a.deplacerAction").live('click', function(e){
+    e.preventDefault();
+});
+
+</script>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar": false};</script>
+<script type="text/javascript" src="./Authentification PHP, session, cookie par GumDum_files/addthis_widget.js.téléchargement"></script>
+ 
+</body></html>

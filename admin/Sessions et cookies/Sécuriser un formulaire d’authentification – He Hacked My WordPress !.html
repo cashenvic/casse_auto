@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/ -->
+<html lang="fr-FR" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://hehackedmy.wordpress.com/xmlrpc.php">
+
+<script defer="" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/beacon.js.téléchargement"></script><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Sécuriser un formulaire d’authentification – He Hacked My WordPress !</title>
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="alternate" type="application/rss+xml" title="He Hacked My Wordpress ! » Flux" href="https://hehackedmy.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="He Hacked My Wordpress ! » Flux des commentaires" href="https://hehackedmy.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="He Hacked My Wordpress ! » Sécuriser un formulaire d’authentification Flux des commentaires" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1488818651h&ver=4.7.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://s0.wp.com/wp-includes/js/wp-emoji-release.min.js?m=1488818651h&amp;ver=4.7.3" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="all-css-0-1" href="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource(1)" type="text/css" media="all">
+<link rel="stylesheet" id="independent-publisher-fonts-css" href="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-2-1" href="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource(2)" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-3-1" href="https://s0.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1465851035h" type="text/css" media="print">
+<link rel="stylesheet" id="all-css-4-1" href="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource(3)" type="text/css" media="all">
+<script type="text/javascript" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource(4)"></script>
+<link rel="stylesheet" id="all-css-0-2" href="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://hehackedmy.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="ProFTPD : Attention à la faille CPTO !" href="https://hehackedmy.wordpress.com/2016/04/21/proftpd-attention-a-la-faille-cpto/">
+<link rel="next" title="Aria2-webUI en HTTPS !" href="https://hehackedmy.wordpress.com/2016/04/22/aria2-webui-en-https/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/">
+<link rel="shortlink" href="http://wp.me/p7sJ1v-78">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=https%3A%2F%2Fhehackedmy.wordpress.com%2F2016%2F04%2F22%2Fsecuriser-un-formulaire-dauthentification%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=https%3A%2F%2Fhehackedmy.wordpress.com%2F2016%2F04%2F22%2Fsecuriser-un-formulaire-dauthentification%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sécuriser un formulaire d’authentification">
+<meta property="og:url" content="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/">
+<meta property="og:description" content="Dans cet article nous allons voir comment sécuriser un formulaire d’authentification tout ce qu’il y a de plus basique. Parlons peu, parlons bien, voilà le formulaire : &lt;?php session…">
+<meta property="article:published_time" content="2016-04-22T10:38:21+00:00">
+<meta property="article:modified_time" content="2016-04-22T13:48:33+00:00">
+<meta property="og:site_name" content="He Hacked My Wordpress !">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="search" type="application/opensearchdescription+xml" href="https://hehackedmy.wordpress.com/osd.xml" title="He Hacked My Wordpress !">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+<meta name="application-name" content="He Hacked My Wordpress !"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-task" content="name=S&#39;abonner;action-uri=https://hehackedmy.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Inscrivez-vous pour un blog gratuit;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Soutien WordPress.com;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Forums WordPress.com;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="title" content="Sécuriser un formulaire d’authentification | He Hacked My Wordpress ! sur WordPress.com">
+<meta name="description" content="Dans cet article nous allons voir comment sécuriser un formulaire d&#39;authentification tout ce qu&#39;il y a de plus basique. Parlons peu, parlons bien, voilà le formulaire : &lt;?php session_start(); if( isset($_POST[&#39;login&#39;], $_POST[&#39;password&#39;]) &amp;&amp; $_POST[&#39;login&#39;] == &#39;toto&#39; &amp;&amp; $_POST[&#39;password&#39;] == &#39;toto123&#39; ) { $_SESSION[&#39;connecte&#39;] = 1; } ?&gt; &lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;login&quot; /&gt; &lt;input…">
+		<script type="text/javascript" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/amzn_ads.js.téléchargement"></script>
+		<script type="text/javascript">
+		 try { amznads.getAds("3033"); } catch(e) {}
+		</script>
+ 		<script type="text/javascript">
+		try {
+		var a9_p = amznads.getKeys(),
+			_ipw_custom = {
+				wordAds: '0',
+				adSafe: '0',
+				domain: 'hehackedmy.wordpress.com',
+				pageURL: 'https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/'
+			};
+			if("undefined"!=typeof a9_p&&""!=a9_p&&null!==a9_p&&"[object Array]"===Object.prototype.toString.call(a9_p)){var a="",b=0,c=a9_p.length;a9_p.sort();for(var d=0;d<c;d++){a9_p[d-b]=a9_p[d-b].replace(/a1x6p/,"a160x600p");var e=a9_p[d-b].split("p");e[0]==a&&(a9_p.splice(d-b,1),b++);a=e[0]}_ipw_custom.amznPay=a9_p};document.close();
+ 	        } catch(e) {}
+		</script>
+ 		<script type="text/javascript" src="https://s.pubmine.com/head.js"></script>
+		<script type="text/javascript" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/publishertag.js.téléchargement"></script><link rel="amphtml" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/amp/"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/ga.js.téléchargement"></script>
+<meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;WordPress&quot;:&quot;.com&quot;,&quot;Google Analytics&quot;:-1,&quot;jQuery&quot;:&quot;1.12.4&quot;}"><script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script></head>
+
+<body class="post-template-default single single-post postid-442 single-format-standard mp6 customizer-styles-applied has-sidebar highlander-enabled highlander-light tablet-desktop">
+
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#content">Aller au contenu principal</a>
+
+	
+	<div id="content-wrapper">
+		<header id="masthead" class="site-header" role="banner">
+							<div class="site-branding">
+											<a class="site-logo-link" href="https://hehackedmy.wordpress.com/">
+							<img alt="" class="site-logo-image no-grav" width="100" height="100" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/f454f31185e86b14f355cf41768a2d8b">
+						</a><!-- .site-logo-link -->
+										<h1 class="site-title"><a href="https://hehackedmy.wordpress.com/" rel="home">He Hacked My Wordpress !</a></h1>
+					<h2 class="site-description"></h2>
+				</div><!-- .site-branding -->
+
+				
+									<nav id="site-navigation" class="main-navigation" role="navigation">
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+						<ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="https://hehackedmy.wordpress.com/">Accueil</a></li>
+</ul>					</nav><!-- #site-navigation -->
+							
+			
+<div id="secondary" class="widget-area" role="complementary">
+			<aside id="recent-posts-3" class="widget widget_recent_entries">		<h1 class="widget-title">Articles récents</h1>		<ul>
+					<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/22/aria2-webui-en-https/">Aria2-webUI en HTTPS&nbsp;!</a>
+						</li>
+					<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/">Sécuriser un formulaire d’authentification</a>
+						</li>
+					<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/21/proftpd-attention-a-la-faille-cpto/">ProFTPD : Attention à la faille CPTO&nbsp;!</a>
+						</li>
+					<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/21/renommer-ses-series-a-la-volee/">Renommer ses séries à la&nbsp;volée</a>
+						</li>
+					<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/21/monter-sa-seedbox-avec-aria2/">Monter sa SeedBox avec&nbsp;Aria2</a>
+						</li>
+				</ul>
+		</aside>		<aside id="rss_links-3" class="widget widget_rss_links"><p class="size-small"><a class="feed-image-link" href="https://hehackedmy.wordpress.com/feed/" title="S’abonner à Articles"><img src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/silver-small.png" alt="RSS Feed"></a>&nbsp;<a href="https://hehackedmy.wordpress.com/feed/" title="S’abonner à Articles">RSS - Articles</a></p>
+</aside><aside id="archives-3" class="widget widget_archive"><h1 class="widget-title">Archives</h1>		<ul>
+			<li><a href="https://hehackedmy.wordpress.com/2016/04/">avril 2016</a>&nbsp;(8)</li>
+		</ul>
+		</aside></div><!-- #secondary -->		</header><!-- #masthead -->
+
+		<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-442" class="post-442 post type-post status-publish format-standard hentry category-php">
+			<div class="entry-meta light-text">
+			<a href="https://hehackedmy.wordpress.com/author/insomniak313/" title="Articles par ins0" rel="author">ins0</a>			<span class="cat-links">
+				dans <a href="https://hehackedmy.wordpress.com/category/php/" rel="category tag">PHP</a>			</span><!-- .cat-links -->
+
+			<span class="published-on"><time class="entry-date published" datetime="2016-04-22T10:38:21+00:00">avril 22, 2016</time><time class="updated" datetime="2016-04-22T13:48:33+00:00">avril 22, 2016</time></span>
+
+							<span class="word-count">746 Words</span>
+			
+					</div><!-- .entry-meta -->
+			<header class="entry-header">
+			<h1 class="entry-title">Sécuriser un formulaire d’authentification</h1>		</header><!-- .entry-header -->
+	<div class="entry-content">
+		<p>Dans cet article nous allons voir comment sécuriser un formulaire d’authentification tout ce qu’il y a de plus basique.<br>
+Parlons peu, parlons bien, voilà le formulaire :</p>
+<pre><span style="color:#ff0000;">&lt;?php</span>
+<span style="color:#000000;">   session_start();
+   if(
+      isset($_POST['login'], $_POST['password'])
+      &amp;&amp; $_POST['login'] == 'toto'
+      &amp;&amp; $_POST['password'] == 'toto123'
+   )
+   {
+      $_SESSION['connecte'] = 1;
+   }</span>
+<span style="color:#ff0000;">?&gt;</span>
+&lt;form action="#" method="POST"&gt;
+   &lt;input type="text" name="login" /&gt;
+   &lt;input type="password" name="password" /&gt;
+   &lt;input type="submit" value="Connexion" /&gt;
+&lt;/form&gt;
+</pre>
+<p>Ce formulaire envoi dans une requête «&nbsp;POST&nbsp;» les champs «&nbsp;login&nbsp;» et «&nbsp;password&nbsp;» et si ceux-ci valent respectivement «&nbsp;toto&nbsp;» et «&nbsp;toto123&nbsp;» on est connecté.</p>
+<p>Le problème est que rien n’empêche un assaillant de bruteforcer le formulaire. Dans ce cas précis, l’assaillant essaierait toutes les combinaisons possibles d’identifiant/mot de passe en envoyant des requêtes POST en masse à notre pauvre page d’authentification.</p>
+<p>Pour le ralentir, on va rajouter un champ caché que l’on va nommer «&nbsp;csrf&nbsp;» pour Cross Site Request Forgery. L’idée est simple : ce champ a une valeur aléatoire que l’on définit lors de la construction du formulaire et que l’on stocke en $_SESSION. Lorsque la page traitera des requêtes POST d’authentification elle vérifiera que le champ «&nbsp;csrf&nbsp;» est bien égal à la valeur stockée en session :</p>
+<pre><span style="color:#ff0000;">&lt;?php</span>
+<span style="color:#000000;">   session_start();
+<span style="color:#008000;">   // On a notre nouvelle contrainte sur la valeur du champ "csrf"</span>
+   if(
+      isset($_POST['login'], $_POST['password'], $_POST['csrf'])
+      &amp;&amp; $_POST['login'] == 'toto'
+      &amp;&amp; $_POST['password'] == 'toto123'
+      &amp;&amp; $_POST['csrf'] == $_SESSION['csrf']
+   )
+   {
+      $_SESSION['connecte'] = 1;
+   }
+<span style="color:#008000;">   // On génère une nouvelle valeur pour $csrf que l'on stocke en $_SESSION</span>
+   $csrf = base64_encode(uniqid(rand(), true));
+   $_SESSION['csrf'] = $csrf;</span>
+<span style="color:#ff0000;">?&gt;</span>
+&lt;form action="#" method="POST"&gt;
+   &lt;input type="text" name="login" /&gt;
+   &lt;input type="password" name="password" /&gt;
+   &lt;input type="hidden" name="csrf" value="<span style="color:#ff0000;">&lt;?php</span> <span style="color:#000000;">echo $csrf;</span> <span style="color:#ff0000;">?&gt;</span>" /&gt;
+   &lt;input type="submit" value="Connexion" /&gt;
+&lt;/form&gt;</pre>
+<p>Notre assaillant ne peux plus nous bruteforcer avec une aussi grande vélocité, il est maintenant obligé pour chaque tentative de connexion de crawler (lire) notre page d’authentification. Mais pour une raison inconnue, celui-ci persiste.<br>
+Afin de l’empêcher de trouver notre mot de passe (très très compliqué) on va encore incrémenter la sécurité de notre formulaire en stockant les adresses IP des personnes essayant de s’authentifier et en limitant le nombre de tentative de connexion à 3 toutes les heures.<br>
+On créé donc notre table visiteurs :</p>
+<pre>CREATE TABLE visiteurs(
+ip VARCHAR(15),
+date TIMESTAMP,
+tentatives INTEGER
+);</pre>
+<p>Et on modifie notre page :</p>
+<pre><span style="color:#ff0000;">&lt;?php</span>
+<span style="color:#000000;">   session_start();
+   $connexion = mysqli_connect('127.0.0.1', 'mysql', 'mdp', 'db_site');
+   
+<span style="color:#008000;">   // On commence par récupérer le nombre de tentative de connexion</span></span>
+<span style="color:#000000;"><span style="color:#008000;">   // durant la dernière heure dans notre table avec l'adresse IP du visiteur</span> 
+   $requete = "SELECT tentatives 
+               FROM visiteurs 
+               WHERE ip = '{$_SERVER['REMOTE_ADDR']}' 
+               AND date &gt; " . (date() - 3600);
+   $ressource = mysqli_query($connexion, $requete);
+   if ( ($ligne = mysqli_fetch_assoc($ressource)) == false )
+   {
+      $tentatives = 0;
+   }
+   else
+   {
+      $tentatives = $ligne['tentatives'];
+   }
+   </span>
+<span style="color:#000000;"><span style="color:#008000;">   // On vérifie si on avait déjà enregistré l'adresse IP du visiteur</span>
+   $requete = "SELECT * FROM visiteurs WHERE ip = '{$_SERVER['REMOTE_ADDR']}'";
+   $ressource = mysqli_query($connexion, $requete);
+   $insert = ( ($ligne = mysqli_fetch_assoc($ressource)) == false );
+   $tentatives++;
+   if ($insert)
+   {
+      $requete = 'INSERT INTO visiteurs (date, tentatives) 
+                  VALUES (' . date() . ', ' . $tentatives . ')';
+   }
+   else
+   {
+      $requete = 'UPDATE visiteurs 
+                  SET date = ' . date() . ",
+                  tentatives = $tentatives 
+                  WHERE ip = '{$_SERVER['REMOTE_ADDR']}'; 
+   }
+   mysqli_query($connexion, $requete);</span>
+
+<span style="color:#008000;">   // Et on à maintenant notre nouvelle contrainte sur le nombre de</span>
+<span style="color:#000000;"><span style="color:#008000;">   // tentatives de connexion</span>
+   if(
+      isset($_POST['login'], $_POST['password'], $_POST['csrf'])
+      &amp;&amp; $_POST['login'] == 'toto'
+      &amp;&amp; $_POST['password'] == 'toto123'
+      &amp;&amp; $_POST['csrf'] == $_SESSION['csrf']
+      &amp;&amp; $tentatives &lt; 3 
+   )
+   {
+      $_SESSION['connecte'] = 1;
+   }
+   $csrf = base64_encode(uniqid(rand(), true));
+   $_SESSION['csrf'] = $csrf;</span>
+<span style="color:#ff0000;">?&gt;</span>
+&lt;form action="#" method="POST"&gt;
+   &lt;input type="text" name="login" /&gt;
+   &lt;input type="password" name="password" /&gt;
+   &lt;input type="hidden" name="csrf" value="<span style="color:#ff0000;">&lt;?php</span> <span style="color:#000000;">echo $csrf;</span> <span style="color:#ff0000;">?&gt;</span>" /&gt;
+   &lt;input type="submit" value="Connexion" /&gt;
+&lt;/form&gt;</pre>
+<p>On a maintenant un formulaire de connexion un peu plus sécurisé !</p>
+<p>La dernière chose qu’il nous resterait à faire serait maintenant de configurer notre serveur web afin d’utiliser uniquement le protocole HTTPS. En effet, lorsque l’on utilise le protocole HTTP toutes les informations sont transmises en clair sur le réseau et donc si nous sommes connectés à un réseau non sécurisé, ces informations pourraient être récupérées.. à suivre !</p>
+			<style type="text/css">
+			div.wpmrec2x{max-width:610px;}
+			div.wpmrec2x div.u > div{float:left;margin-right:10px;}
+			div.wpmrec2x div.u > div:nth-child(3n){margin-right:0px;}
+			</style>		<div class="wpcnt">
+			<div class="wpa wpmrec wpmrec2x">
+				<span class="wpa-about">Advertisements</span>
+				<div class="u">
+								<script type="text/javascript">
+				(function(g){if("undefined"!=typeof g.__ATA){g.__ATA.initAd({sectionId:26942, width:300, height:250});
+					g.__ATA.initAd({sectionId:114160, width:300, height:250});}})(window);
+			</script>
+				</div>
+				        <div id="crt-2103171195" style="width: 300px; height: 250px; display: none !important; visibility: hidden !important;"></div>
+        <script type="text/javascript">
+        var o = document.getElementById('crt-2103171195');
+        if ("undefined"!=typeof Criteo) {
+            var p = o.parentNode;
+            p.style.setProperty('display', 'inline-block', 'important');
+            o.style.setProperty('display', 'block', 'important');
+            Criteo.DisplayAcceptableAdIfAdblocked({zoneid:388248,containerid:"crt-2103171195",collapseContainerIfNotAdblocked:true,"callifnotadblocked": function () {var o = document.getElementById('crt-2103171195'); o.style.setProperty('display','none','important');o.style.setProperty('visbility','hidden','important'); }
+        });
+        } else {
+            o.style.setProperty('display', 'none', 'important');
+            o.style.setProperty('visibility', 'hidden', 'important');
+        }
+        </script>
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-442" class="share-twitter sd-button share-icon" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/?share=twitter&amp;nb=1" target="_blank" title="Partager sur Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-442" class="share-facebook sd-button share-icon" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/?share=facebook&amp;nb=1" target="_blank" title="Partager sur Facebook"><span>Facebook</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-442" class="share-google-plus-1 sd-button share-icon" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/?share=google-plus-1&amp;nb=1" target="_blank" title="Cliquez pour partager sur Google+"><span>Google</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded" id="like-post-wrapper-110280609-442-58dbf01fb9536" data-src="//widgets.wp.com/likes/#blog_id=110280609&amp;post_id=442&amp;origin=hehackedmy.wordpress.com&amp;obj_id=110280609-442-58dbf01fb9536" data-name="like-post-frame-110280609-442-58dbf01fb9536"><h3 class="sd-title">WordPress:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px;"><span class="button"><span>J'aime</span></span> <span class="loading">chargement…</span></div><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>	</div><!-- .entry-content -->
+
+	</article><!-- #post-## -->
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Navigation de l’article</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://hehackedmy.wordpress.com/2016/04/21/proftpd-attention-a-la-faille-cpto/" rel="prev">ProFTPD : Attention à la faille CPTO&nbsp;!</a></div><div class="nav-next"><a href="https://hehackedmy.wordpress.com/2016/04/22/aria2-webui-en-https/" rel="next">Aria2-webUI en HTTPS&nbsp;!</a></div></div>
+	</nav>
+			
+<div id="comments" class="comments-area">
+
+	
+	
+	
+		<div id="respond" class="comment-respond js">
+		<h3 id="reply-title" class="comment-reply-title">Laisser un commentaire <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#respond" style="display:none;">Annuler la réponse.</a></small></h3>			<form action="https://hehackedmy.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="9a841a83de"><input type="hidden" name="_wp_http_referer" value="/2016/04/22/securiser-un-formulaire-dauthentification/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 19.6px; width: 678px;" class="autosizejs "></textarea><textarea id="comment" name="comment" title="Entrez votre commentaire..." placeholder="Entrez votre commentaire..." style="height: 39px; overflow: hidden; word-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Entrez vos coordonnées ci-dessous ou cliquez sur une icône pour vous connecter:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#comment-form-guest" id="postas-guest" title="Visiteur">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource.html" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Adresse de messagerie <span class="required">(obligatoire)</span> <span class="nopublish">(adresse strictement confidentielle)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Nom <span class="required">(obligatoire)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Site web</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url" value=""></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/ad516503a11cd5ca435acc9bb6523536" alt="Logo WordPress.com" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> Vous commentez à l'aide de votre compte WordPress.com. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;wordpress&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/ad516503a11cd5ca435acc9bb6523536" alt="Image Twitter" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> Vous commentez à l'aide de votre compte Twitter. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;twitter&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/ad516503a11cd5ca435acc9bb6523536" alt="Photo Facebook" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> Vous commentez à l'aide de votre compte Facebook. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;facebook&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/ad516503a11cd5ca435acc9bb6523536" alt="Photo Google+" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> Vous commentez à l'aide de votre compte Google+. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;googleplus&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Annuler</a></div>
+		<p>Connexion à %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Avertissez-moi par email des nouveaux commentaires.</label></p></div>
+
+
+
+
+<p class="form-submit" style="display: none;"><input name="submit" type="submit" id="comment-submit" class="submit" value="Laisser un commentaire"> <input type="hidden" name="comment_post_ID" value="442" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="f0d8767f7a"></p>
+<input type="hidden" name="genseq" value="1490808863">
+<p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1490809214082"></form>
+			</div><!-- #respond -->
+	<div style="clear: both"></div>
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+		</div><!-- #content -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			<div class="site-info">
+				
+				
+							</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+	</div><!-- #content-wrapper -->
+
+	</div><!-- #page -->
+
+<!--  -->
+<script type="text/javascript" src="https://0.gravatar.com/js/gprofiles.js?ver=201713y"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/wpgroho.js.téléchargement"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Connexion\u2026","submittingText":"Publication d'un Commentaire\u2026","postCommentText":"Laisser un commentaire","connectingToText":"Connexion \u00e0 %s","commentingAsText":"%1$s: Vous commentez \u00e0 l'aide de votre compte %2$s.","logoutText":"Se d\u00e9connecter","loginText":"Se connecter","connectURL":"https:\/\/hehackedmy.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/hehackedmy.wordpress.com\/wp-login.php?action=logout&_wpnonce=61e3818ed0","homeURL":"https:\/\/hehackedmy.wordpress.com\/","postID":"442","gravDefault":"identicon","enterACommentError":"Entrez un commentaire","enterEmailError":"Veuillez entrer votre adresse mail","invalidEmailError":"Adresse email invalide","enterAuthorError":"Veuillez entrer votre nom","gravatarFromEmail":"L\u2019image s\u2019affiche lorsque vous postez un commentaire. Cliquez pour personnaliser.","logInToExternalAccount":"Connectez-vous pour utiliser les informations li\u00e9es \u00e0 un de ces comptes:","change":"Changer","changeAccount":"Changer de compte","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource(5)"></script>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/hehackedmy.wordpress.com\/2016\/04\/22\/securiser-un-formulaire-dauthentification\/":442};
+	</script>
+		<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+		<script type="text/javascript" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/form.js.téléchargement"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var comment_like_text = {"loading":"chargement\u2026"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"110280609","siteName":"He Hacked My Wordpress !","siteURL":"http:\/\/hehackedmy.wordpress.com","icon":"<img alt='' src='https:\/\/s1.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/independent-publisher","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/hehackedmy.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fhehackedmy.wordpress.com%2F2016%2F04%2F22%2Fsecuriser-un-formulaire-dauthentification%2F","themeURL":"https:\/\/wordpress.com\/theme\/independent-publisher\/","xhrURL":"https:\/\/hehackedmy.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"db8a5d96cf","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"613da1e04d\" \/>","referer":"https:\/\/hehackedmy.wordpress.com\/2016\/04\/22\/securiser-un-formulaire-dauthentification\/","canFollow":"1","statusMessage":"","customizeLink":"https:\/\/hehackedmy.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fhehackedmy.wordpress.com%2F2016%2F04%2F22%2Fsecuriser-un-formulaire-dauthentification%2F","postID":"442","shortlink":"http:\/\/wp.me\/p7sJ1v-78","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/hehackedmy.wordpress.com\/442","statsLink":"https:\/\/wordpress.com\/stats\/post\/442\/hehackedmy.wordpress.com","i18n":{"view":"Afficher le site","follow":"Suivre","following":"Abonn\u00e9","edit":"Modifier","login":"Connexion","signup":"S'inscrire","customize":"Personnaliser","report":"Signaler ce contenu","themeInfo":"Obtenir le th\u00e8me: Independent Publisher","shortlink":"Copier shortlink","copied":"Copi\u00e9","followedText":"Les nouveaux articles de ce site appara\u00eetront d\u00e9sormais dans votre <a href=\"https:\/\/wordpress.com\/\">lecteur<\/a>","foldBar":"R\u00e9duire cette barre","unfoldBar":"Expand this bar","editSubs":"G\u00e9rer les abonnements","viewReader":"Voir le site dans le Lecteur","subscribe":"Inscrivez-moi","enterEmail":"Entrez votre adresse e-mail","followers":"","alreadyUser":"Vous disposez d\u00e9j\u00e0 d\u02bcun compte WordPress ? <a href=\"https:\/\/hehackedmy.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fhehackedmy.wordpress.com%2F2016%2F04%2F22%2Fsecuriser-un-formulaire-dauthentification%2F\">Connectez-vous maintenant.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"fr","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/saved_resource(6)"></script><div id="actionbar" class="actnbr-pub-independent-publisher actnbr-has-follow actnbr-hidden"><ul><li class="actnbr-btn actnbr-hidden"> 			    	<a class="actnbr-action actnbr-actn-follow" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/"><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Suivre</span></a> 			    	<div class="actnbr-popover tip tip-top-left actnbr-notice"> 			    		<div class="tip-arrow"></div> 			    		<div class="tip-inner actnbr-follow-bubble"></div> 			    	</div> 			    </li><li class="actnbr-ellipsis actnbr-hidden"> 			  <svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 			  <div class="actnbr-popover tip tip-top-left actnbr-more"> 			  	<div class="tip-arrow"></div> 			  	<div class="tip-inner"> 				  <ul> 				    <li class="actnbr-sitename actnbr-hidden"><a href="http://hehackedmy.wordpress.com/"><img alt="" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/wpcom-gray-white.png" class="avatar avatar-50" height="50" width="50"> He Hacked My Wordpress !</a></li> 				   	<li class="actnbr-folded-customize actnbr-hidden"><a href="https://hehackedmy.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fhehackedmy.wordpress.com%2F2016%2F04%2F22%2Fsecuriser-un-formulaire-dauthentification%2F"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Personnaliser<span></span></span></a></li> 				    <li class="actnbr-folded-follow actnbr-hidden"><a class="actnbr-action actnbr-actn-follow" href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/"><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Suivre</span></a></li> 					<li class="actnbr-signup actnbr-hidden"><a href="https://wordpress.com/start/">S'inscrire</a></li> 				    <li class="actnbr-login actnbr-hidden"><a href="https://hehackedmy.wordpress.com/wp-login.php?redirect_to=https%3A%2F%2Fhehackedmy.wordpress.com%2F2016%2F04%2F22%2Fsecuriser-un-formulaire-dauthentification%2F">Connexion</a></li> 				     				    <li class="actnbr-shortlink actnbr-hidden"><a href="http://wp.me/p7sJ1v-78">Copier shortlink</a></li> 				    <li class="flb-report actnbr-hidden"><a href="http://en.wordpress.com/abuse/">Signaler ce contenu</a></li> 				     				     				    <li class="actnbr-subs actnbr-hidden"><a href="https://subscribe.wordpress.com/">Gérer les abonnements</a></li> 				    <li class="actnbr-fold actnbr-hidden"><a href="https://hehackedmy.wordpress.com/2016/04/22/securiser-un-formulaire-dauthentification/">Réduire cette barre</a></li> 			      </ul> 			    </div> 		      </div> 		    </li> 	      </ul></div>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "hehackedmy.wordpress.com";
+	</script>
+	<script type="text/javascript" defer="" src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/725X1342.skimlinks.js.téléchargement"></script>		<iframe src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> blogueurs aiment cette page :</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script>
+			var _comscore = _comscore || [];
+			_comscore.push({
+				c1: "2",
+				c2: "7518284"
+			});
+			(function() {
+				var s = document.createElement("script"),
+					el = document.getElementsByTagName("script")[0];
+				s.defer = true;
+				s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+				el.parentNode.insertBefore(s, el);
+			})();
+		</script>
+		<noscript>
+			&lt;p class="robots-nocontent"&gt;&lt;img src="https://sb.scorecardresearch.com/p?c1=2&amp;c2=7518284&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c15=&amp;cv=2.0&amp;cj=1" alt="" style="display:none;" width="1" height="1" /&gt;&lt;/p&gt;
+		</noscript><script src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/w.js.téléchargement" type="text/javascript" async="" defer=""></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'110280609','blog_tz':'0','user_lang':'fr','blog_lang':'fr','user_id':'0'}]);
+_stq.push(['view', {'blog':'110280609','v':'wpcom','tz':'0','user_id':'0','post':'442','subd':'hehackedmy'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWpYP2xZaVBVeHZiOUhkaixZNmFPU05OR05vUHd0YzhINnBYODQrfixkSF1SPTYzcmUvWEU9RVR8aSZFYlpxJmJ+JjImbEloZEFdQn5fM3xrYStIQ3FtSHM9UCwyMlB0JmE3ZE1jeHxwX2tCeGhBNjd6K00zSS42TFpmcV83RWxMWH5QVWxdSm58Zz9jOCY/ZksuN3F8ZUNtVm5ORlZmLEtWYkJmbFguK2MsQktraEg/dmczcVNnfGJtMEUuQk85diZPV1B4blFsSzgrM0pDSk1sWy5ZSVRsbjhTJmt0bFE2LkNTcVdoTSZUP2JlMHdmNSVGP00tfl9wWmRzUFBJN2FKTA=='}]);
+_stq.push([ 'clickTrackerInit', '110280609', '442' ]);
+	</script>
+<noscript>&lt;img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<img src="./Sécuriser un formulaire d’authentification – He Hacked My WordPress !_files/g.gif" alt=":)" id="wpstats"><div class="comment-likes-overlay" style="display: none;"></div></body></html>

@@ -1,0 +1,709 @@
+* { padding: 0; margin: 0; }
+
+body 
+{
+    background: #E1F4DA url(images/back.png) repeat-x;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+a 
+{
+    text-decoration : underline;
+}
+
+a:hover    
+{ 
+    text-decoration: none;
+    color : #000;
+}
+
+.important { color : #b30006; }
+.souligne { text-decoration : underline; }
+.masquer { display : none; }
+
+abbr, acronym, kbd, dfn    { cursor: help; }
+h1 { display: none; }
+
+/**  IMAGES  **/
+img 
+{
+    border : 0;    
+}
+
+/**  FORMS  **/
+fieldset    { border: 0; }
+legend        { display: none; }
+
+label {
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input {
+    background: #D0F1F1;
+    height: 14px;
+    padding: 1px 2px;
+    border: 0;
+    font-size: 12px;
+}
+
+input:hover, input:focus { background: #F1F2F2; }
+
+div#actions input.submit {
+    float: left;
+    margin : 0;
+    margin-right : 2px;
+    padding : 0;
+    background: #CCB88A url(images/back-actions.gif) no-repeat 0 0;
+    width: 45px;
+    height: 18px;
+    line-height: 18px;
+    border: 0;
+    font-size: 9px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+div#actions input.submit:hover {
+    background-color: #FF9933;
+    background-position: 0 -18px;
+    cursor: pointer;
+}
+/**  END OF FORMS  **/
+
+div.clear {
+    height: 0;
+    clear: both;
+}
+
+
+/**  LAYOUT  **/
+#page 
+{
+    background: transparent url(images/back-content.png) repeat-y top left;
+    width: 916px;
+    margin: 55px auto 0 auto;
+    position: relative;
+    text-align: left;
+}
+
+#fond-content 
+{
+    background: transparent url(images/back-page.png) no-repeat top left;
+    padding: 18px 8px 0 8px;
+}
+
+#container {
+    background: #FFF;
+    width: 700px;
+    float: right;
+    padding-bottom : 25px;
+}
+
+#side {
+    width: 182px;
+    padding: 0 10px;
+}
+
+#footer 
+{
+    width: 716px;
+    height: 62px;
+    padding: 18px 0 0 200px;
+    margin: 0 auto 10px auto;
+    font-size : 90%;
+}
+/**  END OF LAYOUT  **/
+
+
+/**  #PREAMBULE  **/
+#preambule {
+    background: #307D90 url(images/preambule-right.png) no-repeat right top;
+    height: 28px;
+    line-height: 28px;
+    padding-right: 25px;
+    position: absolute;
+    top: -21px;
+    right: 23px;
+    font-size: 80%;
+    color: #FFF;
+}
+
+#preambule ul {
+    background: #307D90 url(images/preambule-left.png) no-repeat left top;
+    padding-left: 25px;        /* #preambule padding-right */
+    margin-right: 237px;    /* #preambule form width (dynamic) + #preambule li padding-right */
+}
+
+#preambule li {
+    padding: 0 5px;
+    border-right: 1px solid #FFF;
+    display: inline;
+    text-transform: uppercase;
+}
+
+#preambule li span    { display: none; }
+#preambule li a        { color: #FFF; }
+
+#preambule form {
+    height: 28px;
+    position: absolute;
+    top: 0px;
+    right: 25px; /* #preambule ul padding-left */
+}
+
+#preambule form input 
+{
+    width : 96px;
+}
+
+#preambule div {
+    width: 183px;
+    float: left;
+}
+
+#preambule label    { vertical-align: top; }
+#preambule input    { margin-top: 6px; /* ??? */ }
+#preambule button    { margin: 5px 0 0 4px; }
+/**  END OF #PREAMBULE  **/
+
+
+/**  #CONTENER #HEADER  **/
+#header {
+    background: #fff url(images/back-header.jpg) no-repeat right top;
+    height: 239px;    /* #header background-height + #header #menu height */
+}
+
+#menu {
+    background: url(images/back-menu.png) no-repeat;
+    width: 690px;
+    height: 32px;
+    padding-top: 7px;
+}
+
+#menu li {
+    display: inline;
+    text-transform: uppercase;
+}
+
+#menu a {
+    width: 77px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 4px;
+    display: block;
+    float: left;
+    font-size: 85%;
+    text-align: center;
+    color: #fff;
+    text-decoration : none;
+}
+
+#menu a:hover {
+    background: url(images/menu-hover.png) no-repeat;
+    text-decoration: none;
+}
+
+/**  #CONTENER #HEADER  **/
+
+
+/**  #CONTENER #CONTENT  **/
+#content {
+    background: #FFF;
+    width: 644px;
+    border-left: 1px solid #C2C2C2;
+    border-right: 1px solid #C2C2C2;
+    margin: 0 26px;
+}
+
+#content form ul {
+    list-style: none;
+}
+
+#content form ul li {
+    color: #b30006;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+/**  #CONTENER #CONTENT #ARTICLES  **/
+#articles {
+    padding: 0 8px; 
+    color : #666;
+    min-height : 700px;
+}
+
+#articles p {
+    line-height : 135%;
+    margin : 0 8px 10px 5px;
+    text-align : justify;
+}
+
+#articles p a, .articles p a:link {
+    text-decoration: underline;
+    color: #18849F;
+}
+
+#articles p a:hover { text-decoration: none; }
+#articles p a:visited, .article p a:active { color: #18849F; }
+
+/**  BONUS  **/
+#articles .aGauche { float : left; clear:both; }
+#articles .aDroite { float : right; }
+
+#articles .texteAGauche {
+    margin-right: 1em;
+    text-align: left;
+}
+
+#articles .texteADroite {
+    margin-left: 1em;
+    text-align: right;
+}
+
+#articles .auCentre {
+    text-align: center;
+}
+
+#articles img.imageGauche {
+    float : left;
+    margin-right : 10px;
+    margin-bottom : 10px;
+}
+
+#articles img.imageDroite {
+    float : right;
+    margin-left : 10px;
+    margin-bottom : 10px;
+}
+
+#articles #publicite {
+    width : 468px;
+    height : 60px;
+    margin : 0 auto 20px auto;
+    border : 0;
+}
+
+#articles form fieldset div {
+    border-bottom : 1px dotted #c0c0c0;
+    padding-bottom : 5px;
+    margin : 10px 0;
+}
+
+#articles form fieldset div strong 
+{
+    display : block;
+    width : 170px;
+    float : left;
+}
+
+#articles form fieldset label 
+{
+    text-transform : none;
+    display : block;
+    width : 200px;
+    text-align : right;
+    float : left;
+    margin-right : 10px;
+}
+
+#articles form fieldset input
+{
+    border : 1px solid #000;    
+    background : #fff;
+}
+
+#articles form fieldset textarea
+{
+    border : 1px solid #000;
+    width : 600px;
+    margin : 0 auto;    
+}
+
+#articles form fieldset button
+{
+    border : 1px solid #000;
+    background : #ff9933;
+    color : #000;
+    width : 150px;
+}
+
+#articles hr
+{
+    margin : 10px auto;
+    width : 60%;
+    border : 1px solid #efefef;    
+}
+
+#articles table img
+{
+    border : 0;    
+}
+
+#articles table 
+{
+    border-collapse : collapse;
+    border : 1px solid #ccc;
+    color : #000;
+    width : 100%;
+    margin : 15px 0;
+}
+
+#articles table caption
+{
+    display : none;    
+}
+
+#articles table thead, #articles table tfoot 
+{
+    background : #478eba;
+    height : 30px;
+    color : #fff;
+}
+
+#articles table thead tr th a, #articles table tfoot tr th a
+{
+    color : #fff;
+}
+
+#articles table tfoot tr th 
+{
+    padding : 0 10px;
+}
+
+#articles table tbody tr
+{
+    border-bottom : 1px dotted #ccc;
+}
+
+#articles table tbody tr.entetes-tableau 
+{
+    background : #ccc;    
+}
+
+#articles table tbody tr td 
+{
+    padding : 5px;
+}
+
+#articles table tbody tr td a 
+{
+    color : #18849f;
+}
+
+
+.rowGrey, .even
+{
+    background : #efefef;
+}
+
+.rowWhite, .odd
+{
+    background : #fff;
+}
+
+#articles form#commentForm fieldset
+{
+    margin : 20px auto;    
+    background : #efefef;
+    padding : 10px;    
+    border : 1px dashed #c0c0c0;
+}
+
+#articles form#commentForm fieldset textarea
+{
+    width : 310px;
+    height : 100px;
+    margin : 0 auto;    
+}
+
+#articles form#commentForm fieldset div#commentUserInfos
+{
+    float : left;
+    width : 250px;
+    border : none;
+}
+
+#articles form#commentForm fieldset div#commentUserInfos label 
+{
+    float : left;
+    width : 50px;
+    text-align : left;
+}
+
+#articles form#commentForm fieldset div#commentUserMessage
+{
+    float : left;
+    width : 320px;
+    border : none;
+    margin-left : 20px;
+}
+
+#articles form#commentForm fieldset div#commentUserMessage label 
+{
+    float : left;
+    text-align : left;
+    width : 130px;
+}
+
+#articles form#commentForm fieldset div#commentUserMessage label#commentMessage
+{
+    float : none;
+    text-align : left;
+}
+
+#articles ul 
+{
+    margin : 20px 10px 20px 35px;
+    list-style-type : none;    
+    list-style-position : outside;
+    list-style-image : url(images/bullet_green.png);
+}
+
+#articles ul li 
+{
+    margin : 5px 0;
+    color : #666;
+}
+
+#articles ol 
+{
+    margin : 20px 35px;    
+}
+
+#articles ol li 
+{
+    margin : 8px 0;    
+}
+
+#articles a 
+{
+    color : #18849f;    
+}
+
+#articles form div.soumission input 
+{
+    height : 28px;
+    font-weight : bold;
+    background : #eeefff;
+    padding : 0 5px;
+}
+
+#articles form div.soumission input:hover
+{
+    background : #faefa6;
+}
+
+/**  END OF BONUS  **/
+/**  END OF #CONTENER #CONTENT #ARTICLES  **/
+
+
+/**  #SIDE #LOGIN-BOX  **/
+#login-box 
+{
+    background: #fff url(images/back-loginbox.jpg) no-repeat;
+    width: 158px;
+    height: 115px;
+    padding: 87px 12px 11px 12px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+#login-box fieldset 
+{
+    background: #267AA8 url(images/back-loginbox-fieldset.png) no-repeat;
+    width: 144px;
+    height: 85px;
+    padding: 20px 7px 10px 7px;
+    border: 0;
+}
+
+#login-box div { margin-bottom: 8px; }
+
+#login-box label 
+{
+    width: 35px;
+    height: 16px;
+    line-height: 16px;
+    display: block;
+    float: left;
+    font-size: 11px;
+    text-align: center;
+}
+
+#login-box input 
+{
+    width : 100px;
+}
+
+#actions 
+{
+    padding: 10px 0 0 2px;
+    border-top: 1px solid #77BCCF;
+    margin-bottom: 0;
+}
+
+#actions button 
+{
+    margin-right: 2px;
+    float: left;
+}
+
+#actions a 
+{
+    background: #CCB88A url(images/back-actions.gif) no-repeat 0 0;
+    width: 45px;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 2px;
+    display: block;
+    float: left;
+    font-size: 9px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration : none;
+}
+
+#actions a:hover 
+{
+    background-color: #FF9933;
+    background-position: 0 -18px;
+    text-decoration: none;
+}
+
+div#login-box h3
+{
+    margin : 10px 0;
+    font-weight : bold;
+    font-size : 130%;
+    text-indent : 25px;
+    font-style : italic;
+    text-decoration : underline;
+    background : transparent url(../../design/icones/lock.png) no-repeat left center;
+}
+
+div#login-box ul
+{
+    margin-top : 10px;
+    margin-left : 5px;
+    list-style-type : none;
+}
+
+div#login-box ul li 
+{
+    background : transparent url(images/back-puce-menu.gif) no-repeat left center;
+    text-indent : 10px;
+}
+
+div#login-box ul li a
+{
+    color : #fff;
+    text-decoration : none;
+}
+
+div#login-box ul li a:hover
+{
+    text-decoration : underline;
+}
+
+/**  END OF #SIDE #LOGIN-BOX  **/
+
+
+/**  #SIDE #NAV  **/
+#nav h3 
+{
+    margin : 15px 0;
+    background: #7CBEDC url(images/back-nav-h3.png) no-repeat;
+    width: 167px;
+    height: 55px;
+    line-height: 55px;
+    padding-left: 15px;
+    font-weight: normal;
+    font-size: 140%;
+    color: #fff;
+}
+
+#nav ul 
+{
+    background: url(images/footer-nav-ul.png) no-repeat left bottom;
+    padding: 0 7px 30px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    font-size : 100%;
+}
+
+#nav ul li a {
+    padding: 2px 0 2px 10px;
+    display:block;
+    color: #656565;
+    background: url(images/back-puce-menu.png) no-repeat left center;
+    text-decoration : none;
+}
+
+#nav ul li a:hover {
+    text-decoration : underline;
+}
+
+#nav span {
+    background: url(images/back-nav-li.gif) no-repeat;
+    width: 169px;
+    height: 22px;
+    line-height: 22px;
+    padding-left: 24px;
+    display: block;
+}
+
+#nav li ul {
+    background: none;
+    padding: 0;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    list-style: square;
+}
+
+#nav li ul a {
+    padding: 0;
+    color: #B3B3B3;
+    background : none;
+}
+
+#nav li ul a:hover {
+    color: #737373;
+    text-decoration: none;
+    background : none;
+    margin : 0;
+    padding : 0;
+}
+
+#nav #book {
+    text-align : center;
+}
+/**  END OF #SIDE #NAV  **/
+
+
+/**  #FOOTER  **/
+#footer {
+    background: transparent url(images/back-footer.png) no-repeat;
+    text-align: center;
+    color: #999;
+}
+
+#footer a {
+    color : #999;
+}
+
+#footer-img {
+    background: transparent url(images/footer-img.png) repeat-x left bottom;
+    width: 100%;
+    height: 66px;
+}
+
+#xiti-logo {
+    display : none;
+}
+/**  END OF #FOOTER  **/

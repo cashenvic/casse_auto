@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0090)https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="author" content="Jérôme Cutrona">
+    <meta name="description" content="Ressources pédagogiques de programmation Web du DUT informatique de l&#39;IUT de Reims">
+    <meta name="keywords" content="ressources pédagogiques, programmation Web, DUT informatique, IUT Reims">
+    <meta name="generator" content="vim 7.3">
+    <title>Authentification, cookies et sessions</title>
+    <link href="./Authentification, cookies et sessions_files/style_new.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/correction.js.php"></script>
+<meta name="chromesniffer" id="chromesniffer_meta" content="{}"><script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script></head>
+<body>
+  <div id="page">    <div class="extranet">
+        <p>Cette page fait partie d'une <i>version statique</i> de l'intranet de Jérôme Cutrona
+        <a href="http://fr.linkedin.com/pub/j%C3%A9r%C3%B4me-cutrona/40/134/715/"><img src="https://iut-info.univ-reims.fr/users/cutrona/intranet/css/images/InBug-30px-R.png" alt="LinkedIn" style="background-color:white;padding:3px;"></a>
+        </p><p>Les exemples et corrections sont donc potentiellement non fonctionnels.
+        </p><p><a href="http://www.iut-rcc.fr/Infos-diplome-1-Informatique-Presentation">DUT Informatique</a>
+           - <a href="http://www.iut-rcc.fr/">IUT de Reims</a>
+           - <a href="http://www.univ-reims.fr/">Université de Reims Champagne-Ardenne</a>
+    </p></div>
+    <div class="tete">
+
+        <div class="titre_page">Authentification, cookies et sessions</div>
+    </div>    <div class="fieldset Correction_PartieTitre Correction_Fieldset Correction_MenuNavigation">
+      <div class="legend">Navigation</div>
+        <div>
+<ul><li class="home"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/index.html">Accueil</a>
+</li><li class="home"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3.html">Programmation Web S3</a>
+</li><li><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html#Introduction">Introduction</a>
+</li><li><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html#Import-de-la-table-user-dans-phpMyAdmin">Import de la table <code>user</code> dans phpMyAdmin</a>
+</li><li><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html#Description-de-la-classe-User">Description de la classe <code>User</code></a>
+</li><li><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html#Validation-d-un-couple-identifiant-mot-de-passe">Validation d'un couple identifiant/mot de passe</a>
+</li><li><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html#Simulation-d-un-mode-client-serveur-connecte---Navigation">Simulation d'un mode client/serveur connecté - Navigation</a>
+</li><li><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html#Enregistrement-d-un-objet-dans-les-donnees-de-session">Enregistrement d'un objet dans les données de session</a>
+</li><li><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1.html#Authentification-securisee">Authentification sécurisée</a>
+</li></ul>
+
+        </div>
+    </div>
+
+    <div class="parties">
+      <div class="Correction_PartieTitre Correction_PartieSujet Correction_ObjectifsSujet">
+        <h1 id="Objectifs-de-la-seance" class="titre">Objectifs de la séance</h1>
+        <div class="contenu">
+        <ul>
+  <li>Utiliser phpmyadmin pour créer et manipuler une table
+  </li><li>Ecrire une classe PHP relativement simple
+  </li><li>Effectuer une authentification classique
+  </li><li>Utiliser les sessions pour mémoriser un état
+  </li><li>Simuler un mode client/serveur connecté à l'aide des sessions
+  </li><li>Limiter l'accès de certaines pages en utilisant l'en-tête HTTP <code>Location: url_absolue</code>
+  </li><li>Utiliser les sessions pour y enregistrer un objet PHP
+  </li><li>Effectuer une authentification sécurisée
+</li></ul>
+
+        </div>
+      </div>      <div class="Correction_PartieTitre Correction_PartieSujet">
+        <h1 id="Introduction" class="titre">Introduction</h1>
+        <div class="contenu">
+            <p>L'objectif est de créer une classe <code>User</code> qui permette de manipuler en lecture des enregistrements d'une table <code>user</code> MySQL.
+    </p><p>La classe est basée sur la table <code>user</code> MySQL dans laquelle <em>le mot de passe sera stocké sous la forme d'un condensat SHA1</em>.
+    </p><p>Plus précisément, les données de cette table seront utilisées pour valider l'authenticité d'un utilisateur, dans un premier temps par une méthode d'authentification classique, puis selon une méthode empêchant la capture du couple login et mot de passe.
+        </p></div>
+      </div>      <div class="Correction_PartieTitre Correction_PartieSujet">
+        <h1 id="Import-de-la-table-user-dans-phpMyAdmin" class="titre">Import de la table <code>user</code> dans phpMyAdmin</h1>
+        <div class="contenu">
+            <p>Importez la <a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1/user.sql">table <code>user</code> MySQL</a> dans votre base MySQL à l'aide de <a href="http://phpmyadmin/">phpMyAdmin</a> et insérez ensuite quelques enregistrements dans la table.    </p><div class="fieldset Correction_PartieTitre Correction_Fieldset Correction_Alerte">
+      <div class="legend">Remarque importante</div>
+        <div>
+    <p>Ne pas oublier d'appliquer la fonction SHA1 au mot de passe saisi.
+    <img class="capture" src="./Authentification, cookies et sessions_files/sha1pass.png" alt="Encodage du mote de passe dans phpMyAdmin">
+        </p></div>
+    </div>
+
+        </div>
+      </div>      <div class="Correction_PartieTitre Correction_PartieSujet">
+        <h1 id="Description-de-la-classe-User" class="titre">Description de la classe <code>User</code></h1>
+        <div class="contenu">
+            <p>Pour intéragir avec la base de données MySQL, vous utiliserez le singleton de connexion basé sur PDO. Pour mémoire, le DSN PDO à utiliser est de la forme <code>mysql:host=mysql;dbname=votre_base</code>.
+    </p><p>Afin de simplifier l'accès aux classes <code>Webpage</code> et <code>User</code>, vous définirez la fonction <code>__autoload($className)</code> dans un fichier «&nbsp;<code>autoload.include.php</code>&nbsp;».    </p><div class="fieldset Correction_PartieTitre Correction_Fieldset Correction_Alerte">
+      <div class="legend">Remarque importante</div>
+        <div>
+    <p>Dans des environnements de développement complexes, il convient d'enregistrer une fonction d'autochargement dans la file d'autochargement à l'aide de <a href="http://php.net/manual/fr/function.spl-autoload-register.php"><code>spl_autoload_register</code></a> plutôt que de définir <code>__autoload</code> qui ne peut l'être qu'une seule fois.
+        </p></div>
+    </div>
+
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fautoload.include.php.html">Source de Auto-chargement de classes</a></span>
+    <p>Vous allez écrire, étape par étape, une classe <code>User</code> avec les contraintes de réalisation suivantes&nbsp;:
+        </p><ul>
+            <li>Le transfert de données entre la base de données et les attributs de la classe se feront par le biais de la méthode de lecture <code>fetch()</code> de <code>PDOStatement</code> selon le mode <code>PDO::FETCH_CLASS</code>.
+            </li><li>Le constructeur est inutile et problématique. Il sera donc écrit avec un corps de méthode vide et une visibilité privée. Les constructions d'objets se feront à l'aide d'usines qui trouveront les données utiles dans la base de données après validation du couple login/pass ou dans les données de session.
+            </li><li>Les attributs de la classe sont les champs <code>id</code>, <code>lastName</code>, <code>firstName</code>, <code>login</code> et <code>phone</code> de la table <code>user</code> MySQL et sont privés    <div class="fieldset Correction_PartieTitre Correction_Fieldset Correction_Alerte">
+      <div class="legend">Remarque importante</div>
+        <div>
+    <p>Pour des raisons de sécurité, le mot de passe <code>sha1pass</code> ne sera surtout pas utilisé comme attribut de l'oject, ni même sélectionné dans les requêtes.
+        </p></div>
+    </div>
+            </li><li>La méthode d'instance <code>firstName()</code> retoune le prénom de l'utilisateur. Vous n'écrirez que cet accesseur et aucun modificateur car ils sont inutiles pour les problématiques d'authentification et de sécurité mises en avant dans ce TP.
+            </li><li>La méthode d'instance <code>profile()</code> permet d'afficher très simplement les nom, prénom, login et téléphone d'un utilisateur
+                <img class="capture" src="./Authentification, cookies et sessions_files/profile.png" alt="Profil de l&#39;utilisateur">
+
+            </li><li>La méthode de classe <code>loginForm($action, $submitText = 'OK')</code> produit le formulaire de connexion. Les données du formulaire seront évidemment transmises selon la méthode POST dans un contexte de production mais la méthode GET peut vous permettre de mieux comprendre les échanges entre le client et le serveur durant ce TP.
+                <img class="capture" src="./Authentification, cookies et sessions_files/form.png" alt="Formulaire de connexion">
+            </li><li>La méthode de classe <code>createFromAuth(array $data)</code> cherche dans la table <code>user</code> un enregistrement pour lequel le login est <code>$data['login']</code> et le mot de passe est <code>$data['pass']</code> (faites le rapprochement avec les formulaires si le paramètre passé à la méthode est <code>$_POST</code> ou <code>$_GET</code>). En cas de succès, un objet <code>User</code> est retourné. En cas d'échec, une <code>AuthenticationException</code> est lancée. Cette classe héritant de <code>Exception</code> devra être écrite.    <div class="fieldset Correction_PartieTitre Correction_Fieldset Correction_Alerte">
+      <div class="legend">Remarque importante</div>
+        <div>
+    <p>Le mot de passe est fourni en clair par le visiteur alors que celui contenu dans la base de données est encodé en SHA1.
+        </p></div>
+    </div>
+    </li></ul>
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fuser.class.php.html">Source de Classe User</a></span>
+
+        </div>
+      </div>      <div class="Correction_PartieTitre Correction_PartieSujet">
+        <h1 id="Validation-d-un-couple-identifiant-mot-de-passe" class="titre">Validation d'un couple identifiant/mot de passe</h1>
+        <div class="contenu">
+            <p>Complétez la classe <code>User</code> pour qu'elle permette d'effectuer la validation d'un couple identifiant / mot de passe. Pour cela, vous devez compléter le code des méthodes <code>loginForm()</code>, <code>createFromAuth()</code>.
+    </p><p>Afin de tester votre code, vous utiliserez les scripts PHP «&nbsp;<code>form1.php</code>&nbsp;» et «&nbsp;<code>auth1.php</code>&nbsp;» dont le code est fourni&nbsp;:<iframe class="code autosize" frameborder="0" src="./Authentification, cookies et sessions_files/colorcache.php-f=%2FprogwebS3%2Fauthentification-sha1%2Fexemples%2Fform1.php.html" __idm_frm__="46"></iframe>
+<iframe class="code autosize" frameborder="0" src="./Authentification, cookies et sessions_files/colorcache.php-f=%2FprogwebS3%2Fauthentification-sha1%2Fexemples%2Fauth1.php.html"></iframe>
+    </p><div class="fieldset Correction_PartieTitre Correction_Fieldset Correction_Alerte">
+      <div class="legend">Remarque importante</div>
+        <div>
+    <p>Vérifiez le contenu des vos variables à l'aide de la fonction <code>var_dump($une_variable)</code>.
+    </p><p>Testez le bon fonctionnement des méthodes de votre classe au fur et à mesure de leur écriture.
+        </p></div>
+    </div>
+
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fuser.class.php.html">Source de Classe User</a></span>
+
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1/form1.php.html">Formulaire de connexion</a>&nbsp;(<a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fform1.php.html">Source</a>)</span>
+
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fauth1.php.html">Source de Validation du couple identifiant / mot de passe</a></span>
+
+        </div>
+      </div>      <div class="Correction_PartieTitre Correction_PartieSujet">
+        <h1 id="Simulation-d-un-mode-client-serveur-connecte---Navigation" class="titre">Simulation d'un mode client/serveur connecté - Navigation</h1>
+        <div class="contenu">
+            <p>La question précédente vous a permis de vérifier l'authenticité de l'utilisateur grâce à son login et son mot de passe. Cette seule opération ne suffit cependant pas à simuler un mode connecté. Vous allez devoir mettre en place une session dans laquelle la validité de l'utilisateur sera mémorisée après son authentification. Une consultation de cette donnée de session, associée à un client, permet de savoir si le client est «&nbsp;connecté&nbsp;». La déconnexion consiste alors à détruire cette donnée de session.
+    </p><p>Les données de session pouvant être utilisées par plusieurs composants logiciels, vous stockerez les informations relative à l'utilisateur dans un sous tableau de <code>$_SESSION</code> accessible par la clé <code>"__user__"</code>. Pour plus de lisibilité et de maintenabilité de votre code, cette valeur <code>"__user__"</code> sera stockée dans une constante de classe <code>session_key</code>.
+    </p><p><b>Travail à réaliser</b>&nbsp;:
+    </p><ol>
+        <li>Implémentez la méthode statique privée <code>startSession()</code> qui vérifie si la session peut être démarrée avant de la démarrer (si cela n'est pas déjà fait) ou lance une <code>SessionException</code> si cela n'est pas possible.
+        </li><li>Modifiez la méthode de classe <code>createFromAuth(array $data)</code> pour qu'elle mémorise une donnée de session <code>connected=true</code> lorsque l'authentification de l'utilisateur est un succès.
+        </li><li>Ecrivez une méthode publique de classe <code>isConnected()</code> qui retourne l'état de la donnée de session <code>connected</code>
+        </li><li>Ecrivez une méthode publique de classe <code>logoutIfRequested()</code> qui détruit l'ensemble des données de session associées à l'utilisateur si une valeur <code>logout</code> de formulaire est reçue
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fuser.class.php.html">Source de Classe User</a></span>
+        </li><li>Ecrivez le script PHP <code>page1.php</code> dont le contenu n'est accessible qu'aux utilisateurs connectés. Pour en interdire l'accès aux visiteurs non connectés, vous effectuerez une redirection HTTP vers le formulaire de connexion si l'utilisateur n'est pas connecté (voir <a href="http://www.php.net/manual/fr/function.header.php"><code>header()</code></a>)
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fpage1.php.html">Source de page1.php</a></span>
+        </li><li>Écrivez la page <code>form2.php</code> sur la base de <code>form1.php</code> afin qu'elle propose une solution pour déconnecter l'utilisateur s'il l'est et propose le formulaire de connexion si aucun utilisateur n'est connecté. Le formulaire de déconnexion sera produit par la méthode de classe <code>logoutForm($text, $action)</code>
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1/form2.php.html">form2.php</a>&nbsp;(<a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fform2.php.html">Source</a>)</span>
+    </li></ol>
+        </div>
+      </div>      <div class="Correction_PartieTitre Correction_PartieSujet">
+        <h1 id="Enregistrement-d-un-objet-dans-les-donnees-de-session" class="titre">Enregistrement d'un objet dans les données de session</h1>
+        <div class="contenu">
+            <p>Le point précédent permet de simuler un mode client/serveur connecté. Il ne permet cependant pas de préserver toutes les informations concernant l'objet <code>User</code> pour, par exemple, afficher son nom sur chaque page. Pour remédier à cela, l'instance de <code>User</code> va être mémorisé dans les données de session.
+    </p><p><b>Travail à réaliser</b>&nbsp;:
+    </p><ol>
+        <li>Implémentez la méthode <code>saveIntoSession()</code> qui enregistre l'objet <code>User</code> dans la session.
+        </li><li>Implémentez la méthode statique <code>createFromSession()</code> qui retourne l'objet <code>User</code> correspondant à la variable de session précédente, à condition que celle-ci contienne bien un objet <code>User</code>. Elle lève une exception de type <code>NotInSessionException</code> en cas de problème.
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fuser.class.php.html">Source de Classe User</a></span>
+        </li><li>Modifiez la page <code>auth1.php</code> en <code>auth3.php</code> pour qu'elle enregistre l'utilisateur authentifié dans les données de session.
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fauth3.php.html">Source de auth3.php</a></span>
+        </li><li>Modifiez la page <code>form2.php</code> en <code>form3.php</code> pour qu'elle affiche l'utilisateur connecté s'il en existe un et propose le formulaire de connexion si aucun utilisateur n'est enregistré dans les données de session.
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1/form3.php.html">form3.php</a>&nbsp;(<a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fform3.php.html">Source</a>)</span>
+        </li><li>Créez un script <code>page2.php</code> sur la base de <code>page1.php</code> qui effectuera une rédirection pour les visiteurs non connectés mais affichera le prénom de l'utilisateur authéntifié.
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fpage2.php.html">Source de page2.php</a></span>
+    </li></ol>
+    <p>N'hésitez pas à consulter le <a href="http://fr2.php.net/manual/fr/ref.session.php">manuel PHP consacré aux sessions</a>.
+        </p></div>
+      </div>      <div class="Correction_PartieTitre Correction_PartieSujet">
+        <h1 id="Authentification-securisee" class="titre">Authentification sécurisée</h1>
+        <div class="contenu">
+            <p>Le but est de proposer une authentification sécurisée basée sur l'envoi par le serveur d'un challenge unique lors de la construction du formulaire de connexion. Ce challenge est mémorisé dans les données de session. Il est donc connu du client et du serveur.
+     Sur le client, le login et le mot de passe saisis par l'utilisateur sont encodés par SHA1 selon le principe suivant&nbsp;: </p><pre class="code">code = SHA1( concaténation( SHA1( mot_de_passe ), challenge, SHA1( login ) ) )</pre> Le résultat de l'encodage sera affecté dans un champ caché <code>code</code> du formulaire avant l'envoi de ce dernier. Les champs de formulaire <code>login</code> et <code>pass</code> seront évidemment effacés avant l'envoi des données.
+    Ainsi, ni le login, ni le mot de passe d'un utilisateur ne circulent en clair sur le réseau et, de plus, les données transmises par le client sont différentes à chaque connexion de l'utilisateur.
+    Le serveur peut cependant vérifier le couple identifiant / mot de passe en effectuant le même encodage que le client sur les données de la base de données au moment de sa requête de recherche du couple identifiant / mot de passe.
+    <p><b>Travail à réaliser</b>&nbsp;:
+    </p><ul>
+        <li>Ecrire une méthode statique <code>randomString($size)</code> de la classe <code>User</code> qui produit un code aléatoire de longueur <code>$size</code> composé à partir des caractères <code>[a-z]</code>, <code>[A-Z]</code> et <code>[1-9]</code>. (Voir <a href="http://fr2.php.net/manual/fr/function.ord.php"><code>ord()</code></a>, <a href="http://fr2.php.net/manual/fr/function.chr.php"><code>chr()</code></a> et <a href="http://fr2.php.net/manual/fr/function.rand.php"><code>rand()</code></a>).
+        </li><li>Implémentez la méthode statique <code>loginFormSHA1($action, $submitText='OK')</code> qui est la variante sécurisée de <code>loginForm($action, $submitText='OK')</code>. Vous aurez besoin d'une fonction JavaScript capable de calculer un condensat SHA1 fournie par le script <a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fsha1.js.html"><code>sha1.js</code></a> (<a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/dl.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fsha1.js">télécharger</a>).
+        </li><li>Implémentez la méthode <code>createFromAuthSHA1(array $data)</code> qui est la variante sécurisée de <code>createFromAuth(array $data)</code>.
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252Fuser.class.php.html">Source de Classe User</a></span>
+        </li><li>Ecrivez une page <code>formSHA1.php</code> qui propose le formulaire de connexion sécurisée.
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/progwebS3/authentification-sha1/formSHA1.php.html">Formulaire de connexion sécurisée</a>&nbsp;(<a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252FformSHA1.php.html">Source</a>)</span>
+        </li><li>Ecrivez une page <code>authSHA1.php</code> qui validera le couple identifiant / mot de passe de façon sécurisée.
+<span class="Correction_Correction Correction_CorrectionFichier"><a href="https://iut-info.univ-reims.fr/users/cutrona/intranet/utils/correction0.9/colorcache.php%3Ff=%252FprogwebS3%252Fauthentification-sha1%252FvalidationSHA1.php.html">Source de Validation sécurisée du couple identifiant / mot de passe</a></span>
+        </li><li>Transmettez les données du formulaire de connexion selon la méthode GET pour constater l'encodage du login et du mot de passe transmis lors de chaque nouvelle connexion.
+    </li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="pied">
+        <span id="lastmodified">
+Dernière modification de cette page le 16/02/2015 à 15h11
+        </span>
+        <div class="valid">
+            <a href="javascript:window.location=&#39;http://validator.w3.org/check?uri=&#39;+escape(window.location)">
+               <img border="0" src="https://iut-info.univ-reims.fr/users/cutrona/intranet/css/images/valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88"></a>
+            <a href="javascript:window.location=&#39;http://jigsaw.w3.org/css-validator/validator?uri=&#39;+escape(window.location)">
+               <img border="0" src="./Authentification, cookies et sessions_files/vcss.gif" alt="Valid CSS!" height="31" width="88"></a>
+        </div>
+    </div>
+  </div>
+
+</body></html>

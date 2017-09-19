@@ -1,0 +1,153 @@
+body{
+	width: 100%;
+	min-width: 900px;
+	margin: auto;
+	font-size: 1.5em;
+	color: #4c486e;
+	/*background-color: rgba(208, 233, 252, 0.6);*/
+	height:100%;
+	/*background-image: url(img.jpg);*/
+	max-height: 1000px;
+}
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+
+input{
+	margin-left: 1.3em;
+	margin-bottom: 0.4em;
+	max-width: 79%;
+}
+
+label{
+	font-size: 1.2em;
+}
+
+legend, .container-fluid h2{
+	text-align: center;
+	color: #286090;
+	font-size: 2.2em;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #0b0f1a;
+}
+
+ form{
+ 	min-width: 400px;
+ 	min-height: 300px;
+ 	width: 50%;
+ 	height: 100%;
+ 	margin: auto;
+ 	margin-top: 3%;
+ 	/*border-radius: 10%;*/
+ 	/*box-shadow: 0 1px 1px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);*/
+	margin-bottom: 10px;
+ }
+
+table{
+	margin:auto;
+	margin-top: 15px;
+	margin-bottom: 10px;
+
+	border-collapse: collapse;
+	border: 1px outset #d1dfea;
+	border-spacing: 0;
+	border-radius: 2px;
+}
+
+th{
+	border-top: 1px solid #d1dfea;
+	border-left: 1px solid #d1dfea;
+	border-right: 1px solid #d1dfea;
+	color: #73869d;/*#c8d2e0 #aebeca*/
+	text-align: center;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+td{
+	border-top: 1px solid #d1dfea;
+	border-left: 1px solid #d1dfea;
+	border-right: 1px solid #d1dfea;
+	padding: 6px 13px;
+}
+
+fieldset table, fieldset table td, fieldset table th{
+	border: none;
+}
+
+ div table td, div table th, div table{
+ 	border: none;
+ }
+
+.formTab{
+	width: 65%;
+	margin:auto;
+}
+
+.alert{
+	min-width: 700px;
+ 	width: 40%;
+ 	margin: auto;
+ 	text-align: center;
+}
+
+.resultTable{
+	font-size: 1.3em;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.075);
+	width: 80%;
+}
+
+ .present{
+ 	font-size: 2.8em;
+ 	margin-bottom: 84px;
+ 	margin-top: 154px;
+ 	/*text-shadow: 0 0 5px rgba(0, 0, 0, 0.075);*/
+ 	text-shadow: 0 1px 2px black;
+ }
+
+.info{
+	font-size: 0.4em;
+	font-style: italic;
+	text-shadow: none;
+}
+
+.container-fluid h2{
+	color: #13585a;
+}
+
+.login{
+	width: 400px;
+	margin: auto;
+	margin-top: 80px;
+}
+
+.label-warning:hover{
+	background-color: #ff9d79;
+}
+
+.form-control{
+	border-radius: 4px;
+	background-color: white;
+	font-size: large;
+}
+
+.decon{
+	font-size: 0.8em;
+}
+
+.copy, .copy:hover{
+	color: white;
+}
+
+.shadow{
+	
+}
+a{
+	text-align: center;
+}
