@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 21 Avril 2017 à 12:24
+-- Généré le :  Ven 15 Février 2019 à 19:08
 -- Version du serveur :  10.1.19-MariaDB
--- Version de PHP :  7.0.13
+-- Version de PHP :  7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,9 +39,9 @@ CREATE TABLE `achat` (
 --
 
 INSERT INTO `achat` (`id_achat`, `id_client`, `id_voiture`, `date_achat`, `prix_achat`) VALUES
-(2, 1, 2, '2017-03-07', 1),
-(3, 5, 4, '2016-06-23', 1800000),
-(4, 4, 6, '2016-02-17', 4000000);
+(6, 5, 14, '2017-09-13', 5000000),
+(5, 6, 12, '2016-07-10', 6700000),
+(4, 4, 6, '2016-02-17', 4700000);
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,8 @@ INSERT INTO `client` (`id_client`, `email_client`, `nom_client`, `prenom_client`
 (2, 'kemo@keitus.com', 'KEITA', 'Mohamed', 7899000),
 (3, 'drisss@gmail', 'cisse', 'drissa', 129867),
 (4, 'doko@gmail', 'KANTE', 'Bamoussa', 129867),
-(5, 'daoisma@dao.da', 'DAO', 'IsmaÃ«l', 76666666);
+(5, 'daoisma@dao.da', 'DAO', 'IsmaÃ«l', 76666666),
+(6, '', 'Diarra', 'Hamidou', 78996589);
 
 -- --------------------------------------------------------
 
@@ -102,10 +103,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `avatar`, `signup_date`) VALUES
-(1, 'kadi', 'kadi', 'kadi', 'protege', 0),
-(4, 'kadi2', 'f44d75f8e1b56f97112c9f299176e74ed2ff289e', 'kadi@kad.kd', '', 1491038982),
-(7, 'User Super', 'c991eab6e3870478311c82ca60a812d37cfd42ff', 'user@use.use', '', 1490867852),
-(8, 'Djoko', 'e26a273e8afa6728ee2a0496a5fdbe9c271e735f', 'djoko@use.net', '', 1490879329);
+(5, 'Admin1', '6c7ca345f63f835cb353ff15bd6c5e052ec08e7a', 'admin@mail.ml', '', 1493112738),
+(12, 'Kadi', 'f44d75f8e1b56f97112c9f299176e74ed2ff289e', 'kadi@kd.ml', '', 0);
 
 -- --------------------------------------------------------
 
@@ -127,13 +126,11 @@ CREATE TABLE `voiture` (
 --
 
 INSERT INTO `voiture` (`id_voiture`, `type_voiture`, `marque`, `prix`, `couleur`, `type_moteur`) VALUES
-(2, 'Break', 'porche', 18700000, 'rose', 'diesel'),
-(3, 'Benne', 'mercedes', 1800000, 'verte', 'diesel'),
-(4, '4*4', 'mercedes', 1800000, 'Rose', 'diesel'),
+(4, '4*4', 'mercedes', 1800000, 'Bleue', 'diesel'),
 (5, '4*4', 'mercedes', 1800000, 'noir', 'essence'),
 (6, '4*4', 'V8', 1800000, 'blanche', 'diesel'),
 (7, '4*4', 'mercedes', 1800000, 'blanche', 'essence'),
-(8, '4*4', 'mercedes', 1800000, 'blanche', 'diesel'),
+(8, '4*4', 'mercedes', 1800000, 'Rouge', 'diesel'),
 (9, 'CoupÃ©', 'Toyota', 4500000, 'Rouge', 'essence'),
 (10, '4x4', 'Chevrolet', 8450000, 'Grise', 'diesel'),
 (11, 'Break', 'Toyota', 3600000, 'Brune', 'hybride'),
@@ -191,7 +188,7 @@ ALTER TABLE `voiture`
 -- AUTO_INCREMENT pour la table `achat`
 --
 ALTER TABLE `achat`
-  MODIFY `id_achat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_achat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `admin`
 --
@@ -201,12 +198,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_client` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `voiture`
 --
